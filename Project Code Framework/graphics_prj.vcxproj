@@ -172,7 +172,7 @@
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="TestCode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
