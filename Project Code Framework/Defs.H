@@ -66,11 +66,31 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
-	ITM_AND2,		//AND gate item in menu
-	ITM_OR2,		//OR gate item in menu
-	
+
+	ITM_SIM_CIRCUIT,
+	ITM_ADDCMP,			// Add component of the circuit
+	ITM_WIRE,
+	ITM_LABEL,
+	ITM_LOAD,
+	ITM_SAVE,
+	ITM_DEL,
+	ITM_EXIT,
+
+	// Components Items
+	ITM_SWITCH,
+	ITM_LED,
+	ITM_BUFF,
+	ITM_INV,
+	ITM_AND2,
+	ITM_OR2,
+	ITM_NAND2,
+	ITM_NOR2,
+	ITM_XOR2,
+	ITM_XNOR2,
+	ITM_AND3,
+	ITM_NOR3,
+	ITM_XOR3,
 	ITM_EXIT,		//Exit item
-	//TODO: Add more items names here
 	
 	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
 	
@@ -81,8 +101,9 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	ITM_SIM,	//Simulate menu item
+	ITM_DES,
 	ITM_TRUTH,	//Truth table menu item
-	
+	ITM_PROBE,
 	//TODO:Add more items names here
 	
 	ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
