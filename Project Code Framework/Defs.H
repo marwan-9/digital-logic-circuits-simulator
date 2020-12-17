@@ -4,7 +4,7 @@
 //This header file contains some defenitions to be used all over the application
 
 //All possible actions
-enum ActionType 
+enum ActionType
 {
 	ADD_Buff,			//Add 1-input Buffer gate
 	ADD_INV,			//Add 1-input Inverter gate
@@ -38,8 +38,14 @@ enum ActionType
 	UNDO,		//Undo the last Action preformed
 	REDO,		//Redo the last Action canceled
 
+	COPY,
+	CUT,
+	PASTE,
+
 	DSN_MODE,	//Switch to Design mode
 	SIM_MODE,	//Switch to Simulatiom mode
+
+	HOVER,				// Hover over Item or component
 
 	EXIT,		//Exit the application
 
@@ -67,6 +73,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
 
+	//TODO: Add more items names here
 	ITM_SIM_CIRCUIT,
 	ITM_ADDCMP,			// Add component of the circuit
 	ITM_WIRE,
@@ -75,6 +82,11 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_SAVE,
 	ITM_DEL,
 	ITM_EXIT,
+	ITM_UNDO,
+	ITM_REDO,
+	ITM_COPY,
+	ITM_CUT,
+	ITM_PASTE,
 
 	// Components Items
 	ITM_SWITCH,
@@ -90,23 +102,26 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_AND3,
 	ITM_NOR3,
 	ITM_XOR3,
-	
+
+
+
 	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
-	
+
 };
 
 
 enum SimMenuItem //The items of the simulation menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
-	ITM_SIM,	//Simulate menu item
+	//Simulate menu item
 	ITM_DES,
 	ITM_TRUTH,	//Truth table menu item
 	ITM_PROBE,
-	//TODO:Add more items names here
-	
+
+
+
 	ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
-	
+
 };
 
 //Maximum number of input pins that can be connected to any output pin
@@ -123,7 +138,36 @@ enum FANOUT
 //this structure can be extended if desired
 struct GraphicsInfo
 {
-	int x1,y1, x2, y2;
+	int x1, y1, x2, y2;
+};
+
+enum HotKeyType {
+	CTRL_A = 1,
+	CTRL_B,
+	CTRL_C,
+	CTRL_D,
+	CTRL_E,
+	CTRL_F,
+	CTRL_G,
+	CTRL_H,
+	CTRL_I,
+	CTRL_J,
+	CTRL_K,
+	CTRL_L,
+	CTRL_M,
+	CTRL_N,
+	CTRL_O,
+	CTRL_P,
+	CTRL_Q,
+	CTRL_R,
+	CTRL_S,
+	CTRL_T,
+	CTRL_U,
+	CTRL_V,
+	CTRL_W,
+	CTRL_X,
+	CTRL_Y,
+	CTRL_Z,
 };
 
 #ifndef NULL
