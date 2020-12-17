@@ -169,8 +169,165 @@ void Output::DrawAND2(GraphicsInfo r_GfxInfo, bool selected) const
 }
 
 //TODO: Add similar functions to draw all components
+void Output::DrawNAND3(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_AND3_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_AND3.jpg";
 
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
 
+void Output::DrawOR2(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_OR2_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_OR2.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawOR3(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_OR3_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_OR.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawNAND(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_NAND_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_NAND.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawNOR(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_NOR_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_NOR.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawXOR(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_XOR_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_XOR.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawXNOR(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_XNOR_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_XNOR.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawNOR3(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_NOR3_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_NOR3.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+
+void Output::DrawXOR3(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_XOR3_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_XNOR3.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawBuff(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_Buffer_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_Buffer.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+
+void Output::DrawINV(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_Inverter_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_Inverter.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawSwitch(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_Switch_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_Switch.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
+void Output::DrawLED(GraphicsInfo r_GfxInfo, bool selected) const
+{
+	string GateImage;
+	if (selected)	//use image in the highlighted case
+		GateImage = "Images\\Gates\\Gate_Led_Hi.jpg";
+	else
+		GateImage = "Images\\Gates\\Gate_Led.jpg";
+
+	//Draw AND2 Gate at Gfx_Info (1st corner)
+	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
+	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
+}
 void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	//TODO: Add code to draw connection
