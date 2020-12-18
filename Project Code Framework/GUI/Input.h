@@ -1,39 +1,20 @@
 #pragma once
-#include "..\Defs.h"
+
 #include "..\CMUgraphicsLib\CMUgraphics.h"
 #include "UI_Info.h"
- 
+
 class Output;
-class Input
+class Input		//The application manager should have a pointer to this class
 {
 private:
-	int LastX, LastY;		
-	window* pWind;			
- 
+	window *pWind;	//Pointer to the Graphics Window
+
 public:
- 
-	Input(window* pW);
- 
-//last point clicked
-	void GetPointClicked(int& x, int& y) const;
- 
-//return mouse click cooridinates
-	void WaitMouseClick(int& x, int& y);
- 
-//return mouse state
-	buttonstate GetButtonState(const button btMouse, int& x, int& y);
- 
-//returns key press
-	keytype GetKeyPress(char& c);
- 
-//returns the key press without removing it
-	keytype GetKeyState(char &c);
- 
-//returns the string entered by the user and reflect it on the status bar
-	string GetSrting(Output* pOut, string msg, string str = "") const;
- 
-//reads the selection do the action */
-	ActionType GetUserAction(Output* pOut);
- 
+	Input(window*);
+	void GetPointClicked(int &, int &);	//Get coordinate where user clicks
+	string GetSrting(Output*);		//Returns a string entered by the user
+
+	ActionType GetUserAction() const; //Reads the user click and maps it to an action
+
 	~Input();
 };
