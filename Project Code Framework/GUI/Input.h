@@ -26,9 +26,6 @@ public:
 //returns key press
 	keytype GetKeyPress(char& c);
  
-//returns the key press without removing it
-	keytype GetKeyState(char &c);
- 
 //returns the string entered by the user and reflect it on the status bar
 	string GetSrting(Output* pOut, string msg, string str = "") const;
  
