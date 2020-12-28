@@ -30,10 +30,6 @@ keytype Input::GetKeyPress(char& key) {
 	return pWind->GetKeyPress(key);
 }
 
-// Returns the user's key press without removing it from the queue
-keytype Input::GetKeyState(char& key) {
-	return pWind->GetKeyState(key);
-}
 
 // Returns the string entered by the user and reflect it on the status bar
 string Input::GetSrting(Output* pOut, string msg, string str) const {
@@ -78,37 +74,6 @@ ActionType Input::GetUserAction(Output* pOut) {
 	int x, y;
 	char hotKey;
 	keytype keyType;
-
-	while (GetButtonState(LEFT_BUTTON, x, y) == BUTTON_UP) {
-		keyType = pWind->GetKeyState(hotKey);
-
-		if (keyType == NO_KEYPRESS) {
-			return ActionType::HOVER;
-		}
-
-		// Detecting actions using hotkeys
-		if (UI.AppMode == MODE::DESIGN) {
-			if (keyType == keytype::KEY_DEL) {
-				pWind->FlushKeyQueue();
-				return ActionType::DEL;
-			}
-			else if (keyType == ASCII) {
-				switch (hotKey)
-				{
-				case CTRL_A: return ActionType::SELECT;
-				case CTRL_S: pWind->FlushKeyQueue(); return ActionType::SAVE;
-				case CTRL_C: pWind->FlushKeyQueue(); return ActionType::COPY;
-				case CTRL_X: pWind->FlushKeyQueue(); return ActionType::CUT;
-				case CTRL_V: pWind->FlushKeyQueue(); return ActionType::PASTE;
-				case CTRL_Z: pWind->FlushKeyQueue(); return ActionType::UNDO;
-				case CTRL_Y: pWind->FlushKeyQueue(); return ActionType::REDO;
-				case CTRL_O: pWind->FlushKeyQueue(); return ActionType::LOAD;
-				}
-			}
-		}
-		
-		pWind->FlushKeyQueue();
-	}
 
 	LastX = x;
 	LastY = y;
