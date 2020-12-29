@@ -80,7 +80,7 @@ void Output::ClearDrawingArea() const
 {
 	pWind->SetPen(RED, 1);
 	pWind->SetBrush(WHITE);
-	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);
+	pWind->DrawRectangle(0, UI.ToolBarHeight + UI.GateBarHeight, UI.width, UI.height - UI.StatusBarHeight);
 	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -124,12 +124,12 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_XOR3] = "images\\Menu\\Gate_XOR3.jpg";
 
 	//Draw menu item one image at a time at the centre of the toolbar
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 10; i++)
 		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
 	// Draw component items under the toolbar
-	for (int i = 8; i < ITM_DSN_CNT; i++)
-		pWind->DrawImage(MenuItemImages[i], (i - 8) * UI.ToolItemWidth, UI.ToolBarHeight + 3, UI.ToolItemWidth, UI.ToolItemHeight);
+	for (int i = 10; i < ITM_DSN_CNT; i++)
+		pWind->DrawImage(MenuItemImages[i], (i - 10) * UI.ToolItemWidth, UI.ToolBarHeight + 3, UI.ToolItemWidth, UI.GateBarHeight);
 
 
 	//Draw a line under the toolbar
