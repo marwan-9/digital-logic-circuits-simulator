@@ -101,10 +101,14 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\Menu_Exit.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\Menu\\Menu_Load.jpg";
 	MenuItemImages[ITM_SAVE] = "images\\Menu\\Menu_Save.jpg";
-	MenuItemImages[ITM_ADDCMP] = "images\\Menu\\Menu_AddCmp.jpg";
+	// MenuItemImages[ITM_ADDCMP] = "images\\Menu\\Menu_AddCmp.jpg";
 	MenuItemImages[ITM_WIRE] = "images\\Menu\\Menu_Wire.jpg";
-	MenuItemImages[ITM_LABEL] = "images\\Menu\\Menu_Label.jpg";
+	MenuItemImages[ITM_ADD_LABEL] = "images\\Menu\\Menu_Label.jpg";
 	MenuItemImages[ITM_DEL] = "images\\Menu\\Menu_Delete.jpg";
+	MenuItemImages[ITM_COPY] = "images\\Menu\\Menu_Copy.jpg";
+	MenuItemImages[ITM_CUT] = "images\\Menu\\Menu_Cut.jpg";
+	MenuItemImages[ITM_PASTE] = "images\\Menu\\Menu_Paste.jpg";
+
 	MenuItemImages[ITM_SWITCH] = "images\\Menu\\Gate_Switch.jpg";
 	MenuItemImages[ITM_LED] = "images\\Menu\\Gate_Led.jpg";
 	MenuItemImages[ITM_BUFF] = "images\\Menu\\Gate_Buffer.jpg";

@@ -46,7 +46,7 @@ int main()
 	GfxInfo.x1 = 100;	GfxInfo.y1 = 200;
 	pOut->DrawAND2(GfxInfo, true);
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 	/// 2.2- NAND2 Gate test
@@ -54,7 +54,7 @@ int main()
 
 	///TODO: Add code to draw 2-input NAND gate, Normal and Highlighted
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 	/// 2.3- OR2 and NOR2 Gates test
@@ -62,7 +62,7 @@ int main()
 	
 	///TODO: Add code to draw 2-input OR and NOR gates, Normal and Highlighted for each
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 	/// 2.4- XOR2 and XNOR2 Gates test
@@ -70,7 +70,7 @@ int main()
 	
 	///TODO: Add code to draw 2-input XOR and XNOR gates, Normal and Highlighted for each
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 	/// 2.5- Buffer and Inverter Gates test
@@ -78,7 +78,7 @@ int main()
 	
 	///TODO: Add code to draw Buffer and Inverter Gates, Normal and Highlighted for each
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 
@@ -87,7 +87,7 @@ int main()
 	
 	///TODO: Add code to draw 3-input AND, NOR, and XOR Gates, Normal and Highlighted for each
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 	/// 2.7- Switch and LED test
@@ -95,7 +95,7 @@ int main()
 	
 	///TODO: Add code to draw Switch and LED, Normal and Highlighted for each
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 
@@ -104,7 +104,7 @@ int main()
 	
 	///TODO: Add code to draw connections, Normal, Highlighted, straight, and broken (all combinations) 
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 
@@ -116,7 +116,7 @@ int main()
 	// TEST 3: Read strings from the user
 	///////////////////////////////////////////////////////////////////////////////////
 	pOut->PrintMsg("TEST3: Now Time to test class Input, Click anywhere to continue");
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	
 	pOut->PrintMsg("Testing Input ability to read strings");
 
@@ -124,7 +124,7 @@ int main()
 	// 1- Read a string from the user on the status bar and print it inside the drawing area
 
 
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pIn->WaitMouseClick(x,y);	//Wait for any click
 	pOut->ClearDrawingArea();
 
 	///////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +138,7 @@ int main()
 	//Add cases for the missing actions below
 	do
 	{
-		ActType = pIn->GetUserAction();
+		ActType = pIn->GetUserAction(pOut);
 
 		switch (ActType)
 		{

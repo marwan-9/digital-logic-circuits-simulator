@@ -27,10 +27,14 @@ enum ActionType
 	Create_TruthTable,	//Create Truth Table of the Circuit
 
 	Change_Switch,		//Change Switch Status in Simulation Mode
+	Probe,
 
 	SELECT,		//Select a Component, a Connection
 	DEL,		//Delete a Component, a Connection
 	MOVE,		//Move a Component, a Connection
+	COPY,
+	CUT,
+	PASTE,
 
 	SAVE,		//Save the whole Circuit to a file
 	LOAD,		//Load a Circuit from a file
@@ -45,7 +49,8 @@ enum ActionType
 
 	STATUS_BAR,		//A click on the status bar
 	DSN_TOOL,	//A click on an empty place in the design tool bar
-
+	GATE_TOOL, // A click on an empty place in the Gates tool bar
+	SIM_TOOL, // A click on an empty place in the Simulation tool bar
 };
 
 //Possible Status for the pin
@@ -68,12 +73,19 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 
 	ITM_SIM_CIRCUIT,
-	ITM_ADDCMP,			// Add component of the circuit
+	// ITM_ADDCMP,			// Add component of the circuit
 	ITM_WIRE,
-	ITM_LABEL,
+	ITM_ADD_LABEL,
 	ITM_LOAD,
 	ITM_SAVE,
 	ITM_DEL,
+	ITM_COPY,
+	ITM_CUT,
+	ITM_PASTE,
+	/* To be added later
+	ITM_UNDO,  
+	ITM_REDO,
+	*/ 
 	ITM_EXIT,
 
 	// Components Items
@@ -90,7 +102,7 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_AND3,
 	ITM_NOR3,
 	ITM_XOR3,
-	ITM_EXIT,		//Exit item
+
 	
 	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
 	
