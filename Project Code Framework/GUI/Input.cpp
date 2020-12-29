@@ -1,71 +1,28 @@
 #include "Input.h"
 #include "Output.h"
 
-
-Input::Input(window* pW) {
-	pWind = pW;
-}
-
-// last point clicked
-void Input::GetPointClicked(int& x, int& y) const {
-	x = LastX;
-	y = LastY;
-}
-
-// mouse click coordinate
-void Input::WaitMouseClick(int& x, int& y) {
-	pWind->WaitMouseClick(x, y);
-	LastX = x;
-	LastY = y;
-}
-
-// current state of the mouse buttons and position
-buttonstate Input::GetButtonState(const button Mouse, int& x, int& y) {
-	return pWind->GetButtonState(Mouse, x, y);;
-}
-
-// Returns user key press
-keytype Input::GetKeyPress(char& key) {
-
-	return pWind->GetKeyPress(key);
+Input::Input(window* pW)
+{
+	pWind = pW; //point to the passed window
 }
 
 
-// Returns the string entered by the user and reflect it on the status bar
-string Input::GetSrting(Output* pOut, string msg, string str) const {
-	// ASCII Codes
-	const int ESCAPE = 27;
-	const int ENTER = 13;
-	const int BACKSPACE = 8;
-
-	char c;
-	string s = str;
-
-	pWind->FlushKeyQueue();
-
-	do {
-		pOut->PrintMsg(msg + " " + s);
-		pWind->WaitKeyPress(c);
-		
-		switch (c) {
-		case BACKSPACE:
-			if (!s.empty()) s.pop_back();
-			break;
-		case ESCAPE:
-			s.clear();
-			break;
-		case ENTER:
-			// Nothing
-			break;
-		default:
-			s.push_back(c);
-			break;
-		}
-
-	} while (c != ESCAPE && c != ENTER);
-
-	return s;
+void Input::GetPointClicked(int &x, int &y)
+{
+	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
+
+string Input::GetSrting(Output *pOut)
+{
+	///TODO: Implement this Function
+	//Read a complete string from the user until the user presses "ENTER".
+	//If the user presses "ESCAPE". This function should return an empty string.
+	//"BACKSPACE" should be also supported
+	//User should see what he is typing at the status bar
+
+	return NULL;
+}
+
 
 // Reads the user's selection and determine the desired action 
 ActionType Input::GetUserAction(Output* pOut) {
@@ -163,7 +120,6 @@ ActionType Input::GetUserAction(Output* pOut) {
 }
 
 
-Input::~Input() {
-
+Input::~Input()
+{
 }
-	
