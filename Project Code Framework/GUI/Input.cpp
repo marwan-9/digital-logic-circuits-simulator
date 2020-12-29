@@ -25,7 +25,7 @@ string Input::GetSrting(Output *pOut)
 
 
 // Reads the user's selection and determine the desired action 
-ActionType Input::GetUserAction(Output* pOut) {
+ActionType Input::GetUserAction() const {
 
 	int x, y;
 	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
@@ -50,7 +50,8 @@ ActionType Input::GetUserAction(Output* pOut) {
 				case DsgnMenuItem::ITM_SAVE: return SAVE;
 				case DsgnMenuItem::ITM_DEL: return DEL;
 				case DsgnMenuItem::ITM_COPY: return COPY;
-				case DsgnMenuItem::ITM_CUT: return PASTE;
+				case DsgnMenuItem::ITM_CUT: return CUT;
+				case DsgnMenuItem::ITM_PASTE: return PASTE;
 					/* To be added later
 					case DsgnMenuItem::ITM_UNDO: return UNDO;
 					case DsgnMenuItem::ITM_REDO: return REDO;
@@ -62,30 +63,30 @@ ActionType Input::GetUserAction(Output* pOut) {
 		}
 
 		//[2] User clicks on the Gates Bar
-		if (y >= UI.ToolBarHeight && y < UI.ToolBarHeight + UI.ToolItemHeight) {
+		if (y >= UI.ToolBarHeight && y < UI.ToolBarHeight + UI.GateBarHeight) {
 			clickedItemOrder = x / UI.ToolItemWidth;
 			switch (clickedItemOrder) {
-			case DsgnMenuItem::ITM_SWITCH: return ADD_Switch;
-			case DsgnMenuItem::ITM_LED: return ADD_LED;
-			case DsgnMenuItem::ITM_BUFF: return ADD_Buff;
-			case DsgnMenuItem::ITM_INV: return ADD_INV;
-			case DsgnMenuItem::ITM_AND2: return ADD_AND_GATE_2;
-			case DsgnMenuItem::ITM_OR2: return ADD_OR_GATE_2;
-			case DsgnMenuItem::ITM_NAND2: return ADD_NAND_GATE_2;
-			case DsgnMenuItem::ITM_NOR2: return ADD_NOR_GATE_2;
-			case DsgnMenuItem::ITM_XOR2: return ADD_XOR_GATE_2;
-			case DsgnMenuItem::ITM_XNOR2: return ADD_XNOR_GATE_2;
-			case DsgnMenuItem::ITM_AND3: return ADD_AND_GATE_3;
-			case DsgnMenuItem::ITM_NOR3: return ADD_NOR_GATE_3;
-			case DsgnMenuItem::ITM_XOR3: return ADD_XOR_GATE_3;
-			default:
-				return GATE_TOOL;
+				case DsgnMenuItem::ITM_SWITCH: return ADD_Switch;
+				case DsgnMenuItem::ITM_LED: return ADD_LED;
+				case DsgnMenuItem::ITM_BUFF: return ADD_Buff;
+				case DsgnMenuItem::ITM_INV: return ADD_INV;
+				case DsgnMenuItem::ITM_AND2: return ADD_AND_GATE_2;
+				case DsgnMenuItem::ITM_OR2: return ADD_OR_GATE_2;
+				case DsgnMenuItem::ITM_NAND2: return ADD_NAND_GATE_2;
+				case DsgnMenuItem::ITM_NOR2: return ADD_NOR_GATE_2;
+				case DsgnMenuItem::ITM_XOR2: return ADD_XOR_GATE_2;
+				case DsgnMenuItem::ITM_XNOR2: return ADD_XNOR_GATE_2;
+				case DsgnMenuItem::ITM_AND3: return ADD_AND_GATE_3;
+				case DsgnMenuItem::ITM_NOR3: return ADD_NOR_GATE_3;
+				case DsgnMenuItem::ITM_XOR3: return ADD_XOR_GATE_3;
+				default:
+					return GATE_TOOL;
 			}
 		}
 
 
 		//[3] User clicks on the drawing area
-		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		if (y >= UI.ToolBarHeight + UI.GateBarHeight && y < UI.height - UI.StatusBarHeight)
 		{
 			return SELECT;	//user want to select/unselect a component
 		}
