@@ -43,7 +43,6 @@ public:
 
 	// Draws Connection
 	void DrawConnection(GraphicsInfo r_GfxInfo, bool selected = false) const;
-	//void DrawConnectionbrk(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	
 	void PrintMsg(string msg) const;	//Print a message on Status bar
 
