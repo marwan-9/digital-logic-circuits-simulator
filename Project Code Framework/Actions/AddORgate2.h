@@ -1,5 +1,6 @@
 #pragma once
 #include "Action.h"
+#include "..\Components\OR2.h"
 class AddORgate2 :
 	public Action
 {

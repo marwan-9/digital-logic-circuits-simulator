@@ -143,6 +143,9 @@
     <ClCompile Include="Actions\AddORgate2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Components\OR2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -247,6 +250,9 @@
     </ClInclude>
     <ClInclude Include="Actions\AddORgate2.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\OR2.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
