@@ -1,4 +1,3 @@
-#include "Input.h"
 #include "Output.h"
 
 Input::Input(window* pW)
