@@ -5,6 +5,9 @@
     <ClCompile Include="Actions\AddANDgate2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Components\AND2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
     <ClCompile Include="ApplicationManager.cpp">
       <Filter>Application Manager</Filter>
     </ClCompile>
@@ -137,15 +140,6 @@
     <ClCompile Include="CMUgraphicsLib\windowinput.cpp">
       <Filter>CMUgraphics Library</Filter>
     </ClCompile>
-    <ClCompile Include="Components\AND2.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\AddORgate2.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="Components\OR2.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -247,12 +241,6 @@
     </ClInclude>
     <ClInclude Include="CMUgraphicsLib\windowinput.h">
       <Filter>CMUgraphics Library</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\AddORgate2.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="Components\OR2.h">
-      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
