@@ -129,7 +129,8 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 enum FANOUT
 {
 	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
-	OR2_FANOUT = 5		//Default fan out of 2-input OR gate
+	OR2_FANOUT = 5,		//Default fan out of 2-input OR gate
+	Switch_FANOUT = 10 
 };
 
 //A structure to contain drawing parameters for each component
