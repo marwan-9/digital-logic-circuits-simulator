@@ -86,9 +86,9 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_CUT,
 	ITM_PASTE,
 	/* To be added later
-	ITM_UNDO,  
+	ITM_UNDO,
 	ITM_REDO,
-	*/ 
+	*/
 	ITM_EXIT,
 
 	// Components Items

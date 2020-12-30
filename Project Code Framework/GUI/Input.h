@@ -10,6 +10,7 @@ private:
 	window *pWind;	//Pointer to the Graphics Window
 
 public:
+
 	Input(window*);
 	void GetPointClicked(int &, int &);	//Get coordinate where user clicks
 	string GetSrting(Output*);		//Returns a string entered by the user

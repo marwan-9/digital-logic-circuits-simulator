@@ -15,10 +15,12 @@ struct UI_Info	//User Interface Info.
 	MODE AppMode;		//Application Mode (design or simulation)
 	
 	static const int	width = 1000, height = 750,	//Window width and height
-						wx = 15 , wy = 15,			//Window starting coordinates
-						StatusBarHeight = 50,	//Status Bar Height
-						ToolBarHeight = 80,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
-						ToolItemWidth = 80;		//Width of each item in toolbar menu
+		wx = 15, wy = 15,			//Window starting coordinates
+		StatusBarHeight = 50,	//Status Bar Height
+		ToolBarHeight = 100,	// Tool Bar Height (distance from top of window to bottom line of toolbar)
+		MenuItemWidth = 100,	// Width of each tool menu item in toolbar menu
+		ToolItemWidth = 75,		// Width of each component icon in toolbar menu
+		GateBarHeight = 75;	// height of each component icon in toolbar menu
 
 	color DrawColor;		//Drawing color
 	color SelectColor;		//Highlighting color
@@ -30,7 +32,10 @@ struct UI_Info	//User Interface Info.
 	//This should be calculated accurately because it will be used later to create connections between gates
 	//For now, we will assume that rect width = 50 and height = 50
 	static const int	AND2_Width = 50,		//AND2 Gate Image default width
-						AND2_Height = 50;		//AND2 Gate Image default height
+						AND2_Height = 50,		//AND2 Gate Image default height
+						OR2_Width = 50,			//OR2 Gate Image default width
+						OR2_Height = 50;		//OR2 Gate Image default height
+						
 	
 }UI;	//create a single global object UI
 
