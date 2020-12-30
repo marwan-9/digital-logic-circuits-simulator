@@ -65,6 +65,7 @@ ActionType Input::GetUserAction() const {
 		if (y >= UI.ToolBarHeight && y < UI.ToolBarHeight + UI.GateBarHeight) {
 			clickedItemOrder = x / UI.ToolItemWidth;
 			switch (clickedItemOrder) {
+				/* Commented until we implement the enum of Component items
 				case DsgnMenuItem::ITM_SWITCH: return ADD_Switch;
 				case DsgnMenuItem::ITM_LED: return ADD_LED;
 				case DsgnMenuItem::ITM_BUFF: return ADD_Buff;
@@ -78,6 +79,22 @@ ActionType Input::GetUserAction() const {
 				case DsgnMenuItem::ITM_AND3: return ADD_AND_GATE_3;
 				case DsgnMenuItem::ITM_NOR3: return ADD_NOR_GATE_3;
 				case DsgnMenuItem::ITM_XOR3: return ADD_XOR_GATE_3;
+				default:
+					return GATE_TOOL;
+				*/
+				case 0: return ADD_Switch;
+				case 1: return ADD_LED;
+				case 2: return ADD_Buff;
+				case 3: return ADD_INV;
+				case 4: return ADD_AND_GATE_2;
+				case 5: return ADD_OR_GATE_2;
+				case 6: return ADD_NAND_GATE_2;
+				case 7: return ADD_NOR_GATE_2;
+				case 9: return ADD_XOR_GATE_2;
+				case 10: return ADD_XNOR_GATE_2;
+				case 11: return ADD_AND_GATE_3;
+				case 12: return ADD_NOR_GATE_3;
+				case 13: return ADD_XOR_GATE_3;
 				default:
 					return GATE_TOOL;
 			}

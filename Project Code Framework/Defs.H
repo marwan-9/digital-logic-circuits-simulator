@@ -6,6 +6,8 @@
 //All possible actions
 enum ActionType
 {
+	ADD_Switch,			//Add Switch
+	ADD_LED,			//Add LED
 	ADD_Buff,			//Add 1-input Buffer gate
 	ADD_INV,			//Add 1-input Inverter gate
 	ADD_AND_GATE_2,		//Add 2-input AND gate
@@ -17,8 +19,6 @@ enum ActionType
 	ADD_AND_GATE_3,		//Add 3-input AND gate
 	ADD_NOR_GATE_3,		//Add 3-input NOR gate
 	ADD_XOR_GATE_3,		//Add 3-input XOR gate
-	ADD_Switch,			//Add Switch
-	ADD_LED,			//Add LED
 	ADD_CONNECTION,		//Add Wire Connection
 
 	ADD_Label,			//Add Label to a Component, a Connection
