@@ -1,11 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Actions\AddANDgate2.cpp">
       <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="Components\AND2.cpp">
-      <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="ApplicationManager.cpp">
       <Filter>Application Manager</Filter>
@@ -139,7 +137,6 @@
     <ClCompile Include="CMUgraphicsLib\windowinput.cpp">
       <Filter>CMUgraphics Library</Filter>
     </ClCompile>
-    <ClCompile Include="TestCode.cpp" />
     <ClCompile Include="AddNANDgate2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -157,6 +154,21 @@
     </ClCompile>
     <ClCompile Include="AND3.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\AND2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddORgate2.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\OR2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Switch.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddSwitch.cpp">
+      <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +289,18 @@
     </ClInclude>
     <ClInclude Include="AND3.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddORgate2.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\OR2.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Switch.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddSwitch.h">
+      <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

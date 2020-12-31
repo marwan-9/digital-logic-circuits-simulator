@@ -1,5 +1,7 @@
 #include "ApplicationManager.h"
 #include "Actions\AddANDgate2.h"
+#include "Actions/AddORgate2.h"
+#include "Actions/AddSwitch.h"
 
 
 ApplicationManager::ApplicationManager()
@@ -35,10 +37,110 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_AND_GATE_2:
 			pAct= new AddANDgate2(this);
 			break;
-
-		case ADD_CONNECTION:
-			//TODO: Create AddConection Action here
+		case ADD_OR_GATE_2:
+			pAct = new AddORgate2(this);
 			break;
+		case ADD_NAND_GATE_2:
+			//TODO: Create Action here
+			break;
+		case ADD_NOR_GATE_2:
+			//TODO: Create Action here
+			break;
+		case ADD_XOR_GATE_2:
+			//TODO: Create Action here
+			break;
+		case ADD_XNOR_GATE_2:
+			//TODO: Create Action here
+			break;
+		case ADD_AND_GATE_3:
+			//TODO: Create Action here
+			break;
+		case ADD_NOR_GATE_3:
+			//TODO: Create Action here
+			break;
+		case ADD_XOR_GATE_3:
+			//TODO: Create Action here
+			break;
+		case ADD_Switch:
+			pAct = new AddSwitch(this);
+			break;
+		case ADD_LED:
+			//TODO: Create Action here
+		case ADD_Buff:
+			//TODO: Create Action here
+			break;
+		case ADD_INV:
+			//TODO: Create Action here
+			break;
+		case ADD_CONNECTION:
+			//TODO: Create Action here
+			break;
+		case ADD_Label:
+			//TODO: Create Action here
+			break;
+		case EDIT_Label:
+			//TODO: Create Action here
+			break;
+		case Create_TruthTable:
+			//TODO: Create Action here
+			break;
+		case Change_Switch:
+			//TODO: Create Action here
+			break;
+		case Probe:
+			//TODO: Create Action here
+		case SELECT:
+			//TODO: Create Action here
+			break;
+		case DEL:
+			//TODO: Create Action here
+			break;
+		case MOVE:
+			//TODO: Create Action here
+			break;
+		case COPY:
+			//TODO: Create Action here
+			break;
+		case CUT:
+			//TODO: Create Action here
+			break;
+		case PASTE:
+			//TODO: Create Action here
+			break;
+		case SAVE:
+			//TODO: Create Action here
+			break;
+		case LOAD:
+			//TODO: Create Action here
+			break;
+		case UNDO:
+			//TODO: Create Action here
+			break;
+		case REDO:
+			//TODO: Create Action here
+			break;
+		case DSN_MODE:
+			//TODO: Create Action here
+			break;
+		case SIM_MODE:
+			//TODO: Create Action here
+			break;
+		case HOVER:
+			//TODO: Create Action here
+			break;
+		case STATUS_BAR:
+			//TODO: Create Action here
+			break;
+		case DSN_TOOL:
+			//TODO: Create Action here
+			break;
+		case GATE_TOOL:
+			//TODO: Create Action here
+			break;
+		case SIM_TOOL:
+			//TODO: Create Action here
+			break;
+		
 	
 
 		case EXIT:

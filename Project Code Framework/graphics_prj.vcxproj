@@ -129,6 +129,8 @@
     <ClCompile Include="Actions\AddANDgate2.cpp" />
     <ClCompile Include="AddNANDgate2.cpp" />
     <ClCompile Include="AND3.cpp" />
+    <ClCompile Include="Actions\AddORgate2.cpp" />
+    <ClCompile Include="Actions\AddSwitch.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\image.cpp" />
@@ -169,16 +171,18 @@
     <ClCompile Include="Components\Connection.cpp" />
     <ClCompile Include="Components\Gate.cpp" />
     <ClCompile Include="Components\InputPin.cpp" />
+    <ClCompile Include="Components\OR2.cpp" />
     <ClCompile Include="Components\OutputPin.cpp" />
     <ClCompile Include="Components\Pin.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Components\Switch.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="AddNORgate3.cpp" />
     <ClCompile Include="AddANDgate3.cpp" />
     <ClCompile Include="NAND2.cpp" />
     <ClCompile Include="NOR3.cpp" />
-    <ClCompile Include="TestCode.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
@@ -186,6 +190,8 @@
     <ClInclude Include="AddANDgate3.h" />
     <ClInclude Include="AddNANDgate2.h" />
     <ClInclude Include="AddNORgate3.h" />
+    <ClInclude Include="Actions\AddORgate2.h" />
+    <ClInclude Include="Actions\AddSwitch.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -211,9 +217,11 @@
     <ClInclude Include="Components\Connection.h" />
     <ClInclude Include="Components\Gate.h" />
     <ClInclude Include="Components\InputPin.h" />
+    <ClInclude Include="Components\OR2.h" />
     <ClInclude Include="Components\OutputPin.h" />
     <ClInclude Include="Components\Pin.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="Components\Switch.h" />
     <ClInclude Include="Defs.H" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
