@@ -2,9 +2,9 @@
 #define _AND3_H
 
 /*
-  Class AND2
+  Class AND3
   -----------
-  represent the 2-input AND gate
+  represent the 3-input AND gate
 */
 
 //#include "Gate.h"
