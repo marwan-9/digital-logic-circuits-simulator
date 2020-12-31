@@ -223,7 +223,7 @@ void Output::DrawOR3(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-void Output::DrawNAND(GraphicsInfo r_GfxInfo, bool selected) const
+void Output::DrawNAND2(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)	//use image in the highlighted case
@@ -235,7 +235,7 @@ void Output::DrawNAND(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-void Output::DrawNOR(GraphicsInfo r_GfxInfo, bool selected) const
+void Output::DrawNOR2(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)	//use image in the highlighted case
@@ -247,7 +247,7 @@ void Output::DrawNOR(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-void Output::DrawXOR(GraphicsInfo r_GfxInfo, bool selected) const
+void Output::DrawXOR2(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)	//use image in the highlighted case
@@ -259,7 +259,7 @@ void Output::DrawXOR(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-void Output::DrawXNOR(GraphicsInfo r_GfxInfo, bool selected) const
+void Output::DrawXNOR2(GraphicsInfo r_GfxInfo, bool selected) const
 {
 	string GateImage;
 	if (selected)	//use image in the highlighted case
