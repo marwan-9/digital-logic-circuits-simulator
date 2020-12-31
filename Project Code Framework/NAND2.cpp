@@ -8,9 +8,12 @@ NAND2::NAND2(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 
 void NAND2::Operate()
 {
-	//caclulate the output status as the ANDing of the two input pins
-
-	//Add you code here
+	//caclulate the output status as the NAND of the two input pins
+	int output = m_InputPins[0].getStatus() * m_InputPins[1].getStatus();
+	if (output == 0) 
+		m_OutputPin.setStatus(HIGH);
+	else
+		m_OutputPin.setStatus(LOW);
 }
 
 

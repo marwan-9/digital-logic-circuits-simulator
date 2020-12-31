@@ -5,7 +5,7 @@
 //#include "action.h"
 #include "Actions/Action.h"
 //#include "Components\NAND2.h"
-#include "Components/NOR3.h"
+#include "NOR3.h"
 
 class AddNORgate3 : public Action
 {

@@ -13,10 +13,10 @@ void OR2::Operate()
 {
 	//caclulate the output status as the ORing of the two input pins
 	int output = m_InputPins[0].getStatus() + m_InputPins[1].getStatus();
-	if (output >= 1) {
+	if (output >= 1) 
 		m_OutputPin.setStatus(HIGH);
-	}
-	m_OutputPin.setStatus(LOW);
+	else
+		m_OutputPin.setStatus(LOW);
 }
 
 

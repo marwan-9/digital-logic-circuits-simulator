@@ -8,14 +8,17 @@ NOR3::NOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 
 void NOR3::Operate()
 {
-	//caclulate the output status as the ANDing of the two input pins
-
-	//Add you code here
+	//caclulate the output status as the NOR of the three input pins
+	int output = m_InputPins[0].getStatus() + m_InputPins[1].getStatus() + m_InputPins[2].getStatus();
+	if (output == 0) 
+		m_OutputPin.setStatus(HIGH);
+	else
+		m_OutputPin.setStatus(LOW);
 }
 
 
 // Function Draw
-// Draws 2-input AND gate
+// Draws 3-input NOR gate
 void NOR3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
