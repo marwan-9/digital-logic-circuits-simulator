@@ -18,7 +18,7 @@ void NAND2::Operate()
 
 
 // Function Draw
-// Draws 2-input AND gate
+// Draws 2-input NAND gate
 void NAND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
