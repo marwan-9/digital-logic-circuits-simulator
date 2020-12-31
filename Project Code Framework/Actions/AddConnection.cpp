@@ -23,6 +23,8 @@ void AddConnection::ReadActionParameters()
 	pIn->GetPointClicked(dCx, dCy);
 	pOut->ClearStatusBar();
 
+	// Waiting for the Select Action to be implemented
+
 }
 
 
@@ -31,20 +33,10 @@ void AddConnection::Execute()
 	//Get Center points of source and destination pins
 	ReadActionParameters();
 
-	/* 
-	//Calculate the rectangle Corners
-	int Len = UI.AND2_Width;
-	int Wdth = UI.AND2_Height;
-
-	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
-
-	GInfo.x1 = Cx - Len / 2;
-	GInfo.x2 = Cx + Len / 2;
-	GInfo.y1 = Cy - Wdth / 2;
-	GInfo.y2 = Cy + Wdth / 2;
-	*/
-
+	// Waiting for the Select Action to be implemented
 	//TODO: get a pointer to the source and destination pins
+
+
 	// Connection* pA = new Connection(GInfo, SrcPin, DstPin);
 	// pManager->AddComponent(pA);
 }
