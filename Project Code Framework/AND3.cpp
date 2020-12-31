@@ -18,7 +18,7 @@ void AND3::Operate()
 
 
 // Function Draw
-// Draws 2-input AND gate
+// Draws 3-input AND gate
 void AND3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
