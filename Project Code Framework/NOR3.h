@@ -2,9 +2,9 @@
 #define _NOR3_H
 
 /*
-  Class AND2
+  Class NOR3
   -----------
-  represent the 2-input AND gate
+  represent the 3-input NOR gate
 */
 
 //#include "Gate.h"
