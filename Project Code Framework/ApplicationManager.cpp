@@ -68,6 +68,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_LED:
 			//TODO: Create Action here
+			break;
 		case ADD_Buff:
 			pAct = new AddBufferGate(this);
 			break;
