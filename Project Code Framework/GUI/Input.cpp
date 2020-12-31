@@ -90,11 +90,11 @@ ActionType Input::GetUserAction() const {
 				case 5: return ADD_OR_GATE_2;
 				case 6: return ADD_NAND_GATE_2;
 				case 7: return ADD_NOR_GATE_2;
-				case 9: return ADD_XOR_GATE_2;
-				case 10: return ADD_XNOR_GATE_2;
-				case 11: return ADD_AND_GATE_3;
-				case 12: return ADD_NOR_GATE_3;
-				case 13: return ADD_XOR_GATE_3;
+				case 8: return ADD_XOR_GATE_2;
+				case 9: return ADD_XNOR_GATE_2;
+				case 10: return ADD_AND_GATE_3;
+				case 11: return ADD_NOR_GATE_3;
+				case 12: return ADD_XOR_GATE_3;
 				default:
 					return GATE_TOOL;
 			}
