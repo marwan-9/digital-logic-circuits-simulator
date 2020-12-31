@@ -127,6 +127,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actions\AddANDgate2.cpp" />
+    <ClCompile Include="Actions\AddConnection.cpp" />
     <ClCompile Include="Actions\AddORgate2.cpp" />
     <ClCompile Include="Actions\AddSwitch.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -181,6 +182,7 @@
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\AddANDgate2.h" />
+    <ClInclude Include="Actions\AddConnection.h" />
     <ClInclude Include="Actions\AddORgate2.h" />
     <ClInclude Include="Actions\AddSwitch.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
