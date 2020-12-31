@@ -137,24 +137,6 @@
     <ClCompile Include="CMUgraphicsLib\windowinput.cpp">
       <Filter>CMUgraphics Library</Filter>
     </ClCompile>
-    <ClCompile Include="AddNANDgate2.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="AddNORgate3.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="AddANDgate3.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
-    <ClCompile Include="NAND2.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="NOR3.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="AND3.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="Components\AND2.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -168,6 +150,24 @@
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="Actions\AddSwitch.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\AND3.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\NAND2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\NOR3.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddANDgate3.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddNANDgate2.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddNORgate3.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -272,24 +272,6 @@
     <ClInclude Include="CMUgraphicsLib\windowinput.h">
       <Filter>CMUgraphics Library</Filter>
     </ClInclude>
-    <ClInclude Include="AddNANDgate2.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="AddANDgate3.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="AddNORgate3.h">
-      <Filter>Actions</Filter>
-    </ClInclude>
-    <ClInclude Include="NAND2.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="NOR3.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="AND3.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="Actions\AddORgate2.h">
       <Filter>Actions</Filter>
     </ClInclude>
@@ -300,6 +282,24 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Actions\AddSwitch.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\AND3.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\NAND2.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\NOR3.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddANDgate3.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddNANDgate2.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddNORgate3.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

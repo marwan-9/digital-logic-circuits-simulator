@@ -1,21 +1,18 @@
-//#pragma once
-#ifndef _ADD_NOR3_GATE_H
-#define _ADD_NOR3_GATE_H
+#ifndef _ADD_AND3_GATE_H
+#define _ADD_AND3_GATE_H
 
-//#include "action.h"
-#include "Actions/Action.h"
-//#include "Components\NAND2.h"
-#include "Components/NOR3.h"
+#include "Action.h"
+#include "../Components/AND3.h"
 
-class AddNORgate3 : public Action
+class AddANDgate3 : public Action
 {
 private:
 	//Parameters for rectangular area to be occupied by the gate
 	int Cx, Cy;	//Center point of the gate
 	int x1, y1, x2, y2;	//Two corners of the rectangluar area
 public:
-	AddNORgate3(ApplicationManager* pApp);
-	virtual ~AddNORgate3(void);
+	AddANDgate3(ApplicationManager* pApp);
+	virtual ~AddANDgate3(void);
 
 	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();

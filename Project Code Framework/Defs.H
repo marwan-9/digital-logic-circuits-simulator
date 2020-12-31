@@ -130,6 +130,9 @@ enum FANOUT
 {
 	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
 	OR2_FANOUT = 5,		//Default fan out of 2-input OR gate
+	NAND2_FANOUT = 5,
+	AND3_FANOUT = 5,
+	NOR3_FANOUT = 5,
 	Switch_FANOUT = 10 
 };
 
