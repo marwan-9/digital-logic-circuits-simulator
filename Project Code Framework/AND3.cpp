@@ -2,10 +2,7 @@
 
 AND3::AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 {
-	m_GfxInfo.x1 = r_GfxInfo.x1;
-	m_GfxInfo.y1 = r_GfxInfo.y1;
-	m_GfxInfo.x2 = r_GfxInfo.x2;
-	m_GfxInfo.y2 = r_GfxInfo.y2;
+	m_GfxInfo = r_GfxInfo;
 }
 
 
