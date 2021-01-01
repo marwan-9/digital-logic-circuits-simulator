@@ -1,5 +1,5 @@
 #ifndef _XOR2_H
-#define XOR2_H
+#define _XOR2_H
 
 /*
   Class XOR2
