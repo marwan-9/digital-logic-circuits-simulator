@@ -1,22 +1,22 @@
-#include "AddNORgate3.h"
-//#include "..\ApplicationManager.h"
-#include "ApplicationManager.h"
-AddNORgate3::AddNORgate3(ApplicationManager* pApp) :Action(pApp)
+#include "AddNANDgate2.h"
+#include "..\ApplicationManager.h"
+
+AddNANDgate2::AddNANDgate2(ApplicationManager* pApp) :Action(pApp)
 {
 }
 
-AddNORgate3::~AddNORgate3(void)
+AddNANDgate2::~AddNANDgate2(void)
 {
 }
 
-void AddNORgate3::ReadActionParameters()
+void AddNANDgate2::ReadActionParameters()
 {
 	//Get a Pointer to the Input / Output Interfaces
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("3-Input NOR Gate: Click to add the gate");
+	pOut->PrintMsg("2-Input NAND Gate: Click to add the gate");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
@@ -26,14 +26,14 @@ void AddNORgate3::ReadActionParameters()
 
 }
 
-void AddNORgate3::Execute()
+void AddNANDgate2::Execute()
 {
 	//Get Center point of the Gate
 	ReadActionParameters();
 
 	//Calculate the rectangle Corners
-	int Len = UI.NOR3_Width;
-	int Wdth = UI.NOR3_Height;
+	int Len = UI.NAND2_Width;
+	int Wdth = UI.NAND2_Height;
 
 	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
 
@@ -41,13 +41,13 @@ void AddNORgate3::Execute()
 	GInfo.x2 = Cx + Len / 2;
 	GInfo.y1 = Cy - Wdth / 2;
 	GInfo.y2 = Cy + Wdth / 2;
-	NOR3* pA = new NOR3(GInfo, NOR3_FANOUT);
+	NAND2* pA = new NAND2(GInfo, NAND2_FANOUT);
 	pManager->AddComponent(pA);
 }
 
-void AddNORgate3::Undo()
+void AddNANDgate2::Undo()
 {}
 
-void AddNORgate3::Redo()
+void AddNANDgate2::Redo()
 {}
 

@@ -1,18 +1,18 @@
-#ifndef _NAND2_H
-#define _NAND2_H
+#ifndef _AND3_H
+#define _AND3_H
 
 /*
-  Class AND2
+  Class AND3
   -----------
-  represent the 2-input AND gate
+  represent the 3-input AND gate
 */
 
-//#include "Gate.h"
-#include "Components/Gate.h"
-class NAND2 :public Gate
+#include "Gate.h"
+
+class AND3 :public Gate
 {
 public:
-	NAND2(const GraphicsInfo& r_GfxInfo, int r_FanOut);
+	AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 	virtual void Operate();	//Calculates the output of the AND gate
 	virtual void Draw(Output* pOut);	//Draws 2-input gate
 
