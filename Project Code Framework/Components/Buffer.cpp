@@ -12,11 +12,7 @@ Buffer::Buffer(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 void Buffer::Operate()
 {
 	//caclulate the output status as the Buffering the ONLY ONE input pins
-	int output = m_InputPins[0].getStatus();
-	if (output) {
-		m_OutputPin.setStatus(HIGH);
-	}
-	m_OutputPin.setStatus(LOW);
+	m_OutputPin.setStatus(m_InputPins[0].getStatus());
 }
 
 
