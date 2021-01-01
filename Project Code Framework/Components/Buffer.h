@@ -1,5 +1,5 @@
 #ifndef _Buffer_H
-#define Buffer_H
+#define _Buffer_H
 
 /*
   Class Buffer
