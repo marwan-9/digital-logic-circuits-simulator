@@ -2,6 +2,9 @@
 #include "Actions\AddANDgate2.h"
 #include "Actions/AddORgate2.h"
 #include "Actions/AddSwitch.h"
+#include "Actions/AddInverterGate.h"
+#include "Actions/AddBufferGate.h"
+#include "Actions/AddXOR2Gate.h"
 #include "AddANDgate3.h"
 #include "AddNANDgate2.h"
 #include "AddNORgate3.h"
@@ -49,10 +52,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case ADD_XOR_GATE_2:
-			//TODO: Create Action here
+			pAct = new AddXOR2Gate(this);
 			break;
 		case ADD_XNOR_GATE_2:
-			//TODO: Create Action here
 			break;
 		case ADD_AND_GATE_3:
 			pAct = new AddANDgate3(this);
@@ -68,11 +70,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_LED:
 			//TODO: Create Action here
+			break;
 		case ADD_Buff:
-			//TODO: Create Action here
+			pAct = new AddBufferGate(this);
 			break;
 		case ADD_INV:
-			//TODO: Create Action here
+			pAct = new AddInverterGate(this);
 			break;
 		case ADD_CONNECTION:
 			//TODO: Create Action here
