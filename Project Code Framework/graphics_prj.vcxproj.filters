@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -152,22 +152,22 @@
     <ClCompile Include="Actions\AddSwitch.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Components\Inverter.cpp">
+    <ClCompile Include="Components\AND3.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\AddInverterGate.cpp">
+    <ClCompile Include="Components\NAND2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\NOR3.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddANDgate3.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Components\Buffer.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\AddBufferGate.cpp">
+    <ClCompile Include="Actions\AddNANDgate2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Components\XOR2.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\AddXOR2Gate.cpp">
+    <ClCompile Include="Actions\AddNORgate3.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -284,22 +284,22 @@
     <ClInclude Include="Actions\AddSwitch.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Inverter.h">
+    <ClInclude Include="Components\AND3.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\AddInverterGate.h">
+    <ClInclude Include="Components\NAND2.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\NOR3.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddANDgate3.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Components\Buffer.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\AddBufferGate.h">
+    <ClInclude Include="Actions\AddNANDgate2.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Components\XOR2.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\AddXOR2Gate.h">
+    <ClInclude Include="Actions\AddNORgate3.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

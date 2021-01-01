@@ -5,7 +5,9 @@
 #include "Actions/AddInverterGate.h"
 #include "Actions/AddBufferGate.h"
 #include "Actions/AddXOR2Gate.h"
-
+#include "AddANDgate3.h"
+#include "AddNANDgate2.h"
+#include "AddNORgate3.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -44,7 +46,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddORgate2(this);
 			break;
 		case ADD_NAND_GATE_2:
-			//TODO: Create Action here
+			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
 			//TODO: Create Action here
@@ -55,10 +57,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_XNOR_GATE_2:
 			break;
 		case ADD_AND_GATE_3:
-			//TODO: Create Action here
+			pAct = new AddANDgate3(this);
 			break;
 		case ADD_NOR_GATE_3:
-			//TODO: Create Action here
+			pAct = new AddNORgate3(this);
 			break;
 		case ADD_XOR_GATE_3:
 			//TODO: Create Action here

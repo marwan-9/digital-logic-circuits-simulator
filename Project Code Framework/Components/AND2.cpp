@@ -13,10 +13,10 @@ void AND2::Operate()
 {
 	//caclulate the output status as the ANDing of the two input pins
 	int output = m_InputPins[0].getStatus() * m_InputPins[1].getStatus();
-	if (output) {
+	if (output) 
 		m_OutputPin.setStatus(HIGH);
-	}
-	m_OutputPin.setStatus(LOW);
+	else
+		m_OutputPin.setStatus(LOW);
 }
 
 
