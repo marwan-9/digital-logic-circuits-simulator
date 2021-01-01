@@ -133,7 +133,7 @@ enum FANOUT
 	Switch_FANOUT = 10,
 	INV_FANOUT = 5,
 	BUFF_FANOUT = 5,
-	XOR2_FANOUT =5
+	XOR2_FANOUT =5,
 	AND3_FANOUT = 5,		//Default fan out of 3-input AND gate
 	NAND2_FANOUT = 5,		//Default fan out of 2-input NAND gate
 	NOR3_FANOUT = 5		//Default fan out of 3-input NOR gate

@@ -1,11 +1,8 @@
-//#pragma once
 #ifndef _ADD_NAND2_GATE_H
 #define _ADD_NAND2_GATE_H
 
-#include"Actions/Action.h"
-//#include "action.h"
-//#include "..\Components\NAND2.h"
-#include "NAND2.h"
+#include"Action.h"
+#include "../Components/NAND2.h"
 
 class AddNANDgate2 : public Action
 {

@@ -1,11 +1,8 @@
-//#pragma once
 #ifndef _ADD_NOR3_GATE_H
 #define _ADD_NOR3_GATE_H
 
-//#include "action.h"
-#include "Actions/Action.h"
-//#include "Components\NAND2.h"
-#include "NOR3.h"
+#include "Action.h"
+#include "../Components/NOR3.h"
 
 class AddNORgate3 : public Action
 {

@@ -5,9 +5,9 @@
 #include "Actions/AddInverterGate.h"
 #include "Actions/AddBufferGate.h"
 #include "Actions/AddXOR2Gate.h"
-#include "AddANDgate3.h"
-#include "AddNANDgate2.h"
-#include "AddNORgate3.h"
+#include "Actions/AddANDgate3.h"
+#include "Actions/AddNANDgate2.h"
+#include "Actions/AddNORgate3.h"
 
 ApplicationManager::ApplicationManager()
 {

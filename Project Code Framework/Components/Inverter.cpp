@@ -12,7 +12,11 @@ Inverter::Inverter(const GraphicsInfo &r_GfxInfo, int r_FanOut):Gate(1, r_FanOut
 void Inverter::Operate()
 {
 	//caclulate the output status as the Inverting of the ONLY ONE input pins
-	m_OutputPin.setStatus(!(m_InputPins[0].getStatus()));
+	int output = m_InputPins[0].getStatus();
+	if (output) {
+		m_OutputPin.setStatus(LOW);
+	}
+	m_OutputPin.setStatus(HIGH);
 }
 
 
