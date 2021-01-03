@@ -23,7 +23,7 @@ void XNOR2::Operate() {
 // Draws 2-input XNOR gate
 void XNOR2::Draw(Output* pOut) {
 	
-		pOut->DrawXNOR(m_GfxInfo);
+		pOut->DrawXNOR2(m_GfxInfo);
 }
 
 //returns status of outputpin
