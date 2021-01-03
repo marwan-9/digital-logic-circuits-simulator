@@ -2,9 +2,9 @@
 #define _XOR3_H
 
 /*
-  Class AND2
+  Class XOR3
   -----------
-  represent the 2-input AND gate
+  represent the 3-input XOR gate
 */
 
 //#include "Gate.h"
