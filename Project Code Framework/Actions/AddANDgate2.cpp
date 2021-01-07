@@ -24,8 +24,9 @@ void AddANDgate2::ReadActionParameters()
 	string str= "Add component (AND) label : "; //ahmed
 	pIn->GetSrting(pOut, str, "");   //ahmed 
 	
-	//edit label
-
+	//edit label when label is bresed and and is selected
+	string str2 = "Add component (AND) new label : "; //ahmed
+	pIn->GetSrting(pOut, str2, "");   //ahmed 
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();

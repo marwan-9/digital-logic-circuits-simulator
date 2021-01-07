@@ -188,6 +188,9 @@
     <ClCompile Include="Components\XOR2.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="AddLabel.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -339,6 +342,9 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="EditSwitch.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="AddLabel.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
