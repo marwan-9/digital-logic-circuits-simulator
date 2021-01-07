@@ -2,12 +2,17 @@
 #include "Actions\AddANDgate2.h"
 #include "Actions/AddORgate2.h"
 #include "Actions/AddSwitch.h"
+#include "Actions/AddLED.h"
 #include "Actions/AddInverterGate.h"
 #include "Actions/AddBufferGate.h"
 #include "Actions/AddXOR2Gate.h"
 #include "Actions/AddANDgate3.h"
 #include "Actions/AddNANDgate2.h"
 #include "Actions/AddNORgate3.h"
+#include "Actions/AddNORgate2.h"
+#include "Actions/AddXORgate3.h"
+#include "Actions/AddXNORgate2.h"
+#include "Actions\Select.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -49,12 +54,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-			//TODO: Create Action here
+			pAct = new AddNORgate2(this);
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
 			break;
 		case ADD_XNOR_GATE_2:
+			pAct = new AddXNORgate2(this);
 			break;
 		case ADD_AND_GATE_3:
 			pAct = new AddANDgate3(this);
@@ -63,13 +69,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNORgate3(this);
 			break;
 		case ADD_XOR_GATE_3:
-			//TODO: Create Action here
+			pAct = new AddXORgate3(this);
 			break;
 		case ADD_Switch:
 			pAct = new AddSwitch(this);
 			break;
 		case ADD_LED:
-			//TODO: Create Action here
+			pAct= new AddLED(this);
 			break;
 		case ADD_Buff:
 			pAct = new AddBufferGate(this);
@@ -95,7 +101,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case Probe:
 			//TODO: Create Action here
 		case SELECT:
-			//TODO: Create Action here
+			pAct = new Select(this);
 			break;
 		case DEL:
 			//TODO: Create Action here
@@ -104,8 +110,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case COPY:
-			//TODO: Create Action here
-			break;
+			//TODO
 		case CUT:
 			//TODO: Create Action here
 			break;
@@ -167,7 +172,11 @@ void ApplicationManager::UpdateInterface()
 			CompList[i]->Draw(OutputInterface);
 
 }
-
+////////////////////////////////////////////////////////////////////
+void ApplicationManager::SetSelected(Component* sel)
+{
+	selected = sel;
+}
 ////////////////////////////////////////////////////////////////////
 Input* ApplicationManager::GetInput()
 {
@@ -179,8 +188,22 @@ Output* ApplicationManager::GetOutput()
 {
 	return OutputInterface;
 }
+///////////////////////////////////////////////////////////////////
+Component* ApplicationManager::GetSelected()
+{
+	return selected;
+}
 
 ////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////
+Component* ApplicationManager::GetClickedComponent(int x, int y)
+{
+	for (int i = 0; i < CompCount; i++)
+		if (CompList[i]->Inside(x, y))
+			return CompList[i];
+	return NULL;
+}
 
 ApplicationManager::~ApplicationManager()
 {
