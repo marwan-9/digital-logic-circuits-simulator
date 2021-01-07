@@ -338,6 +338,9 @@
     <ClInclude Include="Components\XOR2.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="EditSwitch.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

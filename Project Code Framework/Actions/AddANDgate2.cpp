@@ -20,6 +20,13 @@ void AddANDgate2::ReadActionParameters()
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 
+	//add label
+	string str= "Add component (AND) label : "; //ahmed
+	pIn->GetSrting(pOut, str, "");   //ahmed 
+	
+	//edit label
+
+
 	//Clear Status Bar
 	pOut->ClearStatusBar();
 	
@@ -27,6 +34,8 @@ void AddANDgate2::ReadActionParameters()
 
 void AddANDgate2::Execute()
 {
+	
+
 	//Get Center point of the Gate
 	ReadActionParameters();
 	
