@@ -11,15 +11,39 @@ void Input::GetPointClicked(int &x, int &y)
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
 
-string Input::GetSrting(Output *pOut)
-{
-	///TODO: Implement this Function
-	//Read a complete string from the user until the user presses "ENTER".
-	//If the user presses "ESCAPE". This function should return an empty string.
-	//"BACKSPACE" should be also supported
-	//User should see what he is typing at the status bar
+string Input::GetSrting(Output* pOut, string msg, string str) const {
+	// ASCII Codes
+	const int ESCAPE = 27;
+	const int ENTER = 13;
+	const int BACKSPACE = 8;
 
-	return NULL;
+	char c;
+	string s = str;
+
+	pWind->FlushKeyQueue();
+
+	do {
+		pOut->PrintMsg(msg + " " + s);
+		pWind->WaitKeyPress(c);
+
+		switch (c) {
+		case BACKSPACE:
+			if (!s.empty()) s.pop_back();
+			break;
+		case ESCAPE:
+			s.clear();
+			break;
+		case ENTER:
+			// Nothing
+			break;
+		default:
+			s.push_back(c);
+			break;
+		}
+
+	} while (c != ESCAPE && c != ENTER);
+
+	return s;
 }
 
 
