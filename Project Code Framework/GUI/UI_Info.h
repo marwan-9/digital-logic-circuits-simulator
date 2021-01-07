@@ -35,9 +35,10 @@ struct UI_Info	//User Interface Info.
 		AND2_Height = 50,		//AND2 Gate Image default height
 // to be changed after adding the images accordingly				
 OR2_Width = 50, OR2_Height = 50, Switch_Width = 50, Switch_Height = 50,
-NAND2_Width = 50, NAND2_Height = 50,AND3_Width = 50, AND3_Height = 50, NOR3_Width = 50, NOR3_Height = 50;
+NAND2_Width = 50, NAND2_Height = 50,AND3_Width = 50, AND3_Height = 50, NOR3_Width = 50, NOR3_Height = 50
+ ,AddLabel_Height = 50, AddLabel_Width = 50; //ahmed
+	
 
-						
 	
 }UI;	//create a single global object UI
 
