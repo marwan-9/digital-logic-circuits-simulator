@@ -50,8 +50,8 @@ void AddLabel::Execute()
 	//pManager->AddComponent(pA);
 	
 		//edit label when label is bresed and and is selected
-	string str2 = "Add component (AND) new label hii : "; //ahmed
-	pIn->GetSrting(pOut, str2, "");   //ahmed 
+	//string str2 = "Add component (AND) new label hii : "; //ahmed
+	//pIn->GetSrting(pOut, str2, "");   //ahmed 
 }
 
 void AddLabel::Undo()
