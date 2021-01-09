@@ -8,11 +8,11 @@
 #include "Actions/AddANDgate3.h"
 #include "Actions/AddNANDgate2.h"
 #include "Actions/AddNORgate3.h"
-#include"Actions\Paste.h"
-#include"Actions\copy.h"
-#include"Actions\cut.h"
-
+#include "Actions\Paste.h"
+#include "Actions\copy.h"
+#include "Actions\cut.h"
 #include "AddLabel.h"
+
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
@@ -233,7 +233,26 @@ void ApplicationManager::deleteGate(Component* ToDelete)
 		}
 	}
 }
-///////////////////////////////////////////////////////////////////
+void ApplicationManager::SetSelected(Component* sel)
+{
+	selected = sel;
+}
+
+
+Component* ApplicationManager::GetSelected()
+{
+	return selected;
+}
+
+
+Component* ApplicationManager::GetClickedComponent(int x, int y)
+{
+	for (int i = 0; i < CompCount; i++)
+		if (CompList[i]->Inside(x, y))
+			return CompList[i];
+	return NULL;
+}
+
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)
