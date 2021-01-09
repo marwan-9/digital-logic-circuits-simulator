@@ -46,6 +46,10 @@ string Input::GetSrting(Output* pOut, string msg, string str) const {
 	return s;
 }
 
+void Input::GetPosition(int &x, int &y)
+{
+	pWind->GetMouseCoord(x, y);
+}
 
 // Reads the user's selection and determine the desired action 
 ActionType Input::GetUserAction() const {

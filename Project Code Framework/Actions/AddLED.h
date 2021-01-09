@@ -1,15 +1,17 @@
-#include "Actions/Action.h"
+#pragma once
 
-class AddLabel : public Action
+#include "Action.h"
+#include "../Components/LED.h"
+
+class AddLED :	public Action
 {
 private:
 	//Parameters for rectangular area to be occupied by the gate
 	int Cx, Cy;	//Center point of the gate
 	int x1, y1, x2, y2;	//Two corners of the rectangluar area
-	
 public:
-	AddLabel(ApplicationManager* pApp);
-	virtual ~AddLabel(void);
+	AddLED(ApplicationManager *pApp);
+	virtual ~AddLED(void);
 
 	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
@@ -21,4 +23,3 @@ public:
 
 
 };
-

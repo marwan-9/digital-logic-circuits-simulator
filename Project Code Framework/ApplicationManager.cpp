@@ -12,6 +12,7 @@
 #include"Actions\copy.h"
 #include"Actions\cut.h"
 
+#include "AddLabel.h"
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
@@ -87,9 +88,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case ADD_Label:
+			pAct = new AddLabel(this);
+
 			//TODO: Create Action here
 			break;
-		case EDIT_Label:
+		//case EDIT_Label:
 			//TODO: Create Action here
 			break;
 		case Create_TruthTable:

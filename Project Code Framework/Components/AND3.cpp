@@ -22,6 +22,7 @@ void AND3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawAND3(m_GfxInfo);
+	
 }
 
 //returns status of outputpin
