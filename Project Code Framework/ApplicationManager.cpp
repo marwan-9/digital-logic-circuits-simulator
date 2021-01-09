@@ -12,6 +12,8 @@
 #include "Actions\copy.h"
 #include "Actions\cut.h"
 #include "AddLabel.h"
+#include "Actions/Select.h"
+
 
 ApplicationManager::ApplicationManager()
 {
@@ -104,7 +106,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case Probe:
 			//TODO: Create Action here
 		case SELECT:
-			//TODO: Create Action here
+			pAct = new Select(this);
 			break;
 		case DEL:
 			//TODO: Create Action here
