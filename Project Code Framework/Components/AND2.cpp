@@ -46,3 +46,12 @@ void AND2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
 }
+
+//Copy Function Implemenation// 
+Component* AND2::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new AND2(temp, AND2_FANOUT);
+	return Copied;
+}

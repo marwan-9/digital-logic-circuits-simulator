@@ -135,6 +135,9 @@
     <ClCompile Include="Actions\AddORgate2.cpp" />
     <ClCompile Include="Actions\AddSwitch.cpp" />
     <ClCompile Include="Actions\AddXOR2Gate.cpp" />
+    <ClCompile Include="Actions\Copy.cpp" />
+    <ClCompile Include="Actions\Cut.cpp" />
+    <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="AddLabel.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -202,6 +205,9 @@
     <ClInclude Include="Actions\AddORgate2.h" />
     <ClInclude Include="Actions\AddSwitch.h" />
     <ClInclude Include="Actions\AddXOR2Gate.h" />
+    <ClInclude Include="Actions\Copy.h" />
+    <ClInclude Include="Actions\Cut.h" />
+    <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="AddLabel.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
@@ -243,7 +249,6 @@
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
-    <ClInclude Include="EditSwitch.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

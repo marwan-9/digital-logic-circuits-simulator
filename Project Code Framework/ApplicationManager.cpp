@@ -8,10 +8,14 @@
 #include "Actions/AddANDgate3.h"
 #include "Actions/AddNANDgate2.h"
 #include "Actions/AddNORgate3.h"
+#include"Actions\Paste.h"
+#include"Actions\copy.h"
+#include"Actions\cut.h"
 
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
+
 
 	for(int i=0; i<MaxCompCount; i++)
 		CompList[i] = NULL;
@@ -19,6 +23,8 @@ ApplicationManager::ApplicationManager()
 	//Creates the Input / Output Objects & Initialize the GUI
 	OutputInterface = new Output();
 	InputInterface = OutputInterface->CreateInput();
+	CopiedItem = NULL;
+
 }
 ////////////////////////////////////////////////////////////////////
 void ApplicationManager::AddComponent(Component* pComp)
@@ -104,13 +110,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case COPY:
-			//TODO: Create Action here
+			pAct = new Copy(this);
 			break;
 		case CUT:
-			//TODO: Create Action here
+			pAct = new Cut(this);
 			break;
 		case PASTE:
-			//TODO: Create Action here
+			pAct = new Paste(this);
 			break;
 		case SAVE:
 			//TODO: Create Action here
@@ -181,12 +187,54 @@ Output* ApplicationManager::GetOutput()
 }
 
 ////////////////////////////////////////////////////////////////////
+void ApplicationManager::setCopied(Component* Cop)
+{
+	CopiedItem = Cop;
 
+}
+Component* ApplicationManager::getCopied()
+{
+	return CopiedItem;
+}
+
+void ApplicationManager::DeleteCopy()
+{
+	delete CopiedItem;
+	CopiedItem = NULL;
+}
+
+Component* ApplicationManager::getCompList()
+{
+	return CompList[0];
+}
+
+bool ApplicationManager::getcpyStatus() {
+	return CutOrCopy;
+}
+
+void ApplicationManager::setcpyStatus(bool set) {
+	CutOrCopy=set;
+}
+
+void ApplicationManager::deleteGate(Component* ToDelete)
+{
+	for (int i = 0; i < CompCount; i++)
+	{
+		if (CompList[i] == ToDelete)
+		{
+			delete CompList[i];
+			CompList[i] = CompList[CompCount - 1];
+			CompList[CompCount - 1] = NULL;
+			CompCount--;
+			return;
+		}
+	}
+}
+///////////////////////////////////////////////////////////////////
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)
 		delete CompList[i];
 	delete OutputInterface;
 	delete InputInterface;
-	
 }

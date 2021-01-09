@@ -43,3 +43,11 @@ void NOR3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
 }
+
+Component* NOR3::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new NOR3(temp, NOR3_FANOUT);
+	return Copied;
+}

@@ -47,3 +47,11 @@ void XOR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
 }
+
+Component* XOR2::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new XOR2(temp, XOR2_FANOUT);
+	return Copied;
+}

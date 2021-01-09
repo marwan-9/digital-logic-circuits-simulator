@@ -22,7 +22,7 @@ protected:
 public:
 	Gate(int r_Inputs, int r_FanOut);
 	
-
+	virtual Component* Copy()=0;
 };
 
 #endif

@@ -21,7 +21,9 @@ public:
 	virtual int GetInputPinStatus(int n)=0;	//returns status of Inputpin # n if SWITCH, return -1
 
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
-
+	virtual void SetGraphics(int x, int y, bool type = false);
+	//JUST COPYING LITERALLY
+	virtual Component* Copy() = 0;  
 	
 	Component();	
 	
