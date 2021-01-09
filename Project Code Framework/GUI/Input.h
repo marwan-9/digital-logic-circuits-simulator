@@ -15,6 +15,7 @@ public:
 	void GetPointClicked(int &, int &);	//Get coordinate where user clicks
 	string GetSrting(Output* pOut, string msg, string str = "") const;	//Returns a string entered by the user
 	ActionType GetUserAction() const; //Reads the user click and maps it to an action
+	void GetPosition(int &, int &);
 
 	~Input();
 };

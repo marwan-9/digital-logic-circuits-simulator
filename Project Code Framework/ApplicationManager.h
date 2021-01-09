@@ -17,9 +17,10 @@ private:
 	int CompCount;		//Actual number of Components
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 
+	Component* selected; //poiter to selected component
+
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
-
 
 public:	
 	ApplicationManager(); //constructor
@@ -38,6 +39,14 @@ public:
 
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
+
+	void SetSelected(Component*); //set selected pointer
+
+	Component* GetSelected();  //return selected pointer
+
+	Component* GetClickedComponent(int x, int y); //returns selected component
+
+
 
 	//destructor
 	~ApplicationManager();
