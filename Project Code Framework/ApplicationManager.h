@@ -6,6 +6,8 @@
 #include "GUI\Input.h"
 #include "Actions\Action.h"
 #include "Components\Component.h"
+#include <fstream>
+
 
 //Main class that manages everything in the application.
 class ApplicationManager
@@ -59,7 +61,8 @@ public:
 
 	Component* GetClickedComponent(int x, int y); //returns selected component
 
-
+	void Save(std::ofstream& stream);
+	void Load(std::ifstream& stream);
 
 	//destructor
 	~ApplicationManager();

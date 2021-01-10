@@ -16,8 +16,8 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
-#include "Actions/Save.h"
-#include "Actions/Load.h"
+#include "Actions/Save_Action.h"
+#include "Actions/Load_Action.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -96,8 +96,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_Label:
 			pAct = new AddLabel(this);
-
-			//TODO: Create Action here
 			break;
 		//case EDIT_Label:
 			//TODO: Create Action here
@@ -129,10 +127,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Paste(this);
 			break;
 		case SAVE:
-			pAct = new Save(this);
+			pAct = new Save_Action(this);
 			break;
 		case LOAD:
-			pAct = new Load(this);
+			pAct = new Load_Action(this);
 			break;
 		case UNDO:
 			//TODO: Create Action here
@@ -179,8 +177,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::UpdateInterface()
 {
-		for(int i=0; i<CompCount; i++)
-			CompList[i]->Draw(OutputInterface);
+	for(int i=0; i<CompCount; i++)
+		CompList[i]->Draw(OutputInterface);
 
 }
 
@@ -263,6 +261,30 @@ Component* ApplicationManager::GetClickedComponent(int x, int y)
 			return CompList[i];
 	}
 	return NULL;
+}
+
+
+void ApplicationManager::Save(std::ofstream& stream)
+{
+	stream << CompCount << endl;
+	for (int i = 0; i < CompCount; i++)
+		CompList[i]->Save(stream);
+	stream << "Connections" << endl;
+	// TODO: Connections Part
+	stream << "-1";
+}
+
+void ApplicationManager::Load(std::ifstream& stream)
+{
+	stream >> CompCount;
+	for (int i = 0; i < CompCount; i++)
+		CompList[i]->Load(stream);
+
+	// ignoring the "Connections" line
+	stream.ignore(100, '\n');
+	while (!stream.eof()) {
+		// TODO: Connections Part
+	}
 }
 
 ApplicationManager::~ApplicationManager()

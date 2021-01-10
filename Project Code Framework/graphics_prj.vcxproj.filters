@@ -215,10 +215,10 @@
     <ClCompile Include="Components\XOR3.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\Save.cpp">
+    <ClCompile Include="Actions\Save_Action.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\Load.cpp">
+    <ClCompile Include="Actions\Load_Action.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -401,10 +401,10 @@
     <ClInclude Include="Components\XOR3.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Save.h">
+    <ClInclude Include="Actions\Save_Action.h">
       <Filter>Actions</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Load.h">
+    <ClInclude Include="Actions\Load_Action.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,13 +1,16 @@
 #pragma once
 #include "Action.h"
+#include <string>
+using namespace std;
 
-class Load :
+
+class Load_Action:
 	public Action
 {
-
+	string file_name;
 public:
-	Load(ApplicationManager* pApp);
-	virtual ~Load(void);
+	Load_Action(ApplicationManager* pApp);
+	virtual ~Load_Action(void);
 	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
 
