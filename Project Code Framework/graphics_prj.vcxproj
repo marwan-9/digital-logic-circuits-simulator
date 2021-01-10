@@ -130,11 +130,16 @@
     <ClCompile Include="Actions\AddANDgate3.cpp" />
     <ClCompile Include="Actions\AddBufferGate.cpp" />
     <ClCompile Include="Actions\AddInverterGate.cpp" />
+    <ClCompile Include="Actions\AddLED.cpp" />
     <ClCompile Include="Actions\AddNANDgate2.cpp" />
     <ClCompile Include="Actions\AddNORgate3.cpp" />
     <ClCompile Include="Actions\AddORgate2.cpp" />
     <ClCompile Include="Actions\AddSwitch.cpp" />
     <ClCompile Include="Actions\AddXOR2Gate.cpp" />
+    <ClCompile Include="Actions\Copy.cpp" />
+    <ClCompile Include="Actions\Cut.cpp" />
+    <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Select.cpp" />
     <ClCompile Include="AddLabel.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -179,6 +184,7 @@
     <ClCompile Include="Components\Gate.cpp" />
     <ClCompile Include="Components\InputPin.cpp" />
     <ClCompile Include="Components\Inverter.cpp" />
+    <ClCompile Include="Components\LED.cpp" />
     <ClCompile Include="Components\NAND2.cpp" />
     <ClCompile Include="Components\NOR3.cpp" />
     <ClCompile Include="Components\OR2.cpp" />
@@ -186,7 +192,9 @@
     <ClCompile Include="Components\Pin.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Components\Switch.cpp" />
+    <ClCompile Include="Components\XNOR2.cpp" />
     <ClCompile Include="Components\XOR2.cpp" />
+    <ClCompile Include="Components\XOR3.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="main.cpp" />
@@ -197,11 +205,17 @@
     <ClInclude Include="Actions\AddANDgate3.h" />
     <ClInclude Include="Actions\AddBufferGate.h" />
     <ClInclude Include="Actions\AddInverterGate.h" />
+    <ClInclude Include="Actions\AddLED.h" />
     <ClInclude Include="Actions\AddNANDgate2.h" />
     <ClInclude Include="Actions\AddNORgate3.h" />
     <ClInclude Include="Actions\AddORgate2.h" />
     <ClInclude Include="Actions\AddSwitch.h" />
+    <ClInclude Include="Actions\AddXNORgate2.h" />
     <ClInclude Include="Actions\AddXOR2Gate.h" />
+    <ClInclude Include="Actions\Copy.h" />
+    <ClInclude Include="Actions\Cut.h" />
+    <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Select.h" />
     <ClInclude Include="AddLabel.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
@@ -231,6 +245,7 @@
     <ClInclude Include="Components\Gate.h" />
     <ClInclude Include="Components\InputPin.h" />
     <ClInclude Include="Components\Inverter.h" />
+    <ClInclude Include="Components\LED.h" />
     <ClInclude Include="Components\NAND2.h" />
     <ClInclude Include="Components\NOR3.h" />
     <ClInclude Include="Components\OR2.h" />
@@ -238,12 +253,13 @@
     <ClInclude Include="Components\Pin.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Components\Switch.h" />
+    <ClInclude Include="Components\XNOR2.h" />
     <ClInclude Include="Components\XOR2.h" />
+    <ClInclude Include="Components\XOR3.h" />
     <ClInclude Include="Defs.H" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
-    <ClInclude Include="EditSwitch.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -21,6 +21,7 @@ void AND3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawAND3(m_GfxInfo);
+	
 }
 
 //returns status of outputpin
@@ -44,4 +45,12 @@ int AND3::GetInputPinStatus(int n)
 void AND3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+Component* AND3::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new AND3(temp, AND3_FANOUT);
+	return Copied;
 }

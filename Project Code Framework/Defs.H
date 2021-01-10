@@ -20,7 +20,7 @@ enum ActionType
 	ADD_NOR_GATE_3,		//Add 3-input NOR gate
 	ADD_XOR_GATE_3,		//Add 3-input XOR gate
 	ADD_CONNECTION,		//Add Wire Connection
-
+	//ahmed
 	ADD_Label,			//Add Label to a Component, a Connection
 	EDIT_Label,			//Edit Label of a Component, a Connection
 

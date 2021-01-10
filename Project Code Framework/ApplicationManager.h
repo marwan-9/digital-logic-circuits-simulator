@@ -20,6 +20,10 @@ private:
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 
+	Component* CopiedItem; //A pointer to the Copied Item
+	bool CutOrCopy;  //true->Copy // false->Cut
+
+
 public:	
 	ApplicationManager(); //constructor
 
@@ -38,6 +42,15 @@ public:
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 
+	////////////////////////////////////////////////////////////////////////
+	void setCopied(Component* Cop);
+	Component* getCopied();
+	void DeleteCopy();
+	Component* getCompList();
+	bool getcpyStatus();
+	void setcpyStatus(bool set);
+	void deleteGate(Component* ToDelete);
+	////////////////////////////////////////////////////////////////////////
 	void SetSelected(Component*); //set selected pointer
 
 	Component* GetSelected();  //return selected pointer

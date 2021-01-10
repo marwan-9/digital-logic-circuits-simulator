@@ -31,6 +31,10 @@ void Connection::Draw(Output* pOut)
 	pOut->DrawConnection(m_GfxInfo);
 }
 
+void Connection::DrawFrame(Output* pOut)
+{
+}
+
 int Connection::GetOutPinStatus()	//returns status of outputpin if LED, return -1
 {
 	return DstPin->getStatus();
@@ -45,4 +49,9 @@ int Connection::GetInputPinStatus(int n)	//returns status of Inputpin # n if SWI
 void Connection::setInputPinStatus(int n, STATUS s)
 {
 	SrcPin->setStatus(s);
+}
+
+Component* Connection::Copy()
+{
+	return NULL;
 }

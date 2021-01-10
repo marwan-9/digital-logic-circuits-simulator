@@ -38,6 +38,7 @@ window* Output::CreateWind(int wd, int h, int x, int y) const
 {
 	return new window(wd, h, x, y);
 }
+
 //////////////////////////////////////////////////////////////////////////////////
 void Output::ChangeTitle(string Title) const
 {
@@ -153,6 +154,12 @@ void Output::CreateSimulationToolBar() const
 		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, UI.height, UI.MenuItemWidth, UI.ToolBarHeight);
 
 
+}
+
+void Output::DrawSquare(GraphicsInfo r_GfxInfo) const
+{
+	pWind->SetPen(RED, 3);
+	pWind->DrawRectangle(r_GfxInfo.x1 - 2 , r_GfxInfo.y1 - 2 , r_GfxInfo.x2 + 2, r_GfxInfo.y2 + 2);
 }
 
 //======================================================================================//
@@ -362,21 +369,7 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	//pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-/*
-void Output::DrawConnectionbrk(GraphicsInfo r_GfxInfo, bool selected) const
-{
-	//TODO: Add code to draw connection
-	string GateImage;
-	if (selected)	//use image in the highlighted case
-		GateImage = "Images\\Gates\\Broken_Conn_Hi.jpg";
-	else
-		GateImage = "Images\\Gates\\Broken_Conn.jpg";
 
-	//Draw AND2 Gate at Gfx_Info (1st corner)
-	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
-	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
-}
-*/
 
 
 Output::~Output()

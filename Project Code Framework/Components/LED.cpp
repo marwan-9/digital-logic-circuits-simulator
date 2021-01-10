@@ -20,6 +20,10 @@ void LED::Draw(Output* pOut)
 	
 	
 }
+void LED::DrawFrame(Output* pOut)
+{
+	pOut->DrawSquare(m_GfxInfo);
+}
 int LED::GetOutPinStatus()	
 {
 	return -1;
@@ -34,5 +38,10 @@ void LED::setInputPinStatus(int n, STATUS s)
 {
 	IfSelected = false;
 	m_InputPin.setStatus(s);
+}
+
+Component* LED::Copy()
+{
+	return nullptr;
 }
 

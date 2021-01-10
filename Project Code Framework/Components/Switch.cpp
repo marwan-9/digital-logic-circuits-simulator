@@ -14,6 +14,11 @@ void Switch::Draw(Output* pOut)
 	pOut->DrawSwitch(m_GfxInfo);
 }
 
+void Switch::DrawFrame(Output* pOut)
+{
+	pOut->DrawSquare(m_GfxInfo);
+}
+
 int Switch::GetOutPinStatus()
 {
 	return m_OutputPin.getStatus();
@@ -27,4 +32,11 @@ int Switch::GetInputPinStatus(int n)
 void Switch::setInputPinStatus(int n, STATUS s)
 {
 
+}
+Component* Switch::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new Switch(temp, Switch_FANOUT);
+	return Copied;
 }
