@@ -9,10 +9,10 @@
 #include "Actions/AddANDgate3.h"
 #include "Actions/AddNANDgate2.h"
 #include "Actions/AddNORgate3.h"
-#include "Actions/AddNORgate2.h"
 #include "Actions/AddXORgate3.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions\Select.h"
+//#include "Actions/AddNORgate2.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -54,7 +54,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-			pAct = new AddNORgate2(this);
+		//	pAct = new AddNORgate2(this);
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
@@ -176,6 +176,9 @@ void ApplicationManager::UpdateInterface()
 void ApplicationManager::SetSelected(Component* sel)
 {
 	selected = sel;
+	string str=GetInput()->GetSrting(GetOutput(),  " hey bro  ", " ");
+	sel->setlabel(str);
+
 }
 ////////////////////////////////////////////////////////////////////
 Input* ApplicationManager::GetInput()

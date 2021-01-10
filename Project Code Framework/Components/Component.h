@@ -24,9 +24,11 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
 
-	void SetIfSelected(bool q);
-	bool GetIfSelected();
-
+	void SetIfSelected(bool q) ;
+	bool GetIfSelected() ; //AHMED
+	void setlabel(string str) ;
+	string getlabel() ;
+	//virtual void EDITLABEL() = 0 ;
 	Component();	
 	
 	//Destructor must be virtual

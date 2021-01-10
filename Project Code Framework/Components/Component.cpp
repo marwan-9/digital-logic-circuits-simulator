@@ -4,6 +4,10 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 {
 	m_GfxInfo = r_GfxInfo;	
 }
+void Component::setlabel(string str) {
+	m_Label = str;
+	//m_Label= pIn->GetSrting(pOut, str2, "");
+}
 
 bool Component::Inside(int x, int y)
 {
