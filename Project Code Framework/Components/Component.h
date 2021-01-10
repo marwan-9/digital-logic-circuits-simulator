@@ -28,6 +28,9 @@ public:
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
 	
+	// Each Component should save and load itself
+	// virtual void Save() = 0; 
+	// virtual void Load() = 0;
 
 	void SetIfSelected(bool q);
 	bool GetIfSelected();

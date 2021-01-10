@@ -16,6 +16,8 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
+#include "Actions/Save.h"
+#include "Actions/Load.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -127,10 +129,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Paste(this);
 			break;
 		case SAVE:
-			//TODO: Create Action here
+			pAct = new Save(this);
 			break;
 		case LOAD:
-			//TODO: Create Action here
+			pAct = new Load(this);
 			break;
 		case UNDO:
 			//TODO: Create Action here
