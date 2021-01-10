@@ -19,7 +19,7 @@ void Save_Action::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("Saving a the circuit");
+	pOut->PrintMsg("Saving the circuit");
 
 	file_name = pIn->GetSrting(pOut, "Enter the name of the file: ");
 
