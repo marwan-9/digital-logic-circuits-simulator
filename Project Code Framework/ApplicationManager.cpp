@@ -186,10 +186,10 @@ void ApplicationManager::UpdateInterface()
 }
 
 ////////////////////////////////////////////////////////////////////
-void ApplicationManager::SetSelected(Component* sel)
-{
-	selected = sel;
-} 
+//void ApplicationManager::SetSelected(Component* sel)
+//{
+//	selected = sel;
+//} 
 
 
 
@@ -227,7 +227,8 @@ void settlabel(Component *tobelabeled) {
 }
 
 string givelabel() {
-
+	string s = "fff";
+	return s;
 }
 Component* ApplicationManager::getCompList()
 {

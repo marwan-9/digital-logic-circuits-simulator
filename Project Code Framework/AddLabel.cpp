@@ -1,6 +1,9 @@
 
 #include "AddLabel.h"
+#include "ApplicationManager.h"
+#include "Components\Gate.h"
 
+/*
 #include "Copy.h"
 #include "..\Components\AND2.h"
 #include "..\ApplicationManager.h"
@@ -13,6 +16,7 @@
 #include "..\Components\Inverter.h"
 #include "..\Components\Switch.h"
 #include "..\Components\XOR2.h"
+*/
 //Not all are included
 
 AddLabel::AddLabel(ApplicationManager* pApp) :Action(pApp)
@@ -29,7 +33,7 @@ void AddLabel::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	//Print Action Message
-	pOut->PrintMsg("Click to add label to a component");
+	pOut->PrintMsg("please select the componenet to be labeled ");
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
@@ -45,11 +49,16 @@ void AddLabel::Execute()
 	Input* pIn = pManager->GetInput();
 
 	ReadActionParameters();
-	selected = pManager->GetSelected(); //EL MAFROOD getselected(); !!!!!
-	torename = 0 ;
-	string str2 = "yeeeeeeeeees";
-	selected->setlabel(pIn->GetSrting(pOut, str2, ""));
+	sselected = pManager->GetSelected(); //EL MAFROOD getselected(); !!!!!
+	//ttorename = 0 ;
+	if (sselected!=NULL)
+	{
+		string str2 = "enter label to the component : ";
+		sselected->setlabel(pIn->GetSrting(pOut, str2, ""));
+	}
+
 	//lw fee 7aga ma3molaha copy ttms77 mn el memory
+/*
 	if (pManager->getCopied() != 0)
 	{
 		pManager->DeleteCopy();
@@ -61,9 +70,9 @@ void AddLabel::Execute()
 		//TODO: Copy Labell
 	}
 
-
-	pManager->setCopied(Copied);
-	pManager->setcpyStatus(true); //COPY NOT CUT
+	*/
+	//pManager->setC(Copied);
+	//pManager->setcpyStatus(true); //COPY NOT CUT
 
 }
 
@@ -73,6 +82,7 @@ void AddLabel::Undo()
 void AddLabel::Redo()
 {}
 ////////////////
+/*
 #include "AddLabel.h"
 #include "ApplicationManager.h"
 AddLabel::AddLabel(ApplicationManager* pApp) :Action(pApp)
@@ -135,3 +145,4 @@ void AddLabel::Undo()
 void AddLabel::Redo()
 {}
 
+*/
