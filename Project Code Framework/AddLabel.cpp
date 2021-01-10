@@ -38,9 +38,6 @@ void AddLabel::ReadActionParameters()
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 
-	//Clear Status Bar
-	pOut->ClearStatusBar();
-
 }
 
 void AddLabel::Execute()
@@ -49,31 +46,14 @@ void AddLabel::Execute()
 	Input* pIn = pManager->GetInput();
 
 	ReadActionParameters();
-	sselected = pManager->GetSelected(); //EL MAFROOD getselected(); !!!!!
+	Selected = pManager->GetSelected(); 
 	//ttorename = 0 ;
-	if (sselected!=NULL)
+	if (Selected!=NULL)
 	{
 		string str2 = "enter label to the component : ";
-		sselected->setlabel(pIn->GetSrting(pOut, str2, ""));
+		Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
 	}
-
-	//lw fee 7aga ma3molaha copy ttms77 mn el memory
-/*
-	if (pManager->getCopied() != 0)
-	{
-		pManager->DeleteCopy();
-	}
-
-	if (torename != NULL && pManager->getCopied() == NULL)
-	{
-		Copied = ToCopy->Copy();
-		//TODO: Copy Labell
-	}
-
-	*/
-	//pManager->setC(Copied);
-	//pManager->setcpyStatus(true); //COPY NOT CUT
-
+	pOut->ClearStatusBar();
 }
 
 void AddLabel::Undo()

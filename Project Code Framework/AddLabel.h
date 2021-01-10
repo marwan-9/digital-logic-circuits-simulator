@@ -6,7 +6,7 @@ private:
 	//Parameters for rectangular area to be occupied by the gate
 	int Cx, Cy;	//Center point of the gate
 	int x1, y1, x2, y2 ;	//Two corners of the rectangluar area
-	Component * sselected; //ahmed
+	Component * Selected; //ahmed
 	Component * ttorename; //ahmed
 public:
 	AddLabel(ApplicationManager* pApp);
