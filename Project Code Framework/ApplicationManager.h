@@ -57,8 +57,8 @@ public:
 
 	Component* GetClickedComponent(int x, int y); //returns selected component
 
-
-
+	string givelabel(); //ahmed
+	void settlabel();//ahmed
 	//destructor
 	~ApplicationManager();
 };

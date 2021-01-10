@@ -186,13 +186,10 @@ void ApplicationManager::UpdateInterface()
 }
 
 ////////////////////////////////////////////////////////////////////
-//void ApplicationManager::SetSelected(Component* sel)
-//{
-//	selected = sel;
-/*	string str=GetInput()->GetSrting(GetOutput(),  " hey bro  ", " ");
-	sel->setlabel(str);
-
-} */
+void ApplicationManager::SetSelected(Component* sel)
+{
+	selected = sel;
+} 
 
 
 
@@ -225,6 +222,13 @@ void ApplicationManager::DeleteCopy()
 	CopiedItem = NULL;
 }
 
+void settlabel(Component *tobelabeled) {
+
+}
+
+string givelabel() {
+
+}
 Component* ApplicationManager::getCompList()
 {
 	return CompList[0];
@@ -257,6 +261,7 @@ void ApplicationManager::SetSelected(Component* sel)
 	selected = sel;
 	if (selected != NULL)
 		selected->DrawFrame(OutputInterface);
+	//sel->setlabel()
 }
 
 
