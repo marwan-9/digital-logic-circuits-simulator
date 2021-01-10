@@ -51,3 +51,9 @@ Component* NAND2::Copy()
 	Component* Copied = new NAND2(temp, NAND2_FANOUT);
 	return Copied;
 }
+
+void NAND2::Save(std::ofstream& stream, int ID)
+{
+	stream << ComponentType::NAND2 << " " << ID << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+}

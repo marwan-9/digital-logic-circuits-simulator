@@ -20,5 +20,7 @@ public:
 	virtual void setInputPinStatus(int n, STATUS s);
 	virtual Component* Copy();
 
+	virtual void Save(std::ofstream& stream, int ID);
+
 
 };

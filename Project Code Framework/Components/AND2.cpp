@@ -55,3 +55,9 @@ Component* AND2::Copy()
 	Component* Copied = new AND2(temp, AND2_FANOUT);
 	return Copied;
 }
+
+void AND2::Save(std::ofstream& stream, int ID)
+{
+	stream << ComponentType::AND2 << " " << ID << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+}

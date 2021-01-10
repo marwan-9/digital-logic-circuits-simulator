@@ -61,3 +61,9 @@ void XOR3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
 }
+
+void XOR3::Save(std::ofstream& stream, int ID)
+{
+	stream << ComponentType::XOR3 << " " << ID << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+}

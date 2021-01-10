@@ -40,3 +40,9 @@ Component* Switch::Copy()
 	Component* Copied = new Switch(temp, Switch_FANOUT);
 	return Copied;
 }
+
+void Switch::Save(std::ofstream& stream, int ID)
+{
+	stream << ComponentType::SWITCH << " " << ID << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+}

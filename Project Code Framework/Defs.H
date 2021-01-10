@@ -69,7 +69,24 @@ enum  MODE	//Modes of operation
 	SIMULATION
 };
 
+enum ComponentType {
+	SWITCH,
+	LED,
 
+	BUFFER,
+	INVERTER,
+
+	AND2,
+	OR2,
+	NAND2,
+	NOR2,
+	XOR2,
+	XNOR2,
+
+	AND3,
+	NOR3,
+	XOR3
+};
 enum DsgnMenuItem //The items of the design menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu

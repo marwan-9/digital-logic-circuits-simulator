@@ -55,3 +55,9 @@ Component* XOR2::Copy()
 	Component* Copied = new XOR2(temp, XOR2_FANOUT);
 	return Copied;
 }
+
+void XOR2::Save(std::ofstream& stream, int ID)
+{
+	stream << ComponentType::XOR2 << " " << ID << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+}

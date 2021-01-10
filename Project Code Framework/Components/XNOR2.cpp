@@ -53,3 +53,9 @@ void XNOR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
 }
+
+void XNOR2::Save(std::ofstream& stream, int ID)
+{
+	stream << ComponentType::XNOR2 << " " << ID << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+}
