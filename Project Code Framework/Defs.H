@@ -20,7 +20,7 @@ enum ActionType
 	ADD_NOR_GATE_3,		//Add 3-input NOR gate
 	ADD_XOR_GATE_3,		//Add 3-input XOR gate
 	ADD_CONNECTION,		//Add Wire Connection
-
+	//ahmed
 	ADD_Label,			//Add Label to a Component, a Connection
 	EDIT_Label,			//Edit Label of a Component, a Connection
 
@@ -130,7 +130,14 @@ enum FANOUT
 {
 	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
 	OR2_FANOUT = 5,		//Default fan out of 2-input OR gate
-	Switch_FANOUT = 10 
+	Switch_FANOUT = 10,
+	INV_FANOUT = 5,
+	BUFF_FANOUT = 5,
+	XOR2_FANOUT =5,
+	AND3_FANOUT = 5,		//Default fan out of 3-input AND gate
+	NAND2_FANOUT = 5,		//Default fan out of 2-input NAND gate
+	NOR3_FANOUT = 5		//Default fan out of 3-input NOR gate
+
 };
 
 //A structure to contain drawing parameters for each component

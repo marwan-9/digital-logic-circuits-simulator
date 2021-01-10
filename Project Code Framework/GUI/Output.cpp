@@ -38,6 +38,7 @@ window* Output::CreateWind(int wd, int h, int x, int y) const
 {
 	return new window(wd, h, x, y);
 }
+
 //////////////////////////////////////////////////////////////////////////////////
 void Output::ChangeTitle(string Title) const
 {
@@ -153,6 +154,12 @@ void Output::CreateSimulationToolBar() const
 		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, UI.height, UI.MenuItemWidth, UI.ToolBarHeight);
 
 
+}
+
+void Output::DrawSquare(GraphicsInfo r_GfxInfo) const
+{
+	pWind->SetPen(RED, 3);
+	pWind->DrawRectangle(r_GfxInfo.x1 - 2 , r_GfxInfo.y1 - 2 , r_GfxInfo.x2 + 2, r_GfxInfo.y2 + 2);
 }
 
 //======================================================================================//

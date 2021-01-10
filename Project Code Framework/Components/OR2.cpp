@@ -13,10 +13,10 @@ void OR2::Operate()
 {
 	//caclulate the output status as the ORing of the two input pins
 	int output = m_InputPins[0].getStatus() + m_InputPins[1].getStatus();
-	if (output >= 1) {
+	if (output >= 1) 
 		m_OutputPin.setStatus(HIGH);
-	}
-	m_OutputPin.setStatus(LOW);
+	else
+		m_OutputPin.setStatus(LOW);
 }
 
 
@@ -47,3 +47,10 @@ void OR2::setInputPinStatus(int n, STATUS s)
 	m_InputPins[n - 1].setStatus(s);
 }
 
+Component* OR2::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new OR2(temp, OR2_FANOUT);
+	return Copied;
+}

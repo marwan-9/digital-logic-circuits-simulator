@@ -20,6 +20,7 @@ public:
 
 	window* CreateWind(int wd, int h, int x, int y) const; //Creates user interface window
 
+	void DrawSquare(GraphicsInfo r_GfxInfo) const;
 	
 	// Draws 2-input AND gate
 	void DrawAND2(GraphicsInfo r_GfxInfo, bool selected = false) const;

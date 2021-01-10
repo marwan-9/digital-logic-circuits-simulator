@@ -2,11 +2,25 @@
 #include "Actions\AddANDgate2.h"
 #include "Actions/AddORgate2.h"
 #include "Actions/AddSwitch.h"
-
+#include "Actions/AddInverterGate.h"
+#include "Actions/AddBufferGate.h"
+#include "Actions/AddXOR2Gate.h"
+#include "Actions/AddANDgate3.h"
+#include "Actions/AddNANDgate2.h"
+#include "Actions/AddNORgate3.h"
+#include "Actions\Paste.h"
+#include "Actions\copy.h"
+#include "Actions\cut.h"
+#include "AddLabel.h"
+#include "Actions/Select.h"
+#include "Actions/AddLED.h"
+#include "Actions/AddXNORgate2.h"
+#include "Actions/AddXORgate3.h"
 
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
+
 
 	for(int i=0; i<MaxCompCount; i++)
 		CompList[i] = NULL;
@@ -14,6 +28,8 @@ ApplicationManager::ApplicationManager()
 	//Creates the Input / Output Objects & Initialize the GUI
 	OutputInterface = new Output();
 	InputInterface = OutputInterface->CreateInput();
+	CopiedItem = NULL;
+
 }
 ////////////////////////////////////////////////////////////////////
 void ApplicationManager::AddComponent(Component* pComp)
@@ -41,44 +57,47 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddORgate2(this);
 			break;
 		case ADD_NAND_GATE_2:
-			//TODO: Create Action here
+			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-			//TODO: Create Action here
+			// pAct = new AddNORgate2(this);
 			break;
 		case ADD_XOR_GATE_2:
-			//TODO: Create Action here
+			pAct = new AddXOR2Gate(this);
 			break;
 		case ADD_XNOR_GATE_2:
-			//TODO: Create Action here
+			// pAct = new AddXNORgate2(this);
 			break;
 		case ADD_AND_GATE_3:
-			//TODO: Create Action here
+			pAct = new AddANDgate3(this);
 			break;
 		case ADD_NOR_GATE_3:
-			//TODO: Create Action here
+			pAct = new AddNORgate3(this);
 			break;
 		case ADD_XOR_GATE_3:
-			//TODO: Create Action here
+			// pAct = new AddXORgate3(this);
 			break;
 		case ADD_Switch:
 			pAct = new AddSwitch(this);
 			break;
 		case ADD_LED:
-			//TODO: Create Action here
+			pAct = new AddLED(this);
+			break;
 		case ADD_Buff:
-			//TODO: Create Action here
+			pAct = new AddBufferGate(this);
 			break;
 		case ADD_INV:
-			//TODO: Create Action here
+			pAct = new AddInverterGate(this);
 			break;
 		case ADD_CONNECTION:
 			//TODO: Create Action here
 			break;
 		case ADD_Label:
+			pAct = new AddLabel(this);
+
 			//TODO: Create Action here
 			break;
-		case EDIT_Label:
+		//case EDIT_Label:
 			//TODO: Create Action here
 			break;
 		case Create_TruthTable:
@@ -90,7 +109,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case Probe:
 			//TODO: Create Action here
 		case SELECT:
-			//TODO: Create Action here
+			pAct = new Select(this);
 			break;
 		case DEL:
 			//TODO: Create Action here
@@ -99,13 +118,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case COPY:
-			//TODO: Create Action here
+			pAct = new Copy(this);
 			break;
 		case CUT:
-			//TODO: Create Action here
+			pAct = new Cut(this);
 			break;
 		case PASTE:
-			//TODO: Create Action here
+			pAct = new Paste(this);
 			break;
 		case SAVE:
 			//TODO: Create Action here
@@ -176,6 +195,73 @@ Output* ApplicationManager::GetOutput()
 }
 
 ////////////////////////////////////////////////////////////////////
+void ApplicationManager::setCopied(Component* Cop)
+{
+	CopiedItem = Cop;
+
+}
+Component* ApplicationManager::getCopied()
+{
+	return CopiedItem;
+}
+
+void ApplicationManager::DeleteCopy()
+{
+	delete CopiedItem;
+	CopiedItem = NULL;
+}
+
+Component* ApplicationManager::getCompList()
+{
+	return CompList[0];
+}
+
+bool ApplicationManager::getcpyStatus() {
+	return CutOrCopy;
+}
+
+void ApplicationManager::setcpyStatus(bool set) {
+	CutOrCopy=set;
+}
+
+void ApplicationManager::deleteGate(Component* ToDelete)
+{
+	for (int i = 0; i < CompCount; i++)
+	{
+		if (CompList[i] == ToDelete)
+		{
+			delete CompList[i];
+			CompList[i] = CompList[CompCount - 1];
+			CompList[CompCount - 1] = NULL;
+			CompCount--;
+			return;
+		}
+	}
+}
+void ApplicationManager::SetSelected(Component* sel)
+{
+	selected = sel;
+	if (selected != NULL)
+		selected->DrawFrame(OutputInterface);
+}
+
+
+Component* ApplicationManager::GetSelected()
+{
+	if (selected != NULL)
+		return selected;
+	return NULL;
+}
+
+
+Component* ApplicationManager::GetClickedComponent(int x, int y)
+{
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->Inside(x, y))
+			return CompList[i];
+	}
+	return NULL;
+}
 
 ApplicationManager::~ApplicationManager()
 {
@@ -183,5 +269,4 @@ ApplicationManager::~ApplicationManager()
 		delete CompList[i];
 	delete OutputInterface;
 	delete InputInterface;
-	
 }

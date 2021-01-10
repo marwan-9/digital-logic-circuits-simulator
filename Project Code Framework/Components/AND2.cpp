@@ -13,10 +13,10 @@ void AND2::Operate()
 {
 	//caclulate the output status as the ANDing of the two input pins
 	int output = m_InputPins[0].getStatus() * m_InputPins[1].getStatus();
-	if (output) {
+	if (output) 
 		m_OutputPin.setStatus(HIGH);
-	}
-	m_OutputPin.setStatus(LOW);
+	else
+		m_OutputPin.setStatus(LOW);
 }
 
 
@@ -45,4 +45,13 @@ int AND2::GetInputPinStatus(int n)
 void AND2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
+}
+
+//Copy Function Implemenation// 
+Component* AND2::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new AND2(temp, AND2_FANOUT);
+	return Copied;
 }
