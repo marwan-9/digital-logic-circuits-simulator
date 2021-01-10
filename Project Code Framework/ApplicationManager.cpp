@@ -268,7 +268,7 @@ void ApplicationManager::Save(std::ofstream& stream)
 {
 	stream << CompCount << endl;
 	for (int i = 0; i < CompCount; i++)
-		CompList[i]->Save(stream);
+		CompList[i]->Save(stream, i);
 	stream << "Connections" << endl;
 	// TODO: Connections Part
 	stream << "-1";
@@ -278,7 +278,7 @@ void ApplicationManager::Load(std::ifstream& stream)
 {
 	stream >> CompCount;
 	for (int i = 0; i < CompCount; i++)
-		CompList[i]->Load(stream);
+		 // CompList[i]->Load(stream);
 
 	// ignoring the "Connections" line
 	stream.ignore(100, '\n');
