@@ -3,6 +3,9 @@
 
 #include "..\Defs.h"
 #include "..\GUI\Output.h"
+#include <fstream>
+
+
 
 //Base class for classes Gate, Switch, and LED.
 class Component
@@ -27,13 +30,18 @@ public:
 	virtual void SetGraphics(int x, int y, bool type = false);
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
-	
-	// Each Component should save and load itself
-	// virtual void Save() = 0; 
-	// virtual void Load() = 0;
 
 	void SetIfSelected(bool q);
 	bool GetIfSelected();
+
+
+	// Each Component should save and load itself in this format
+	// Comp_1_Type Comp_ID Label Component_Graphics_info
+	virtual void Save(std::ofstream&, int ID) = 0;
+	// virtual void Load(std::ifstream&) = 0;
+
+	string GetLabel();
+
 
 	Component();	
 	

@@ -34,6 +34,11 @@ bool Component:: GetIfSelected()
 	return IfSelected;
 }
 
+string Component::GetLabel()
+{
+	return m_Label;
+}
+
 Component::Component()
 {
 	IfSelected=false;
