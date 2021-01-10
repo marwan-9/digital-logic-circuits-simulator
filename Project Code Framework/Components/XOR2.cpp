@@ -56,8 +56,8 @@ Component* XOR2::Copy()
 	return Copied;
 }
 
-void XOR2::Save(std::ofstream& stream, int ID)
+void XOR2::Save(std::ofstream& stream)
 {
-	stream << ComponentType::COMP_XOR2 << " " << ID << " " << this->GetLabel()
+	stream << ComponentType::COMP_XOR2 << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
 }

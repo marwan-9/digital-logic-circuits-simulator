@@ -2,7 +2,8 @@
 
 Component::Component(const GraphicsInfo &r_GfxInfo)
 {
-	m_GfxInfo = r_GfxInfo;	
+	m_GfxInfo = r_GfxInfo;
+	ID = 0;
 }
 
 void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
@@ -37,6 +38,16 @@ bool Component:: GetIfSelected()
 string Component::GetLabel()
 {
 	return m_Label;
+}
+
+void Component::SetID(int r_ID)
+{
+	m_ID = r_ID;
+}
+
+int Component::GetID()
+{
+	return m_ID;
 }
 
 Component::Component()

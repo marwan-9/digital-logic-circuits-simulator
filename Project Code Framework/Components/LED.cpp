@@ -45,9 +45,9 @@ Component* LED::Copy()
 	return nullptr;
 }
 
-void LED::Save(std::ofstream& stream, int ID)
+void LED::Save(std::ofstream& stream)
 {
-	stream << ComponentType::COMP_LED << " " << ID << " " << this->GetLabel()
+	stream << ComponentType::COMP_LED << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
 }
 

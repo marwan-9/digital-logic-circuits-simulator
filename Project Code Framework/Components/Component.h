@@ -13,8 +13,9 @@ class Component
 private:
 	string m_Label;
 protected:
-	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
-	bool IfSelected; //if component is selected or not
+	GraphicsInfo m_GfxInfo;	// The parameters required to draw a component
+	int m_ID;					// unique ID for each component
+	bool IfSelected;        // if component is selected or not
 public:
 	Component(const GraphicsInfo &r_GfxInfo);
 	virtual void Operate() = 0;	//Calculates the output according to the inputs
@@ -37,11 +38,12 @@ public:
 
 	// Each Component should save and load itself in this format
 	// Comp_1_Type Comp_ID Label Component_Graphics_info
-	virtual void Save(std::ofstream&, int ID) = 0;
-	// virtual void Load(std::ifstream&) = 0;
+	virtual void Save(std::ofstream&) = 0;
+	virtual Component* Load(std::ifstream&) = 0;
 
 	string GetLabel();
-
+	void SetID(int r_ID);
+	int GetID();
 
 	Component();	
 	
