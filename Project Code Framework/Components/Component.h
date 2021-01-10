@@ -16,6 +16,7 @@ public:
 	Component(const GraphicsInfo &r_GfxInfo);
 	virtual void Operate() = 0;	//Calculates the output according to the inputs
 	virtual void Draw(Output* pOut) = 0;	//for each component to Draw itself
+	virtual void DrawFrame(Output* pOut) = 0;
 	
 	virtual bool Inside(int x, int y);
 

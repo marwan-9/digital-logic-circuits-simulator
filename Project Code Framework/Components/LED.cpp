@@ -20,6 +20,10 @@ void LED::Draw(Output* pOut)
 	
 	
 }
+void LED::DrawFrame(Output* pOut)
+{
+	pOut->DrawSquare(m_GfxInfo);
+}
 int LED::GetOutPinStatus()	
 {
 	return -1;

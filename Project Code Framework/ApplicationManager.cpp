@@ -241,20 +241,25 @@ void ApplicationManager::deleteGate(Component* ToDelete)
 void ApplicationManager::SetSelected(Component* sel)
 {
 	selected = sel;
+	if (selected != NULL)
+		selected->DrawFrame(OutputInterface);
 }
 
 
 Component* ApplicationManager::GetSelected()
 {
-	return selected;
+	if (selected != NULL)
+		return selected;
+	return NULL;
 }
 
 
 Component* ApplicationManager::GetClickedComponent(int x, int y)
 {
-	for (int i = 0; i < CompCount; i++)
+	for (int i = 0; i < CompCount; i++) {
 		if (CompList[i]->Inside(x, y))
 			return CompList[i];
+	}
 	return NULL;
 }
 

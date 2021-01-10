@@ -31,6 +31,10 @@ void Connection::Draw(Output* pOut)
 	pOut->DrawConnection(m_GfxInfo);
 }
 
+void Connection::DrawFrame(Output* pOut)
+{
+}
+
 int Connection::GetOutPinStatus()	//returns status of outputpin if LED, return -1
 {
 	return DstPin->getStatus();

@@ -26,17 +26,19 @@ void Select::ReadActionParameters()
 void Select::Execute()
 {
 	ReadActionParameters();
-	if (point != NULL)
-	if (pManager->GetSelected() == NULL)
-	{
-		pManager->SetSelected(point);
-		point->SetIfSelected(true);
+	if (point != NULL) {
+		if (pManager->GetSelected() == NULL)
+		{
+			pManager->SetSelected(point);
+			point->SetIfSelected(true);
+		}
+		else
+		{
+			// point->SetIfSelected(false);
+			pManager->SetSelected(NULL);
+		}
 	}
-	else
-	{
-		pManager->SetSelected(NULL);
-		point->SetIfSelected(false);
-	}
+	
 }
 
 //To undo this action 

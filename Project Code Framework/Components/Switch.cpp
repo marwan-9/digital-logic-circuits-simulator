@@ -14,6 +14,11 @@ void Switch::Draw(Output* pOut)
 	pOut->DrawSwitch(m_GfxInfo);
 }
 
+void Switch::DrawFrame(Output* pOut)
+{
+	pOut->DrawSquare(m_GfxInfo);
+}
+
 int Switch::GetOutPinStatus()
 {
 	return m_OutputPin.getStatus();
