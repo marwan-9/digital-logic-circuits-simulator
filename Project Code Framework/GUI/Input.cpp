@@ -42,7 +42,7 @@ string Input::GetSrting(Output* pOut, string msg, string str) const {
 		}
 
 	} while (c != ESCAPE && c != ENTER);
-
+	//pOut->ClearStatusBar();//ahmed //add it?
 	return s;
 }
 

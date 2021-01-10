@@ -10,6 +10,10 @@ void LED::Operate()
 
 }
 
+int LED::GetNumOfInputs() {
+	return 1; //check this ahmed
+}
+
 void LED::Draw(Output* pOut)
 {
 

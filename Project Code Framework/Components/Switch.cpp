@@ -14,6 +14,10 @@ void Switch::Draw(Output* pOut)
 	pOut->DrawSwitch(m_GfxInfo);
 }
 
+int Switch::GetNumOfInputs() {
+	return 0; //check this ahmed
+}
+
 void Switch::DrawFrame(Output* pOut)
 {
 	pOut->DrawSquare(m_GfxInfo);

@@ -19,6 +19,6 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s);
 	virtual Component* Copy();
-
+int	GetNumOfInputs();//ahmed
 
 };

@@ -16,7 +16,7 @@ class ApplicationManager
 private:
 	int CompCount;		//Actual number of Components
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
-	Component* selected; //poiter to selected component
+	Component* selected=NULL; //poiter to selected component
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 
@@ -29,7 +29,7 @@ public:
 
 	//Reads the required action from the user and returns the corresponding action type
 	ActionType GetUserAction();
-	
+
 	//Creates an action and executes it
 	void ExecuteAction(ActionType);
 	
@@ -58,6 +58,8 @@ public:
 	Component* GetClickedComponent(int x, int y); //returns selected component
 
 	string givelabel(); //ahmed
+	Component** getcomplist(); //ahmed
+	int GetCompCount(); //ahmed
 	void settlabel();//ahmed
 	//destructor
 	~ApplicationManager();

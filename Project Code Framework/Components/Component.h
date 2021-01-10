@@ -28,7 +28,7 @@ public:
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
 	
-
+	virtual int GetNumOfInputs()=0; //add me ahmed here
 	void SetIfSelected(bool q) ;
 	bool GetIfSelected() ; //AHMED
 	void setlabel(string str) ;

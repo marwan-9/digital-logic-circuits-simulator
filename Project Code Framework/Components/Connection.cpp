@@ -31,6 +31,11 @@ void Connection::Draw(Output* pOut)
 	pOut->DrawConnection(m_GfxInfo);
 }
 
+int Connection::GetNumOfInputs() {
+	return 0; //check this
+}
+
+
 void Connection::DrawFrame(Output* pOut)
 {
 }

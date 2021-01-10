@@ -21,8 +21,6 @@
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
-
-
 	for(int i=0; i<MaxCompCount; i++)
 		CompList[i] = NULL;
 
@@ -36,6 +34,13 @@ ApplicationManager::ApplicationManager()
 void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
+}
+Component** ApplicationManager::getcomplist()
+{ //ahmed
+	return CompList;
+}
+int  ApplicationManager::GetCompCount() {
+	return CompCount;
 }
 ////////////////////////////////////////////////////////////////////
 
@@ -223,11 +228,12 @@ void ApplicationManager::DeleteCopy()
 }
 
 void settlabel(Component *tobelabeled) {
-
+	//delete this
 }
 
 string givelabel() {
 	string s = "fff";
+	//delete me
 	return s;
 }
 Component* ApplicationManager::getCompList()

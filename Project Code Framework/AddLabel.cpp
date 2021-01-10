@@ -36,24 +36,23 @@ void AddLabel::ReadActionParameters()
 	pOut->PrintMsg("please select the componenet to be labeled ");
 
 	//Wait for User Input
-	pIn->GetPointClicked(Cx, Cy);
-
+	pIn->GetPointClicked(Cx, Cy); //here
+	//pOut->ClearStatusBar();//here
 }
 
 void AddLabel::Execute()
 {
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
 
 	ReadActionParameters();
-	Selected = pManager->GetSelected(); 
-	//ttorename = 0 ;
+	Selected = pManager->GetClickedComponent(Cx,Cy);
 	if (Selected!=NULL)
 	{
+		Output* pOut = pManager->GetOutput();
+		Input* pIn = pManager->GetInput();
 		string str2 = "enter label to the component : ";
 		Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
+		pOut->ClearStatusBar();
 	}
-	pOut->ClearStatusBar();
 }
 
 void AddLabel::Undo()
@@ -63,6 +62,22 @@ void AddLabel::Redo()
 {}
 ////////////////
 /*
+* 
+* 
+* 
+* ReadActionParameters();
+	Selected = pManager->GetSelectedCx,Cy);
+	if (Selected!=NULL)
+	{
+		Output* pOut = pManager->GetOutput();
+		Input* pIn = pManager->GetInput();
+		string str2 = "enter label to the component : ";
+		Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
+		pOut->ClearStatusBar();
+	}
+}
+
+////////////////
 #include "AddLabel.h"
 #include "ApplicationManager.h"
 AddLabel::AddLabel(ApplicationManager* pApp) :Action(pApp)
