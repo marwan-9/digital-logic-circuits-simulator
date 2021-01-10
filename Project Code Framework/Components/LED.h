@@ -17,7 +17,7 @@ public:
 	virtual int GetInputPinStatus(int n);
 
 	virtual void setInputPinStatus(int n, STATUS s);
-
+	virtual Component* Copy();
 
 
 };

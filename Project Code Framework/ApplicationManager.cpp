@@ -13,7 +13,9 @@
 #include "Actions\cut.h"
 #include "AddLabel.h"
 #include "Actions/Select.h"
-
+#include "Actions/AddLED.h"
+#include "Actions/AddXNORgate2.h"
+#include "Actions/AddXORgate3.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -58,12 +60,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-			//TODO: Create Action here
+			// pAct = new AddNORgate2(this);
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
 			break;
 		case ADD_XNOR_GATE_2:
+			// pAct = new AddXNORgate2(this);
 			break;
 		case ADD_AND_GATE_3:
 			pAct = new AddANDgate3(this);
@@ -72,13 +75,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNORgate3(this);
 			break;
 		case ADD_XOR_GATE_3:
-			//TODO: Create Action here
+			// pAct = new AddXORgate3(this);
 			break;
 		case ADD_Switch:
 			pAct = new AddSwitch(this);
 			break;
 		case ADD_LED:
-			//TODO: Create Action here
+			pAct = new AddLED(this);
 			break;
 		case ADD_Buff:
 			pAct = new AddBufferGate(this);

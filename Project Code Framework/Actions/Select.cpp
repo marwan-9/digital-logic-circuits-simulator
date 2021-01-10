@@ -26,7 +26,7 @@ void Select::ReadActionParameters()
 void Select::Execute()
 {
 	ReadActionParameters();
-	if(point != NULL)
+	if (point != NULL)
 	if (pManager->GetSelected() == NULL)
 	{
 		pManager->SetSelected(point);

@@ -36,3 +36,8 @@ void LED::setInputPinStatus(int n, STATUS s)
 	m_InputPin.setStatus(s);
 }
 
+Component* LED::Copy()
+{
+	return nullptr;
+}
+
