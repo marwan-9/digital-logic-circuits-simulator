@@ -62,7 +62,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_NOR_GATE_2:
 
-			 pAct = new AddNORgate2(this);
+			// pAct = new AddNORgate2(this);
 
 			break;
 		case ADD_XOR_GATE_2:
