@@ -54,6 +54,6 @@ Component* AND3::Copy()
 
 void AND3::Save(std::ofstream& stream, int ID)
 {
-	stream << ComponentType::AND3 << " " << ID << " " << this->GetLabel()
+	stream << ComponentType::COMP_AND3 << " " << ID << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
 }

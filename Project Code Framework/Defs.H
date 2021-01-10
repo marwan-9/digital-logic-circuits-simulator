@@ -70,22 +70,22 @@ enum  MODE	//Modes of operation
 };
 
 enum ComponentType {
-	SWITCH,
-	LED,
+	COMP_SWITCH,
+	COMP_LED,
 
-	BUFFER,
-	INVERTER,
+	COMP_BUFFER,
+	COMP_INVERTER,
 
-	AND2,
-	OR2,
-	NAND2,
-	NOR2,
-	XOR2,
-	XNOR2,
+	COMP_AND2,
+	COMP_OR2,
+	COMP_NAND2,
+	COMP_NOR2,
+	COMP_XOR2,
+	COMP_XNOR2,
 
-	AND3,
-	NOR3,
-	XOR3
+	COMP_AND3,
+	COMP_NOR3,
+	COMP_XOR3
 };
 enum DsgnMenuItem //The items of the design menu (you should add more items)
 {
