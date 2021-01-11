@@ -67,6 +67,7 @@ public:
 	void SelectComponent(int = -1); // To set is_selected for the target = true
 	Component* GetLastSelected(); // Get the last component has been
 
+	Component** getcomplist(); //ahmed
 
 	//destructor
 	~ApplicationManager();

@@ -17,6 +17,7 @@
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
 #include "Actions/AddConnection.h"
+#include "simulation.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -99,12 +100,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_Label:
 			pAct = new AddLabel(this);
-
-			//TODO: Create Action here
 			break;
 		//case EDIT_Label:
 			//TODO: Create Action here
-			break;
+			//break;
 		case Create_TruthTable:
 			//TODO: Create Action here
 			break;
@@ -147,7 +146,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case SIM_MODE:
-			//TODO: Create Action here
+			pAct = new simulation(this); //edit me
 			break;
 		case HOVER:
 			//TODO: Create Action here
@@ -220,6 +219,10 @@ void ApplicationManager::DeleteCopy()
 Component* ApplicationManager::getCompList()
 {
 	return CompList[0];
+}
+Component** ApplicationManager::getcomplist()	
+{ //ahmed	
+	return CompList;	
 }
 
 bool ApplicationManager::getcpyStatus() {

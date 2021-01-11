@@ -45,6 +45,12 @@ public:
 	// Checks if there are available Input Pins to be connected or not, if yes it returns the number of the available pin, otherwise it returns -1
 	virtual int GetPinNumber();
 
+	virtual int GetNumOfInputs() = 0; //add me ahmed here	
+	void setlabel(string str);
+	string getlabel();
+	//virtual void EDITLABEL() = 0 ;	
+
+
 	Component();	
 	
 	//Destructor must be virtual

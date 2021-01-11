@@ -59,6 +59,7 @@ enum ActionType
 //Possible Status for the pin
 enum STATUS
 {
+	UNASSIGNED,
 	LOW,
 	HIGH
 };
