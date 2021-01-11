@@ -272,11 +272,22 @@ Component* ApplicationManager::GetClickedComponent(int x, int y)
 
 void ApplicationManager::Save(std::ofstream& stream)
 {
-	stream << CompCount << endl;
-	for (int i = 0; i < CompCount; i++)
-		CompList[i]->Save(stream);
+	// Number of Components without the connections
+	int ActualCompCount = 0;
+	for (int i = 0; i < CompCount; i++) {
+		if (!dynamic_cast<Connection*>(CompList[i]))
+			ActualCompCount++;
+	}
+	stream << ActualCompCount << endl;
+	for (int i = 0; i < CompCount; i++) {
+		if(!dynamic_cast<Connection*>(CompList[i]))
+			CompList[i]->Save(stream);
+	}
 	stream << "Connections" << endl;
-	// TODO: Connections Part
+	for (int i = 0; i < CompCount; i++) {
+		if (dynamic_cast<Connection*>(CompList[i]))
+			CompList[i]->Save(stream);
+	}
 	stream << "-1";
 }
 

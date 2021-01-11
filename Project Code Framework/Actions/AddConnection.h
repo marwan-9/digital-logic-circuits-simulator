@@ -9,6 +9,8 @@ private:
 	OutputPin* SrcPin;	//The Source pin of this connection (an output pin of certain Component)
 	InputPin* DstPin;	//The Destination pin of this connection (an input pin of certain Component)
 	int		PinNumber;		//The Input pin to which this connection is linked
+	Component* SrcCmpnt;	//Connection source component
+	Component* DstCmpnt;	//Connection Destination component
 	// Center points of the source and destination pins
 	int sCx, sCy, dCx, dCy;
 public:

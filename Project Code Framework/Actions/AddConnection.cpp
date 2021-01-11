@@ -5,6 +5,8 @@ AddConnection::AddConnection(ApplicationManager* pApp):Action(pApp)
 {
 	SrcPin = NULL;
 	DstPin = NULL;
+	SrcCmpnt = NULL;
+	DstCmpnt = NULL;
 	PinNumber = 0;
 }
 
@@ -23,26 +25,24 @@ void AddConnection::ReadActionParameters()
 		return;
 	}
 
-	Component* SrcCmpt = NULL;
-	Component* DstCmpt = NULL;
 
 	do {
 		pOut->PrintMsg("Wire two components: Click on the source pin");
 		pIn->GetPointClicked(sCx, sCy);
-		SrcCmpt = pManager->GetClickedComponent(sCx, sCy);
-	} while (SrcCmpt == NULL);
+		SrcCmpnt = pManager->GetClickedComponent(sCx, sCy);
+	} while (SrcCmpnt == NULL);
 
-	SrcPin = SrcCmpt->GetOutputPin();
+	SrcPin = SrcCmpnt->GetOutputPin();
 
 	
 	do {
 		pOut->PrintMsg("Wire two components: Click on the destination pin");
 		pIn->GetPointClicked(dCx, dCy);
-		DstCmpt = pManager->GetClickedComponent(dCx, dCy);
-	} while (DstCmpt == NULL);
+		DstCmpnt = pManager->GetClickedComponent(dCx, dCy);
+	} while (DstCmpnt == NULL);
 
-	PinNumber = DstCmpt->GetPinNumber();
-	DstPin = DstCmpt->GetInputPins(PinNumber);
+	PinNumber = DstCmpnt->GetPinNumber();
+	DstPin = DstCmpnt->GetInputPins(PinNumber);
 	
 	pOut->ClearStatusBar();
 
@@ -64,7 +64,7 @@ void AddConnection::Execute()
 	GInfo.y2 = dCy;
 
 
-	Connection* pA = new Connection(GInfo, SrcPin, DstPin);
+	Connection* pA = new Connection(GInfo, SrcPin, DstPin, SrcCmpnt, DstCmpnt, PinNumber);
 	if (pA->CanConnect())
 		pManager->AddComponent(pA);
 	else

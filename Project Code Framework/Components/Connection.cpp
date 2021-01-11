@@ -1,9 +1,13 @@
 #include "Connection.h"
 
-Connection::Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin):Component(r_GfxInfo)	
+Connection::Connection(const GraphicsInfo& r_GfxInfo, OutputPin* pSrcPin, InputPin* pDstPin, Component* pS, Component* pD, int Pin)
+	:Component(r_GfxInfo)
 {
 	SrcPin = pSrcPin;
 	DstPin = pDstPin;
+	SrcCmpnt = pS;
+	DstCmpnt = pD;
+	PinNumber = Pin;
 }
 void Connection::setSourcePin(OutputPin *pSrcPin)
 {	SrcPin = pSrcPin;	}
@@ -17,6 +21,11 @@ void Connection::setDestPin(InputPin *pDstPin)
 
 InputPin* Connection::getDestPin()
 {	return DstPin;	}
+
+int Connection::GetPinNumber()
+{
+	return 0;
+}
 
 
 void Connection::Operate()
@@ -55,8 +64,9 @@ Component* Connection::Copy()
 	return NULL;
 }
 
-void Connection::Save(std::ofstream&)
+void Connection::Save(std::ofstream& stream)
 {
+	stream << SrcCmpnt->GetID() << " " << DstCmpnt->GetID() << " " << PinNumber << endl;
 }
 
 bool Connection::CanConnect()
