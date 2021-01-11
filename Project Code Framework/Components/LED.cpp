@@ -45,3 +45,8 @@ Component* LED::Copy()
 	return nullptr;
 }
 
+InputPin* LED::GetInputPins(int index)
+{
+	return &m_InputPin;
+}
+

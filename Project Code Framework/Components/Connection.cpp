@@ -1,7 +1,6 @@
 #include "Connection.h"
 
 Connection::Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin):Component(r_GfxInfo)	
-	
 {
 	SrcPin = pSrcPin;
 	DstPin = pDstPin;
@@ -54,4 +53,17 @@ void Connection::setInputPinStatus(int n, STATUS s)
 Component* Connection::Copy()
 {
 	return NULL;
+}
+
+bool Connection::CanConnect()
+{
+	if (SrcPin && DstPin) {
+		if (!DstPin->getConnected()) {
+			if (SrcPin->ConnectTo(this)) {
+				DstPin->setConnected(1);
+				return true;
+			}
+		}
+	}
+	return false;
 }

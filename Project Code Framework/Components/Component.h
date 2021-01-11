@@ -3,6 +3,9 @@
 
 #include "..\Defs.h"
 #include "..\GUI\Output.h"
+#include "InputPin.h"
+#include "OutputPin.h"
+
 
 //Base class for classes Gate, Switch, and LED.
 class Component
@@ -31,6 +34,12 @@ public:
 
 	void SetIfSelected(bool q);
 	bool GetIfSelected();
+
+	virtual OutputPin* GetOutputPin();
+	virtual InputPin* GetInputPins(int index);
+
+	// Checks if there are available Input Pins to be connected or not, if yes it returns the number of the available pin, otherwise it returns -1
+	virtual int GetPinNumber();
 
 	Component();	
 	

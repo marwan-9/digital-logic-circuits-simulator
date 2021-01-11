@@ -40,3 +40,8 @@ Component* Switch::Copy()
 	Component* Copied = new Switch(temp, Switch_FANOUT);
 	return Copied;
 }
+
+OutputPin* Switch::GetOutputPin()
+{
+	return &m_OutputPin;
+}
