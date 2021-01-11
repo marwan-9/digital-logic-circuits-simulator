@@ -3,6 +3,9 @@
 
 #include "..\Defs.h"
 #include "..\GUI\Output.h"
+#include "InputPin.h"
+#include "OutputPin.h"
+
 
 //Base class for classes Gate, Switch, and LED.
 class Component
@@ -28,12 +31,21 @@ public:
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
 	
+
 	virtual int GetNumOfInputs()=0; //add me ahmed here
-	void SetIfSelected(bool q) ;
-	bool GetIfSelected() ; //AHMED
 	void setlabel(string str) ;
 	string getlabel() ;
 	//virtual void EDITLABEL() = 0 ;
+
+	void SetIfSelected(bool q);
+	bool GetIfSelected();
+
+	virtual OutputPin* GetOutputPin();
+	virtual InputPin* GetInputPins(int index);
+
+	// Checks if there are available Input Pins to be connected or not, if yes it returns the number of the available pin, otherwise it returns -1
+	virtual int GetPinNumber();
+
 	Component();	
 	
 	//Destructor must be virtual

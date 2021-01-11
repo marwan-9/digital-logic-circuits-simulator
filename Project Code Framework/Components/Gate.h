@@ -23,7 +23,13 @@ public:
 	Gate(int r_Inputs, int r_FanOut);
 	virtual void DrawFrame(Output* pOut);
 	virtual Component* Copy()=0;
-	virtual int GetNumOfInputs();
+
+	virtual int GetNumOfInputs(); // Ahmed
+
+	virtual OutputPin* GetOutputPin();
+	virtual InputPin* GetInputPins(int i);
+
+	virtual int GetPinNumber();
 };
 
 #endif

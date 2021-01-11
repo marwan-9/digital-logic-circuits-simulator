@@ -40,18 +40,21 @@ void Copy::ReadActionParameters()
 void Copy::Execute()
 {
 	ReadActionParameters();
-	ToCopy = pManager->getCompList(); //EL MAFROOD getselected(); !!!!!
+	ToCopy = pManager->GetClickedComponent(Cx,Cy); //EL MAFROOD getselected(); !!!!!
+	if (ToCopy == NULL) return;
 	Copied = NULL;
-
+	
 	//lw fee 7aga ma3molaha copy ttms77 mn el memory
 	if (pManager->getCopied() != NULL)
 	{
 		pManager->DeleteCopy();
 	}
-
+	
 	if (ToCopy != NULL && pManager->getCopied() == NULL)
 	{
+		
 		Copied = ToCopy->Copy();
+		
 		//TODO: Copy Labell
 	}
 
