@@ -34,7 +34,7 @@ public:
 	void ExecuteAction(ActionType);
 	
 	void UpdateInterface();	//Redraws all the drawing window
-	void UpdateL_Interface();
+	void UpdateL_Interface(int& Cx, int& Cy);
 
 	//Gets a pointer to Input / Output Object
 	Output* GetOutput();

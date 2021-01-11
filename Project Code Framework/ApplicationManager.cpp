@@ -204,7 +204,7 @@ void ApplicationManager::UpdateInterface()
 	}
 }
 ////////////////
-void ApplicationManager::UpdateL_Interface()
+void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
 {
 	OutputInterface->ClearDrawingArea();
 	for (int i = 0; i < CompCount; i++) {
@@ -214,7 +214,7 @@ void ApplicationManager::UpdateL_Interface()
 		string label = CompList[i]->getlabel();
 		const char* cpText = label.c_str();
 		InputInterface->GetPosition(Cx, Cy);
-		OutputInterface->Printstringg(Cx - 2, Cy - 4, cpText);
+		OutputInterface->Printstringg(Cx - 1, Cy - 1, cpText);
 		////
 	}
 }

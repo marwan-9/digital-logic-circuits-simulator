@@ -46,6 +46,6 @@ public:
 	void DrawConnection(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	
 	void PrintMsg(string msg) const;	//Print a message on Status bar
-	void Printstringg(const int x, const int y, const char* cpText);	//Print a message on Status bar
+	void Printstringg(const int& x, const int &y, const char* cpText);	//Print a message on Status bar
 	~Output();
 };
