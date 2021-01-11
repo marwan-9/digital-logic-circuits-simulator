@@ -3,6 +3,9 @@
 
 AddConnection::AddConnection(ApplicationManager* pApp):Action(pApp)
 {
+	SrcPin = NULL;
+	DstPin = NULL;
+	PinNumber = 0;
 }
 
 AddConnection::~AddConnection(void)
@@ -15,15 +18,33 @@ void AddConnection::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 
-	pOut->PrintMsg("Wire two components: Click on the source pin");
-	pIn->GetPointClicked(sCx, sCy);
-	pOut->ClearStatusBar();
+	if (pManager->GetCompCount() < 2) {
+		pOut->PrintMsg("too few components to be wired.");
+		return;
+	}
 
-	pOut->PrintMsg("Wire two components: Click on the destination pin");
-	pIn->GetPointClicked(dCx, dCy);
-	pOut->ClearStatusBar();
+	Component* SrcCmpt = NULL;
+	Component* DstCmpt = NULL;
 
-	// Waiting for the Select Action to be implemented
+	do {
+		pOut->PrintMsg("Wire two components: Click on the source pin");
+		pIn->GetPointClicked(sCx, sCy);
+		SrcCmpt = pManager->GetClickedComponent(sCx, sCy);
+	} while (SrcCmpt == NULL);
+
+	SrcPin = SrcCmpt->GetOutputPin();
+
+	
+	do {
+		pOut->PrintMsg("Wire two components: Click on the destination pin");
+		pIn->GetPointClicked(dCx, dCy);
+		DstCmpt = pManager->GetClickedComponent(dCx, dCy);
+	} while (DstCmpt == NULL);
+
+	PinNumber = DstCmpt->GetPinNumber();
+	DstPin = DstCmpt->GetInputPins(PinNumber);
+	
+	pOut->ClearStatusBar();
 
 }
 
@@ -33,12 +54,25 @@ void AddConnection::Execute()
 	//Get Center points of source and destination pins
 	ReadActionParameters();
 
-	// Waiting for the Select Action to be implemented
-	//TODO: get a pointer to the source and destination pins
+	Output* pOut = pManager->GetOutput();
+	
+	GraphicsInfo GInfo; 
+
+	GInfo.x1 = sCx;
+	GInfo.y1 = sCy;
+	GInfo.x2 = dCx;
+	GInfo.y2 = dCy;
 
 
-	// Connection* pA = new Connection(GInfo, SrcPin, DstPin);
-	// pManager->AddComponent(pA);
+	Connection* pA = new Connection(GInfo, SrcPin, DstPin);
+	if (pA->CanConnect())
+		pManager->AddComponent(pA);
+	else
+	{
+		delete pA;
+		pOut->PrintMsg("Couldn't Connect these two components");
+	}
+		
 }
 
 void AddConnection::Undo()
