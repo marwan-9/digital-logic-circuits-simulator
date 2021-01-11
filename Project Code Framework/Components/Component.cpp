@@ -50,3 +50,8 @@ Component::Component()
 Component::~Component()
 {}
 
+void Component::drawname(Output* pOut, int Cx, int Cy, const char* cpText) {
+
+	pOut->Printstringg(Cx, Cy, cpText);
+
+}

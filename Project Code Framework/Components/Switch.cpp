@@ -6,7 +6,7 @@ Switch::Switch(const GraphicsInfo& r_GfxInfo, int r_FanOut):m_OutputPin(r_FanOut
 
 void Switch::Operate()
 {
-
+	m_OutputPin.setStatus(HIGH);
 }
 
 void Switch::Draw(Output* pOut)

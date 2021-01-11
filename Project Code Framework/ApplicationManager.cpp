@@ -1,4 +1,5 @@
 #include "ApplicationManager.h"
+//#include "ApplicationManager.h"
 #include "Actions\AddANDgate2.h"
 #include "Actions/AddORgate2.h"
 #include "Actions/AddSwitch.h"
@@ -189,11 +190,17 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 }
 ////////////////////////////////////////////////////////////////////
 
-void ApplicationManager::UpdateInterface()
+void ApplicationManager::UpdateInterface(int Cx,int Cy)
 {
 	//OutputInterface->ClearDrawingArea();
 	for (int i = 0; i < CompCount; i++) {
 		CompList[i]->Draw(OutputInterface);
+		//CompList[i]->Draw(OutputInterface);
+		string label = CompList[i]->getlabel();
+		const char* cpText = label.c_str();
+		//InputInterface->GetPointClicked(Cx, Cy);
+		CompList[i]->drawname(OutputInterface, Cx - 1, Cy - 1, cpText);
+
 		/*
 		int Cx, Cy;
 		string label = CompList[i]->getlabel();
@@ -204,9 +211,9 @@ void ApplicationManager::UpdateInterface()
 	}
 }
 ////////////////
-void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
-{
-	OutputInterface->ClearDrawingArea();
+//void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
+//{
+	/*OutputInterface->ClearDrawingArea();
 	for (int i = 0; i < CompCount; i++) {
 		CompList[i]->Draw(OutputInterface);
 		////
@@ -216,8 +223,9 @@ void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
 		InputInterface->GetPosition(Cx, Cy);
 		OutputInterface->Printstringg(Cx - 1, Cy - 1, cpText);
 		////
-	}
-}
+		*/
+	//}
+//}
 
 
 ////////////////////////////////////////////////////////////////////

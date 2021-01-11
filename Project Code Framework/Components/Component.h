@@ -36,6 +36,8 @@ public:
 	//virtual void EDITLABEL() = 0 ;
 	Component();	
 	
+	void drawname(Output* pOut, int Cx, int Cy, const char* cpText); //virtual
+
 	//Destructor must be virtual
 	virtual ~Component();
 };

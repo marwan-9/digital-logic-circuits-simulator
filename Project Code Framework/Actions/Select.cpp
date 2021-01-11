@@ -19,7 +19,6 @@ void Select::ReadActionParameters()
 	}
 	else
 		point = pManager->GetSelected();
-
 }
 
 //Execute action

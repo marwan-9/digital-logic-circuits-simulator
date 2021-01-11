@@ -19,6 +19,7 @@ void Gate::DrawFrame(Output* pOut)
 {
 	pOut->DrawSquare(m_GfxInfo);
 }
+
  int Gate::GetNumOfInputs() {
 	return m_Inputs;
 }

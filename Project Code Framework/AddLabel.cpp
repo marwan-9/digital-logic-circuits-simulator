@@ -51,7 +51,7 @@ void AddLabel::Execute()
 		
 		Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
 		//pOut->ClearDrawingArea();
-		pManager->UpdateL_Interface(Cx, Cy);
+		pManager->UpdateInterface(Cx,Cy);
 
 		/* 
 		string label = Selected->getlabel();

@@ -369,9 +369,10 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	//pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-void Output::Printstringg(const int iX=0 , const int iY=0 , const char* cpText=" ")	//Print a message on Status bar
+
+void Output::Printstringg(const int& iX , const int& iY , const char* cpText)	//Print a message on Status bar
 {
-	 
+	
 	pWind->DrawString(iX,iY,cpText);
 	
 }
