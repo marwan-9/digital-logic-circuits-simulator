@@ -4,6 +4,14 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 {
 	m_GfxInfo = r_GfxInfo;	
 }
+void Component::setlabel(string str) {
+	m_Label = str;
+	//m_Label= pIn->GetSrting(pOut, str2, "");
+}
+string Component::getlabel() {
+	return m_Label;
+}
+//int Component::GetNumOfInputs() = 0;//add me ahmed here
 
 void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
 {

@@ -16,13 +16,12 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
+#include "simulation.h"
 #include "Actions/AddConnection.h"
 
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
-
-
 	for(int i=0; i<MaxCompCount; i++)
 		CompList[i] = NULL;
 
@@ -37,6 +36,12 @@ void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
 }
+
+Component** ApplicationManager::getcomplist()
+{ //ahmed
+	return CompList;
+}
+
 int ApplicationManager::GetCompCount()
 {
 	return CompCount;
@@ -65,7 +70,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
+
 			// pAct = new AddNORgate2(this);
+
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
@@ -104,7 +111,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		//case EDIT_Label:
 			//TODO: Create Action here
-			break;
+			//break;
 		case Create_TruthTable:
 			//TODO: Create Action here
 			break;
@@ -145,9 +152,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case DSN_MODE:
 			//TODO: Create Action here
+			//pAct = new simulation(this); //edit me
 			break;
 		case SIM_MODE:
 			//TODO: Create Action here
+		    pAct = new simulation(this); //edit me
+
 			break;
 		case HOVER:
 			//TODO: Create Action here
@@ -163,6 +173,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SIM_TOOL:
 			//TODO: Create Action here
+			//pAct = new simulation(this); //edit me
+
 			break;
 		
 	
@@ -216,6 +228,15 @@ void ApplicationManager::DeleteCopy()
 	CopiedItem = NULL;
 }
 
+//void settlabel(Component *tobelabeled) {
+	//delete this
+//}
+
+//string givelabel() {
+	//string s = "fff";
+	//delete me
+	//return s;
+//}
 Component* ApplicationManager::getCompList()
 {
 	return CompList[0];
@@ -248,6 +269,7 @@ void ApplicationManager::SetSelected(Component* sel)
 	selected = sel;
 	if (selected != NULL)
 		selected->DrawFrame(OutputInterface);
+	//sel->setlabel()
 }
 
 

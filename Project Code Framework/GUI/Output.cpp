@@ -383,7 +383,12 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 		}
 	}
 }
-
+void Output::Printstringg(const int iX=0 , const int iY=0 , const char* cpText=" ")	//Print a message on Status bar
+{
+	 
+	pWind->DrawString(iX,iY,cpText);
+	
+}
 
 Output::~Output()
 {

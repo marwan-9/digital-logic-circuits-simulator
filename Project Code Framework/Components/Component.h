@@ -32,6 +32,11 @@ public:
 	virtual Component* Copy() = 0;  
 	
 
+	virtual int GetNumOfInputs()=0; //add me ahmed here
+	void setlabel(string str) ;
+	string getlabel() ;
+	//virtual void EDITLABEL() = 0 ;
+
 	void SetIfSelected(bool q);
 	bool GetIfSelected();
 

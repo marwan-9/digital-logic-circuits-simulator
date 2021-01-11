@@ -199,6 +199,7 @@
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h" />
@@ -262,6 +263,7 @@
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
+    <ClInclude Include="simulation.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

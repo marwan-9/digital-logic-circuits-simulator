@@ -5,7 +5,6 @@ AND3::AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 	m_GfxInfo = r_GfxInfo;
 }
 
-
 void AND3::Operate()
 {
 	int output = m_InputPins[0].getStatus() * m_InputPins[1].getStatus() * m_InputPins[2].getStatus();
@@ -31,7 +30,11 @@ int AND3::GetOutPinStatus()
 	return m_OutputPin.getStatus();
 }
 
-
+void EDITLABEL(Output* pOut, string msg, string str,INPUT pIn) {
+	//m_Label = pIn->GetSrting(pOut, msg, str);
+}
+//void setlabel(string str) { 
+//}
 //returns status of Inputpin #n
 int AND3::GetInputPinStatus(int n)
 {

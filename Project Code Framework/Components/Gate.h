@@ -24,6 +24,8 @@ public:
 	virtual void DrawFrame(Output* pOut);
 	virtual Component* Copy()=0;
 
+	virtual int GetNumOfInputs(); // Ahmed
+
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int i);
 
