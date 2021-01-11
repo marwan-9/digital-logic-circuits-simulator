@@ -58,9 +58,9 @@ Component* Connection::Copy()
 bool Connection::CanConnect()
 {
 	if (SrcPin && DstPin) {
-		if (!DstPin->getConnected()) {
+		if (DstPin->getStatus() == STATUS::UNASSIGNED) {
 			if (SrcPin->ConnectTo(this)) {
-				DstPin->setConnected(1);
+				DstPin->setStatus(LOW);
 				return true;
 			}
 		}

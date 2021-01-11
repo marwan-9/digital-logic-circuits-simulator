@@ -35,7 +35,7 @@ InputPin* Gate::GetInputPins(int i)
 int Gate::GetPinNumber()
 {
 	for (int i = 0; i < m_Inputs; i++) {
-		if (!m_InputPins[i].getConnected()) {
+		if (m_InputPins[i].getStatus() == STATUS::UNASSIGNED) {
 			return i;
 		}
 	}
