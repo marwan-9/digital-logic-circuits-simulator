@@ -60,9 +60,8 @@ public:
 
 	//string givelabel(); //ahmed
 	Component** getcomplist(); //ahmed
-	int GetCompCount(); //ahmed
 	//void settlabel();//ahmed
-	//destructor
+
 	~ApplicationManager();
 };
 
