@@ -215,6 +215,9 @@
     <ClCompile Include="Components\XOR3.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="simulation.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
     <ClCompile Include="Actions\Save_Action.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -398,6 +401,9 @@
     <ClInclude Include="Components\LED.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="simulation.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
     <ClInclude Include="Components\XNOR2.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -409,7 +415,7 @@
     </ClInclude>
     <ClInclude Include="Actions\Load_Action.h">
       <Filter>Actions</Filter>
-    </ClCompile>
+    </ClInclude>
     <ClInclude Include="Actions\AddConnection.h">
       <Filter>Actions</Filter>
     </ClInclude>
