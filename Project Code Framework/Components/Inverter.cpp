@@ -55,7 +55,7 @@ Component* Inverter::Copy()
 	return Copied;
 }
 
-void Inverter::Save(std::ofstream& stream, int ID)
+void Inverter::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_INVERTER << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;

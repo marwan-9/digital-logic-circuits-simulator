@@ -41,8 +41,7 @@ Component* Switch::Copy()
 	return Copied;
 }
 
-
-void Switch::Save(std::ofstream& stream, int ID)
+void Switch::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_SWITCH << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;

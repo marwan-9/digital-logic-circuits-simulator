@@ -41,7 +41,7 @@ public:
 	// Each Component should save and load itself in this format
 	// Comp_1_Type Comp_ID Label Component_Graphics_info
 	virtual void Save(std::ofstream&) = 0;
-	virtual Component* Load(std::ifstream&) = 0;
+	// virtual Component* Load(std::ifstream&) = 0;
 
 	string GetLabel();
 	void SetID(int r_ID);

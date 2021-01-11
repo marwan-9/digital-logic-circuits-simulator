@@ -55,6 +55,10 @@ Component* Connection::Copy()
 	return NULL;
 }
 
+void Connection::Save(std::ofstream&)
+{
+}
+
 bool Connection::CanConnect()
 {
 	if (SrcPin && DstPin) {

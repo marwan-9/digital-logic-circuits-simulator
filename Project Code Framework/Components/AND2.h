@@ -23,7 +23,7 @@ public:
 	virtual Component* Copy();
 
 	virtual void Save(std::ofstream& stream);
-	virtual Component* Load(std::ifstream&);
+	// virtual Component* Load(std::ifstream&);
 
 
 };

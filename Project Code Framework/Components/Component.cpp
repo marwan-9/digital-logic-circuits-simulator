@@ -3,7 +3,7 @@
 Component::Component(const GraphicsInfo &r_GfxInfo)
 {
 	m_GfxInfo = r_GfxInfo;
-	ID = 0;
+	m_ID = 0;
 }
 
 void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda

@@ -52,7 +52,7 @@ Component* NOR3::Copy()
 	return Copied;
 }
 
-void NOR3::Save(std::ofstream& stream, int ID)
+void NOR3::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_NOR3 << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
