@@ -50,11 +50,15 @@ void AddLabel::Execute()
 		string str2 = "enter label to the component : ";
 		
 		Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
+		//pOut->ClearDrawingArea();
+		pManager->UpdateL_Interface();
+
+		/* 
 		string label = Selected->getlabel();
 		const char* cpText= label.c_str(); 
 		pManager->UpdateInterface();
 	
-		pOut->Printstringg(Cx+7, Cy+7, cpText);
+		pOut->Printstringg(Cx-7, Cy-15, cpText); */
 		pOut->ClearStatusBar();
 		//	strcpy(cpText, str2.c_str()); 
 	}
