@@ -195,7 +195,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::UpdateInterface(int Cx,int Cy)
 {
-	//OutputInterface->ClearDrawingArea();
+	OutputInterface->ClearDrawingArea();
 	for (int i = 0; i < CompCount; i++) {
 		CompList[i]->Draw(OutputInterface);
 		//CompList[i]->Draw(OutputInterface);
