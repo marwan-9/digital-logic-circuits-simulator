@@ -34,6 +34,21 @@ bool Component:: GetIfSelected()
 	return IfSelected;
 }
 
+OutputPin* Component::GetOutputPin()
+{
+	return nullptr;
+}
+
+InputPin* Component::GetInputPins(int i)
+{
+	return nullptr;
+}
+
+int Component::GetPinNumber()
+{
+	return -1;
+}
+
 Component::Component()
 {
 	IfSelected=false;
