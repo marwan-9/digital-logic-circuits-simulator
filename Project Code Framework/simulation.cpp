@@ -1,30 +1,30 @@
 #pragma once
 #include "ApplicationManager.h"
 #include "simulation.h"
+//#include <string>
 simulation::simulation(ApplicationManager* pApp) : Action(pApp)
 {
 	point = NULL;
 }
 void simulation::ReadActionParameters()
 {
-	if (pManager->GetSelected() == NULL)
-	{
-		//Get a Pointer to the Input
-		Input* pIn = pManager->GetInput();
+	//Get a Pointer to the Input
 
-		//Wait for User Input
-		pIn->GetPosition(x, y);
+	Input* pIn = pManager->GetInput();
+	Output* pOut = pManager->GetOutput();	pOut->PrintMsg(" sivvvmulatioon11 ");
 
-		point = pManager->GetClickedComponent(x, y);
-	}
-	else
-		point = pManager->GetSelected();
+	pOut->CreateSimulationToolBar();
+	pOut->PrintMsg(" simulatioon22 ");
+	//Wait for User Input
+	pIn->GetPosition(x, y);
 
+	//Clear Status Bar
+	pOut->ClearStatusBar();
 }
-
 //Execute action
 void simulation::Execute()
 {
+	ReadActionParameters();
 int compcount = pManager->GetCompCount(); int c = 1; int numofin = 0; //ahmed
 	while (true) {
 		Component** comp = pManager->getcomplist();
@@ -41,8 +41,7 @@ int compcount = pManager->GetCompCount(); int c = 1; int numofin = 0; //ahmed
 				comp[i]->Operate();
 				comp[i]->GetOutPinStatus();
 			}
-				
-			
+	
 		}
 	}
 }

@@ -191,14 +191,6 @@ void ApplicationManager::UpdateInterface()
 }
 
 ////////////////////////////////////////////////////////////////////
-//void ApplicationManager::SetSelected(Component* sel)
-//{
-//	selected = sel;
-//} 
-
-
-
-////////////////////////////////////////////////////////////////////
 Input* ApplicationManager::GetInput()
 {
 	return InputInterface;
