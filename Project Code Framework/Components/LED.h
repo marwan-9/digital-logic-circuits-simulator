@@ -20,5 +20,9 @@ public:
 	virtual void setInputPinStatus(int n, STATUS s);
 	virtual Component* Copy();
 
+	bool Component::Connect(bool ConnectTo)
+	{
+		return false;
+	}
 
 };

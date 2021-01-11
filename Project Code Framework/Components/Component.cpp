@@ -3,6 +3,7 @@
 Component::Component(const GraphicsInfo &r_GfxInfo)
 {
 	m_GfxInfo = r_GfxInfo;	
+	UsedPins = 0;
 }
 
 void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
@@ -32,6 +33,14 @@ void Component::SetIfSelected(bool q)
 bool Component:: GetIfSelected()
 {
 	return IfSelected;
+}
+
+
+
+
+int Component::GetPinNumber()
+{
+	return UsedPins;
 }
 
 Component::Component()

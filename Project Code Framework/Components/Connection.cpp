@@ -1,29 +1,37 @@
 #include "Connection.h"
 
-Connection::Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin):Component(r_GfxInfo)	
-	
+Connection::Connection(const GraphicsInfo& r_GfxInfo, Component* pS, Component* pD, int Pin):Component(r_GfxInfo)
 {
-	SrcPin = pSrcPin;
-	DstPin = pDstPin;
+	SrcCmpnt = pS;
+	DstCmpnt = pD;
+	DstPin = pD->GetPinNumber();
 }
-void Connection::setSourcePin(OutputPin *pSrcPin)
-{	SrcPin = pSrcPin;	}
+void Connection::setSourcePin(Component* r_SrcCmpnt)
+{
+	SrcCmpnt = r_SrcCmpnt;
+}
 
-OutputPin* Connection::getSourcePin()
-{	return SrcPin;	}
+void Connection::setDestPin(Component* r_DstCmpnt)
+{
+	DstCmpnt = r_DstCmpnt;
+}
+
+Component* Connection::getSourcePin()
+{
+	return SrcCmpnt;
+}
 
 
-void Connection::setDestPin(InputPin *pDstPin)
-{	DstPin = pDstPin;	}
 
-InputPin* Connection::getDestPin()
-{	return DstPin;	}
+Component* Connection::getDestPin()
+{	return DstCmpnt;	}
 
 
 void Connection::Operate()
 {
 	//Status of connection destination pin = status of connection source pin
-	DstPin->setStatus((STATUS)SrcPin->getStatus());
+	// DstPin->setStatus((STATUS)SrcPin->getStatus());
+	DstCmpnt->setInputPinStatus(DstPin, (STATUS)SrcCmpnt->GetOutPinStatus());
 }
 
 void Connection::Draw(Output* pOut)
@@ -37,18 +45,18 @@ void Connection::DrawFrame(Output* pOut)
 
 int Connection::GetOutPinStatus()	//returns status of outputpin if LED, return -1
 {
-	return DstPin->getStatus();
+	return DstCmpnt->GetInputPinStatus(DstPin);
 }
 
 
 int Connection::GetInputPinStatus(int n)	//returns status of Inputpin # n if SWITCH, return -1
 {
-	return SrcPin->getStatus();	//n is ignored as connection has only one input pin (src pin)	
+	return SrcCmpnt->GetOutPinStatus();	//n is ignored as connection has only one input pin (src pin)	
 }
 
 void Connection::setInputPinStatus(int n, STATUS s)
 {
-	SrcPin->setStatus(s);
+	SrcCmpnt->setInputPinStatus(n, s);
 }
 
 Component* Connection::Copy()

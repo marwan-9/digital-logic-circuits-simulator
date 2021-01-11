@@ -6,6 +6,9 @@ class AddConnection :
     public Action
 {
 private:
+	Component* SrcCmpt;
+	Component* DstCmpt;
+	int DstPin;
 	// Center points of the source and destination pins
 	int sCx, sCy, dCx, dCy;
 public:

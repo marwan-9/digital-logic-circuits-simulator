@@ -12,6 +12,7 @@ private:
 protected:
 	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
 	bool IfSelected; //if component is selected or not
+	int UsedPins = 0;		// No. of used Pins
 public:
 	Component(const GraphicsInfo &r_GfxInfo);
 	virtual void Operate() = 0;	//Calculates the output according to the inputs
@@ -31,6 +32,11 @@ public:
 
 	void SetIfSelected(bool q);
 	bool GetIfSelected();
+
+	// Validates if I can connect this component or not
+	// parameters equal 1 if it wants to checks the inputs pins, 0 to check output fanout
+	virtual bool Connect(bool ConnectTo)=0;
+	int GetPinNumber();
 
 	Component();	
 	

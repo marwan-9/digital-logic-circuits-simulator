@@ -215,6 +215,9 @@
     <ClCompile Include="Components\XOR3.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\AddConnection.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -394,6 +397,9 @@
     </ClInclude>
     <ClInclude Include="Components\XOR3.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddConnection.h">
+      <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

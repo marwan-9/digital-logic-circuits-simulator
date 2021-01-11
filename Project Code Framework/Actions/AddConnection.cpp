@@ -3,6 +3,9 @@
 
 AddConnection::AddConnection(ApplicationManager* pApp):Action(pApp)
 {
+	SrcCmpt = NULL;
+	DstCmpt = NULL;
+	DstPin = 0;
 }
 
 AddConnection::~AddConnection(void)
@@ -17,13 +20,23 @@ void AddConnection::ReadActionParameters()
 
 	pOut->PrintMsg("Wire two components: Click on the source pin");
 	pIn->GetPointClicked(sCx, sCy);
-	pOut->ClearStatusBar();
+	SrcCmpt = pManager->GetClickedComponent(sCx, sCy);
+	while (SrcCmpt == NULL ) {
+		pOut->PrintMsg("Couldn't connect a component, try again!");
+		pIn->GetPointClicked(sCx, sCy);
+		SrcCmpt = pManager->GetClickedComponent(sCx, sCy);
+	}
+
 
 	pOut->PrintMsg("Wire two components: Click on the destination pin");
 	pIn->GetPointClicked(dCx, dCy);
+	DstCmpt = pManager->GetClickedComponent(dCx, dCy);
+	while (DstCmpt == NULL || !DstCmpt->Connect(1)) {
+		pOut->PrintMsg("Couldn't find a component, try again!");
+		pIn->GetPointClicked(sCx, sCy);
+		DstCmpt = pManager->GetClickedComponent(dCx, dCy);
+	}
 	pOut->ClearStatusBar();
-
-	// Waiting for the Select Action to be implemented
 
 }
 
@@ -33,12 +46,15 @@ void AddConnection::Execute()
 	//Get Center points of source and destination pins
 	ReadActionParameters();
 
-	// Waiting for the Select Action to be implemented
-	//TODO: get a pointer to the source and destination pins
+	GraphicsInfo GInfo; //Gfx info to be used to construct the Inverter gate
 
-
-	// Connection* pA = new Connection(GInfo, SrcPin, DstPin);
-	// pManager->AddComponent(pA);
+	GInfo.x1 = sCx;
+	GInfo.y1 = sCy;
+	GInfo.x2 = dCx;
+	GInfo.y2 = dCy;
+	
+	Connection* pA = new Connection(GInfo, SrcCmpt,DstCmpt, DstPin);
+	pManager->AddComponent(pA);
 }
 
 void AddConnection::Undo()
