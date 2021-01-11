@@ -16,12 +16,14 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
-#include "simulation.h"
 #include "Actions/AddConnection.h"
+#include "simulation.h"
 
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
+
+
 	for(int i=0; i<MaxCompCount; i++)
 		CompList[i] = NULL;
 
@@ -36,12 +38,6 @@ void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
 }
-
-Component** ApplicationManager::getcomplist()
-{ //ahmed
-	return CompList;
-}
-
 int ApplicationManager::GetCompCount()
 {
 	return CompCount;
@@ -70,9 +66,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-
 			// pAct = new AddNORgate2(this);
-
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
@@ -87,7 +81,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNORgate3(this);
 			break;
 		case ADD_XOR_GATE_3:
-			// pAct = new AddXORgate3(this);
+			//pAct = new AddXORgate3(this);
 			break;
 		case ADD_Switch:
 			pAct = new AddSwitch(this);
@@ -106,8 +100,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_Label:
 			pAct = new AddLabel(this);
-
-			//TODO: Create Action here
 			break;
 		//case EDIT_Label:
 			//TODO: Create Action here
@@ -152,12 +144,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case DSN_MODE:
 			//TODO: Create Action here
-			//pAct = new simulation(this); //edit me
 			break;
 		case SIM_MODE:
-			//TODO: Create Action here
-		    pAct = new simulation(this); //edit me
-
+			pAct = new simulation(this); //edit me
 			break;
 		case HOVER:
 			//TODO: Create Action here
@@ -173,8 +162,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SIM_TOOL:
 			//TODO: Create Action here
-			//pAct = new simulation(this); //edit me
-
 			break;
 		
 	
@@ -194,6 +181,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::UpdateInterface()
 {
+	OutputInterface->ClearDrawingArea();
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(OutputInterface);
 
@@ -228,18 +216,13 @@ void ApplicationManager::DeleteCopy()
 	CopiedItem = NULL;
 }
 
-//void settlabel(Component *tobelabeled) {
-	//delete this
-//}
-
-//string givelabel() {
-	//string s = "fff";
-	//delete me
-	//return s;
-//}
 Component* ApplicationManager::getCompList()
 {
 	return CompList[0];
+}
+Component** ApplicationManager::getcomplist()	
+{ //ahmed	
+	return CompList;	
 }
 
 bool ApplicationManager::getcpyStatus() {
@@ -269,7 +252,6 @@ void ApplicationManager::SetSelected(Component* sel)
 	selected = sel;
 	if (selected != NULL)
 		selected->DrawFrame(OutputInterface);
-	//sel->setlabel()
 }
 
 
@@ -289,7 +271,128 @@ Component* ApplicationManager::GetClickedComponent(int x, int y)
 	}
 	return NULL;
 }
+//////////////////////////////////////////////////////////////
+int ApplicationManager::WhichComp(COMPS& comptype)
+{
+	int x = 0, y = 0;
+	GetInput()->GetPointClicked(x, y); // To get the x, y coordinates of point clicked
+	int target = 0; // The default value
+	comptype = COMPS::ITM_GEN; // The default value of the component clicked is COMP_GENERAL
+	for (int i = 0; i < CompCount; i++) { // all components to se which component is selected
+		// To get a copy from the x1, y1, x2, y2 of each component
+		int x1 = CompList[i]->getGraphicsInfo().x1;
+		int y1 = CompList[i]->getGraphicsInfo().y1;
+		int x2 = CompList[i]->getGraphicsInfo().x2;
+		int y2 = CompList[i]->getGraphicsInfo().y2;
+		// compare clicked coordinates with coordinates of each component.
 
+		//check if the clicked is a connection
+		if (CompList[i]->getcomptype() == COMPS::ITM_CONN)
+		{
+			GraphicsInfo Area;
+			//generate area  and check if the click is inside it
+			Area.x1 = x1;
+			Area.y1 = y1 - 5;
+			Area.x2 = x1 + 20;
+			Area.y2 = y1 + 5;
+			if (Area.x1 <= x && x <= Area.x2 && Area.y1 <= y && y <= Area.y2) {
+				CompList[i]->SetIfSelected(true); // Set the is_select data member to true.
+				comptype = CompList[i]->getcomptype();
+				target = i;
+				break;
+			}
+
+			//area 2
+			Area.x1 = x1 + 15;
+			Area.y1 = y2 - 5;
+			Area.x2 = x2;
+			Area.y2 = y2 + 5;
+			if (Area.x1 <= x && x <= Area.x2 && Area.y1 <= y && y <= Area.y2) {
+				CompList[i]->SetIfSelected(true); // Set the is_select data member to true.
+				comptype = CompList[i]->getcomptype();
+				target = i;
+				break;
+			}
+
+
+
+			if (y1 > y2)
+			{
+				Area.x1 = x1 + 15;
+				Area.y1 = y2 - 5;
+				Area.x2 = x1 + 20;
+				Area.y2 = y1 + 5;
+
+
+			}
+			else
+			{
+				Area.x1 = x1 + 15;
+				Area.y1 = y1 - 5;
+				Area.x2 = x1 + 20;
+				Area.y2 = y2 + 5;
+
+			}
+			if (Area.x1 <= x && x <= Area.x2 && Area.y1 <= y && y <= Area.y2) {
+				CompList[i]->SetIfSelected(true); 
+				comptype = CompList[i]->getcomptype();
+				target = i;
+				break;
+			}
+
+
+
+
+
+
+		}
+		else if (x1 <= x && x <= x2 && y1 <= y && y <= y2) {
+			CompList[i]->SetIfSelected(true); 
+			comptype = CompList[i]->getcomptype();
+			target = i;
+			break;
+		}
+	}
+
+
+
+	return target; 
+}
+
+void ApplicationManager::SelectComponent(int target)
+{
+	CompList[target]->SetIfSelected(true); 
+}
+Component* ApplicationManager::GetLastSelected()
+{
+	return lastSelected;
+}
+
+void ApplicationManager::SetLastSelected(int target)
+{
+	if (target == -1)
+		lastSelected = nullptr;
+	else
+		lastSelected = CompList[target];
+}
+
+void ApplicationManager::DeselectExcept(int except)
+{
+	GetOutput()->PrintMsg(""); 
+	if (except == -1)
+		SetLastSelected(-1); 
+
+	
+	for (int i = 0; i < CompCount; i++)
+	{
+		if (i == except)
+			continue;
+		else
+			CompList[i]->SetIfSelected(false); 
+	}
+}
+
+/////////////////////////////////////////////////////////////
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)

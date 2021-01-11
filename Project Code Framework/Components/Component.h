@@ -28,14 +28,13 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
 	virtual void SetGraphics(int x, int y, bool type = false);
+	
+	virtual const GraphicsInfo getGraphicsInfo();
+	virtual COMPS getcomptype() const;
+	
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
 	
-
-	virtual int GetNumOfInputs()=0; //add me ahmed here
-	void setlabel(string str) ;
-	string getlabel() ;
-	//virtual void EDITLABEL() = 0 ;
 
 	void SetIfSelected(bool q);
 	bool GetIfSelected();
@@ -45,6 +44,12 @@ public:
 
 	// Checks if there are available Input Pins to be connected or not, if yes it returns the number of the available pin, otherwise it returns -1
 	virtual int GetPinNumber();
+
+	virtual int GetNumOfInputs() = 0; //add me ahmed here	
+	void setlabel(string str);
+	string getlabel();
+	//virtual void EDITLABEL() = 0 ;	
+
 
 	Component();	
 	

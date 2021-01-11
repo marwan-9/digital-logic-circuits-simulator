@@ -20,7 +20,7 @@ int Switch::GetNumOfInputs() {
 
 void Switch::DrawFrame(Output* pOut)
 {
-	pOut->DrawSquare(m_GfxInfo);
+	pOut->DrawSquare(m_GfxInfo, IfSelected);
 }
 
 int Switch::GetOutPinStatus()

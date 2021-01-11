@@ -6,7 +6,7 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 }
 void Component::setlabel(string str) {
 	m_Label = str;
-	//m_Label= pIn->GetSrting(pOut, str2, "");
+	//m_Label= pIn->GetSrting(pOut, str2, "");	
 }
 string Component::getlabel() {
 	return m_Label;
@@ -57,6 +57,15 @@ int Component::GetPinNumber()
 	return -1;
 }
 
+const GraphicsInfo Component::getGraphicsInfo()
+{
+	return m_GfxInfo;
+}
+
+COMPS Component::getcomptype() const
+{
+	return COMPS::ITM_GEN;
+}
 Component::Component()
 {
 	IfSelected=false;

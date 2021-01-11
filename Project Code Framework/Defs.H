@@ -59,9 +59,9 @@ enum ActionType
 //Possible Status for the pin
 enum STATUS
 {
+	UNASSIGNED,
 	LOW,
-	HIGH,
-	UNASSIGNED
+	HIGH
 };
 
 enum  MODE	//Modes of operation
@@ -111,6 +111,28 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 
 };
 
+enum class COMPS
+{
+	ITM_GEN,
+	ITM_SWITCH,
+	ITM_LED,
+
+	ITM_GATE,
+	
+	ITM_BUFF,
+	ITM_INV,
+	ITM_AND2,
+	ITM_OR2,
+	ITM_NAND2,
+	ITM_NOR2,
+	ITM_XOR2,
+	ITM_XNOR2,
+	ITM_AND3,
+	ITM_NOR3,
+	ITM_XOR3,
+	ITM_CONN,
+
+};
 
 enum SimMenuItem //The items of the simulation menu (you should add more items)
 {
