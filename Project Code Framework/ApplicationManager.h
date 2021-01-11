@@ -57,10 +57,10 @@ public:
 
 	Component* GetClickedComponent(int x, int y); //returns selected component
 
-	string givelabel(); //ahmed
+	//string givelabel(); //ahmed
 	Component** getcomplist(); //ahmed
 	int GetCompCount(); //ahmed
-	void settlabel();//ahmed
+	//void settlabel();//ahmed
 	//destructor
 	~ApplicationManager();
 };

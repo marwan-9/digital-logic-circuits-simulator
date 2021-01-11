@@ -11,22 +11,26 @@ void simulation::ReadActionParameters()
 	//Get a Pointer to the Input
 
 	Input* pIn = pManager->GetInput();
-	Output* pOut = pManager->GetOutput();	pOut->PrintMsg(" sivvvmulatioon11 ");
+	Output* pOut = pManager->GetOutput();	pOut->PrintMsg(" simulatioon ");
 
-	pOut->CreateSimulationToolBar();
-	pOut->PrintMsg(" simulatioon22 ");
+	//pOut->ClearStatusBar();
+
+	//pOut->CreateSimulationToolBar();
+	//pOut->PrintMsg(" simulatioon22 ");
 	//Wait for User Input
 	pIn->GetPosition(x, y);
 
 	//Clear Status Bar
-	pOut->ClearStatusBar();
+	//pOut->ClearStatusBar();
 }
 //Execute action
 void simulation::Execute()
 {
-	ReadActionParameters();
-int compcount = pManager->GetCompCount(); int c = 1; int numofin = 0; //ahmed
+	ReadActionParameters(); // i think it must be in while or put getposition
+	int compcount = pManager->GetCompCount(); int c = 1; int numofin = 0; int numofop = 0; //ahmed
 	while (true) {
+		Input* pIn = pManager->GetInput();//remove
+		numofop = 0;//msh mota2kd en mafrod ttdaf hena
 		Component** comp = pManager->getcomplist();
 		for (int i = 0; i < compcount; i++) {
 			numofin=comp[i]->GetNumOfInputs();
@@ -39,10 +43,13 @@ int compcount = pManager->GetCompCount(); int c = 1; int numofin = 0; //ahmed
 			}
 			if (c) {
 				comp[i]->Operate();
+				numofop++;
 				comp[i]->GetOutPinStatus();
 			}
 	
 		}
+		if (numofop == compcount)
+			break;
 	}
 }
 

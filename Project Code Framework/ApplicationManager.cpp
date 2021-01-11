@@ -16,6 +16,7 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
+#include "simulation.h"
 
 
 ApplicationManager::ApplicationManager()
@@ -107,7 +108,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		//case EDIT_Label:
 			//TODO: Create Action here
-			break;
+			//break;
 		case Create_TruthTable:
 			//TODO: Create Action here
 			break;
@@ -148,9 +149,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case DSN_MODE:
 			//TODO: Create Action here
+			//pAct = new simulation(this); //edit me
 			break;
 		case SIM_MODE:
 			//TODO: Create Action here
+		    pAct = new simulation(this); //edit me
+
 			break;
 		case HOVER:
 			//TODO: Create Action here
@@ -166,6 +170,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SIM_TOOL:
 			//TODO: Create Action here
+			//pAct = new simulation(this); //edit me
+
 			break;
 		
 	
@@ -219,15 +225,15 @@ void ApplicationManager::DeleteCopy()
 	CopiedItem = NULL;
 }
 
-void settlabel(Component *tobelabeled) {
+//void settlabel(Component *tobelabeled) {
 	//delete this
-}
+//}
 
-string givelabel() {
-	string s = "fff";
+//string givelabel() {
+	//string s = "fff";
 	//delete me
-	return s;
-}
+	//return s;
+//}
 Component* ApplicationManager::getCompList()
 {
 	return CompList[0];
