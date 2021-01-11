@@ -43,15 +43,18 @@ void Cut::Execute()
 {
 	ReadActionParameters();
 	Output* pOut = pManager->GetOutput();
-	ToCut = pManager->getCompList();
+	ToCut = pManager->GetClickedComponent(Cx,Cy);
+	//Handeling the cases of cutting nothing
 	if (ToCut == NULL) return;
+	if (Cutt == NULL) return;
+
 	if (pManager->getCopied() != NULL)
 	{
 		pManager->DeleteCopy();
 	}
 	Cutt = ToCut->Copy();
 	pManager->setCopied(Cutt);
-	/* 8alaban el Cut ht3ml moshkela lw el gate mtwsla b hagat*/
+	//TODO: Would Cut reps a problem when gates is connected ?
 	pManager->deleteGate(ToCut);
 
 

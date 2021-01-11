@@ -52,25 +52,24 @@ void Paste::Execute()
 
 	//Get Center point of the Gate
 	ReadActionParameters();
-	//if (!CheckCoordinates(Cx, Cy)) return;
 	ToPaste = pManager->getCopied();
 	if (ToPaste == NULL)
 		return;
-
-	ToPaste->SetGraphics(Cx, Cy);
 	pManager->AddComponent(ToPaste);
-	Pasted = ToPaste;
+	ToPaste->SetGraphics(Cx, Cy);
+	//If Cut not copy (Elimanating Clipboard)
 	if (!pManager->getcpyStatus())
 	{
 		ToPaste = NULL;
 		pManager->setCopied(NULL);
 		return;
 	}
-	ToPaste = ToPaste->Copy();
+	//If Copy not Cut (Maintaing Clipboard)
+	ToPaste = ToPaste->Copy();   //Creating a new instance from the copied item
 	pManager->setCopied(ToPaste);
+	
 	//TODO :Paste Label
 
-	void setCopied(Component * Copied);
 }
 
 void Paste::Undo()

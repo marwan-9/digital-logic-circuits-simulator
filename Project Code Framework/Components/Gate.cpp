@@ -20,6 +20,28 @@ void Gate::DrawFrame(Output* pOut)
 	pOut->DrawSquare(m_GfxInfo);
 }
 
- int Gate::GetNumOfInputs() {
+int Gate::GetNumOfInputs() {
 	return m_Inputs;
+}
+
+OutputPin* Gate::GetOutputPin()
+{
+	return &m_OutputPin;
+}
+
+InputPin* Gate::GetInputPins(int i)
+{
+	if (i != -1)
+		return &m_InputPins[i];
+	return NULL;
+}
+
+int Gate::GetPinNumber()
+{
+	for (int i = 0; i < m_Inputs; i++) {
+		if (!m_InputPins[i].getConnected()) {
+			return i;
+		}
+	}
+	return -1;
 }

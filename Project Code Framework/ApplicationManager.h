@@ -42,7 +42,7 @@ public:
 
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
-
+	int GetCompCount();
 	////////////////////////////////////////////////////////////////////////
 	void setCopied(Component* Cop);
 	Component* getCopied();

@@ -21,6 +21,6 @@ public:
     virtual void setInputPinStatus(int n, STATUS s);	    //set status of Inputpin # n, to be used by connection class.
     virtual Component* Copy();
     int GetNumOfInputs(); //ahmed
-
+    virtual OutputPin* GetOutputPin();
 };
 
