@@ -2,7 +2,7 @@
 
 Pin::Pin()
 {
-	m_Status = LOW;	//Default Status is LOW
+	m_Status = UNASSIGNED;	//Default Status is UNASSIGNED
 }
 
 void Pin::setStatus(STATUS r_Status)
@@ -14,3 +14,4 @@ STATUS Pin::getStatus()
 {
 	return m_Status;
 }
+

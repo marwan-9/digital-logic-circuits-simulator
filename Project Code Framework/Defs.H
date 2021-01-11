@@ -60,7 +60,8 @@ enum ActionType
 enum STATUS
 {
 	LOW,
-	HIGH
+	HIGH,
+	UNASSIGNED
 };
 
 enum  MODE	//Modes of operation

@@ -18,6 +18,7 @@
 #include "Actions/AddXORgate3.h"
 #include "Actions/Save_Action.h"
 #include "Actions/Load_Action.h"
+#include "Actions/AddConnection.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -38,6 +39,10 @@ void ApplicationManager::AddComponent(Component* pComp)
 {
 	pComp->SetID(CompCount);
 	CompList[CompCount++] = pComp;		
+}
+int ApplicationManager::GetCompCount()
+{
+	return CompCount;
 }
 ////////////////////////////////////////////////////////////////////
 
@@ -93,7 +98,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddInverterGate(this);
 			break;
 		case ADD_CONNECTION:
-			//TODO: Create Action here
+			pAct = new AddConnection(this);
 			break;
 		case ADD_Label:
 			pAct = new AddLabel(this);

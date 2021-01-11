@@ -35,6 +35,7 @@ bool Component:: GetIfSelected()
 	return IfSelected;
 }
 
+
 string Component::GetLabel()
 {
 	return m_Label;
@@ -48,6 +49,20 @@ void Component::SetID(int r_ID)
 int Component::GetID()
 {
 	return m_ID;
+}
+OutputPin* Component::GetOutputPin()
+{
+	return nullptr;
+}
+
+InputPin* Component::GetInputPins(int i)
+{
+	return nullptr;
+}
+
+int Component::GetPinNumber()
+{
+	return -1;
 }
 
 Component::Component()

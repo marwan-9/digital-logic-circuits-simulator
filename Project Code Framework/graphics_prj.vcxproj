@@ -129,6 +129,7 @@
     <ClCompile Include="Actions\AddANDgate2.cpp" />
     <ClCompile Include="Actions\AddANDgate3.cpp" />
     <ClCompile Include="Actions\AddBufferGate.cpp" />
+    <ClCompile Include="Actions\AddConnection.cpp" />
     <ClCompile Include="Actions\AddInverterGate.cpp" />
     <ClCompile Include="Actions\AddLED.cpp" />
     <ClCompile Include="Actions\AddNANDgate2.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="Actions\AddANDgate2.h" />
     <ClInclude Include="Actions\AddANDgate3.h" />
     <ClInclude Include="Actions\AddBufferGate.h" />
+    <ClInclude Include="Actions\AddConnection.h" />
     <ClInclude Include="Actions\AddInverterGate.h" />
     <ClInclude Include="Actions\AddLED.h" />
     <ClInclude Include="Actions\AddNANDgate2.h" />
