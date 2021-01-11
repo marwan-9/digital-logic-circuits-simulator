@@ -3,6 +3,8 @@
 
 AddConnection::AddConnection(ApplicationManager* pApp):Action(pApp)
 {
+	SrcCmpt = NULL;
+	DstCmpt = NULL;
 	SrcPin = NULL;
 	DstPin = NULL;
 	PinNumber = 0;
@@ -22,9 +24,6 @@ void AddConnection::ReadActionParameters()
 		pOut->PrintMsg("too few components to be wired.");
 		return;
 	}
-
-	Component* SrcCmpt = NULL;
-	Component* DstCmpt = NULL;
 
 	do {
 		pOut->PrintMsg("Wire two components: Click on the source pin");
