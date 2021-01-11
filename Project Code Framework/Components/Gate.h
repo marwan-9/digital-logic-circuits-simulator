@@ -1,7 +1,7 @@
-<<<<<<< HEAD
-#ifndef _GATE_H
-#define _GATE_H
-
+//<<<<<<< HEAD
+//#ifndef _GATE_H
+//#define _GATE_H
+#pragma once
 /*
   Class Gate
   -----------
@@ -23,11 +23,18 @@ protected:
 public:
 	Gate(int r_Inputs, int r_FanOut);
 	virtual void DrawFrame(Output* pOut);
-	virtual Component* Copy()=0;
-	virtual int GetNumOfInputs();
+	virtual Component* Copy() = 0;
+
+	virtual int GetNumOfInputs(); // Ahmed
+
+	virtual OutputPin* GetOutputPin();
+	virtual InputPin* GetInputPins(int i);
+
+	virtual int GetPinNumber();
 	//void drawname(Output* pOut, int Cx, int Cy, const char* cpText); //virtual
 };
 
+/* 
 #endif
 =======
 #ifndef _GATE_H
@@ -63,6 +70,8 @@ public:
 
 	virtual int GetPinNumber();
 };
+/*
+//jj
 
-#endif
->>>>>>> 1acd831287fc1c46a557598d0bda24f5b1254083
+//
+*/ 
