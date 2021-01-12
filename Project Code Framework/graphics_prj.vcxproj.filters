@@ -239,6 +239,9 @@
     <ClCompile Include="Components\NOR2.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\AddNOR2.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -439,6 +442,9 @@
     </ClInclude>
     <ClInclude Include="Components\NOR2.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddNOR2.h">
+      <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -31,12 +31,7 @@ int AND3::GetOutPinStatus()
 	return m_OutputPin.getStatus();
 }
 
-void EDITLABEL(Output* pOut, string msg, string str,INPUT pIn) {
-	//m_Label = pIn->GetSrting(pOut, msg, str);
-}
-//void setlabel(string str) { 
-//}
-//returns status of Inputpin #n
+
 int AND3::GetInputPinStatus(int n)
 {
 	return m_InputPins[n - 1].getStatus();	//n starts from 1 but array index starts from 0.

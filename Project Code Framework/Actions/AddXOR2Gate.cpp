@@ -17,9 +17,15 @@ void AddXOR2Gate::ReadActionParameters()
 
 	//Print Action Message
 	pOut->PrintMsg("XOR2 Gate: Click to add the gate");
-
+	//check if within drawing area
+	
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
+	while (!(Cy > UI.ToolBarHeight + UI.GateBarHeight + UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
+	{
+		pOut->PrintMsg("You are not allowed to print your label outside the drawing area, choose your place again...");
+		pIn->GetPointClicked(Cx, Cy);
+	}
 
 	//Clear Status Bar
 	pOut->ClearStatusBar();

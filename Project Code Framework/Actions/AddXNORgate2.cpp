@@ -22,8 +22,9 @@ void AddXNORgate2::ReadActionParameters()
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
+
 	//check if within drawing area
-	while (!(Cy > UI.ToolBarHeight + UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
+	while (!(Cy > UI.ToolBarHeight + UI.GateBarHeight + UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
 	{
 		pOut->PrintMsg("Please Add in the Drawing Area, try again...");
 		pIn->GetPointClicked(Cx, Cy);
