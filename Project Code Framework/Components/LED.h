@@ -24,7 +24,6 @@ int	GetNumOfInputs();//ahmed
 
 	virtual InputPin* GetInputPins(int index=0);
 
-
 	virtual void Save(std::ofstream& stream);
 	virtual void Load(std::ifstream& stream);
 

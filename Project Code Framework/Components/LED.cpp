@@ -45,10 +45,6 @@ void LED::setInputPinStatus(int n, STATUS s)
 	m_InputPin.setStatus(s);
 }
 
-Component* LED::Copy()
-{
-	return nullptr;
-}
 
 
 void LED::Save(std::ofstream& stream)
@@ -66,6 +62,14 @@ void LED::Load(std::ifstream& stream)
 	this->SetID(ID);
 	this->SetLabel(Label);
 	this->SetGraphicsCorner(x, y);
+}
+
+Component* LED::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new LED(temp);
+	return Copied;
 }
 
 InputPin* LED::GetInputPins(int index)
