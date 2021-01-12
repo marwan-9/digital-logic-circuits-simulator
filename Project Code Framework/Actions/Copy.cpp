@@ -54,7 +54,7 @@ void Copy::Execute()
 	{
 		
 		Copied = ToCopy->Copy();
-		Copied->setlabel(ToCopy->getlabel());
+		Copied->SetLabel(ToCopy->GetLabel());
 		//TODO: Copy Labell
 	}
 

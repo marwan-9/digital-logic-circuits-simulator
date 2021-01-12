@@ -8,13 +8,11 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 	m_Label = "DefaultLabel";
 	m_ID = 0;
 }
-void Component::setlabel(string str) {
+void Component::SetLabel(string str) {
 	m_Label = str;
 	//m_Label= pIn->GetSrting(pOut, str2, "");	
 }
-string Component::getlabel() {
-	return m_Label;
-}
+
 //int Component::GetNumOfInputs() = 0;//add me ahmed here
 
 void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
@@ -68,10 +66,7 @@ string Component::GetLabel()
 	return m_Label;
 }
 
-void Component::SetLabel(string r_Label)
-{
-	m_Label = r_Label;
-}
+
 
 void Component::SetID(int r_ID)
 {

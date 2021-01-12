@@ -21,7 +21,7 @@ int Switch::GetNumOfInputs() {
 void Switch::DrawFrame(Output* pOut)
 {
 	pOut->DrawSquare(m_GfxInfo);
-	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, getlabel());
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 }
 
 int Switch::GetOutPinStatus()

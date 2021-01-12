@@ -67,7 +67,7 @@ void Paste::Execute()
 	//If Copy not Cut (Maintaing Clipboard)
 	ToPaste = ToPaste->Copy();   //Creating a new instance from the copied item
 	pManager->setCopied(ToPaste);
-	ToPaste->setlabel(pManager->getCopied()->getlabel());
+	ToPaste->SetLabel(pManager->getCopied()->GetLabel());
 	
 	//TODO :Paste Label
 

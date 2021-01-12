@@ -24,7 +24,7 @@ void NOR3::Draw(Output* pOut)
 	//Call output class and pass gate drawing info to it.
 
 	pOut->DrawNOR3(m_GfxInfo, IfSelected);
-	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, getlabel());
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 
 }
 

@@ -56,7 +56,7 @@ void Cut::Execute()
 	{
 
 		Cutt = ToCut->Copy();
-		Cutt->setlabel(ToCut->getlabel());
+		Cutt->SetLabel(ToCut->GetLabel());
 		//TODO: Copy Labell
 	}
 	//Cutt = ToCut->Copy();

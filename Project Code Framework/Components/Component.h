@@ -49,8 +49,8 @@ public:
 
 	string GetLabel();
 	void SetLabel(string);
-	void SetID(int r_ID);
 	int GetID();
+	void SetID(int r_ID);
 	
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int index);

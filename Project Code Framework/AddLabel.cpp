@@ -36,12 +36,12 @@ void AddLabel::Execute()
 		corner2 = Clicked_one->getcorners().y1;
 		
 		
-		if (Clicked_one->getlabel() == "") {            //ADD NOT EDIT
+		if (Clicked_one->GetLabel() == "") {            //ADD NOT EDIT
 			Output* pOut = pManager->GetOutput();
 			Input* pIn = pManager->GetInput();
 
 			string str2 = "Enter Label to the Component : ";
-			Clicked_one->setlabel (pIn->GetSrting(pOut, str2, "") );
+			Clicked_one->SetLabel(pIn->GetSrting(pOut, str2, "") );
 
 			//string label = Clicked_one->getlabel();
 			//const char* cpText = label.c_str();
@@ -58,7 +58,7 @@ void AddLabel::Execute()
 			Input* pIn = pManager->GetInput();
 			string str2 = "Edit Label of the Component : ";
 			
-			Clicked_one->setlabel(pIn->GetSrting(pOut, str2, ""));
+			Clicked_one->SetLabel(pIn->GetSrting(pOut, str2, ""));
 			//string label = Clicked_one->getlabel();
 			//const char* cpText = label.c_str();
 			//pOut->cleartext(corner1 - 5, corner2 + 50, corner1 + 300, corner2 + 75)
