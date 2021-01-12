@@ -48,5 +48,7 @@ public:
 	void PrintMsg(string msg) const;	//Print a message on Status bar
 
 	void Printstringg(const int x, const int y, const string cpText);	//Print a message on Status bar
+	
+	void ClearWindow() const;
 	~Output();
 };
