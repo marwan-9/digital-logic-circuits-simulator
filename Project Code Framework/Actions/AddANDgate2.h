@@ -1,5 +1,7 @@
 #ifndef _ADD_AND_GATE_H
 #define _ADD_AND_GATE_H
+#include <xstring>
+#include <cstring>
 
 #include "action.h"
 #include "..\Components\AND2.h"

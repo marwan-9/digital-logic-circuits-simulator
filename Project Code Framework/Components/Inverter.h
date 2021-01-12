@@ -12,7 +12,7 @@
 class Inverter:public Gate
 {
 public:
-	Inverter(const GraphicsInfo &r_GfxInfo, int r_FanOut);
+	Inverter(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 	virtual void Operate();	//Calculates the output of the Inverter gate
 	virtual void Draw(Output* pOut);	//Draws Inverter gate
 
@@ -21,6 +21,9 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 	virtual Component* Copy();
+
+	virtual void Save(std::ofstream& stream);
+
 
 };
 

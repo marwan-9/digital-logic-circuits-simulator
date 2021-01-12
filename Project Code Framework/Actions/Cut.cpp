@@ -52,7 +52,16 @@ void Cut::Execute()
 	{
 		pManager->DeleteCopy();
 	}
-	Cutt = ToCut->Copy();
+	if (Cutt != NULL && pManager->getCopied() == NULL)
+	{
+
+		Cutt = ToCut->Copy();
+		Cutt->SetLabel(ToCut->GetLabel());
+		//TODO: Copy Labell
+	}
+	//Cutt = ToCut->Copy();
+	//Cutt->setlabel(Cutt->getlabel());
+
 	pManager->setCopied(Cutt);
 	//TODO: Would Cut reps a problem when gates is connected ?
 	pManager->deleteGate(ToCut);

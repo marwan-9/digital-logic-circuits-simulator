@@ -3,9 +3,11 @@
 
 #include "..\Defs.h"
 #include "..\GUI\Output.h"
+#include <fstream>
+
 #include "InputPin.h"
 #include "OutputPin.h"
-
+#include <xstring>
 
 //Base class for classes Gate, Switch, and LED.
 class Component
@@ -13,8 +15,9 @@ class Component
 private:
 	string m_Label;
 protected:
-	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
-	bool IfSelected; //if component is selected or not
+	GraphicsInfo m_GfxInfo;	// The parameters required to draw a component
+	int m_ID;					// unique ID for each component
+	bool IfSelected;        // if component is selected or not
 public:
 	Component(const GraphicsInfo &r_GfxInfo);
 	virtual void Operate() = 0;	//Calculates the output according to the inputs
@@ -28,28 +31,40 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
 	virtual void SetGraphics(int x, int y, bool type = false);
+	// Set Graphics using one Corner Only
+	void SetGraphicsCorner(int x, int y);
+	GraphicsInfo GetGraphics();
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
-	
-
-	virtual int GetNumOfInputs()=0; //add me ahmed here
-	void setlabel(string str) ;
-	string getlabel() ;
-	//virtual void EDITLABEL() = 0 ;
 
 	void SetIfSelected(bool q);
 	bool GetIfSelected();
 
+
+	// Each Component should save and load itself in this format
+	// Comp_1_Type Comp_ID Label Component_Graphics_info
+	virtual void Save(std::ofstream&) = 0;
+	virtual void Load(std::ifstream&) = 0;
+
+	string GetLabel();
+	void SetLabel(string);
+	int GetID();
+	void SetID(int r_ID);
+	
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int index);
-
 	// Checks if there are available Input Pins to be connected or not, if yes it returns the number of the available pin, otherwise it returns -1
 	virtual int GetPinNumber();
+	virtual GraphicsInfo getcorners();
+	//virtual void labelprint(Output* pOut);
+  
+  virtual const GraphicsInfo getGraphicsInfo();
+	virtual COMPS getcomptype() const;
+	virtual int GetNumOfInputs() = 0; //add me ahmed here	
+	//virtual void EDITLABEL() = 0 ;	
 
 	Component();	
 	
-	void drawname(Output* pOut, int Cx, int Cy, const char* cpText); //virtual
-	GraphicsInfo Getinfo(Output* pOut);
 	//Destructor must be virtual
 	virtual ~Component();
 };

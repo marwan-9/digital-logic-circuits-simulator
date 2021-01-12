@@ -20,7 +20,8 @@ void AND3::Operate()
 void AND3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawAND3(m_GfxInfo);
+  pOut->DrawAND3(m_GfxInfo, IfSelected);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 	
 }
 
@@ -54,3 +55,11 @@ Component* AND3::Copy()
 	Component* Copied = new AND3(temp, AND3_FANOUT);
 	return Copied;
 }
+
+
+void AND3::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_AND3 << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}
+

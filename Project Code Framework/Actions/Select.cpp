@@ -1,58 +1,77 @@
 #include "Select.h"
-#include "..\ApplicationManager.h"
+#include "..\Components\Component.h"
+#include "..\Components\Switch.h"
 
-Select::Select(ApplicationManager* pApp): Action(pApp)
+
+
+Select::Select(ApplicationManager* pApp): Action(pApp), x(0), y(0)
 {
-	point = NULL;
+
 }
+
 void Select::ReadActionParameters()
 {
-	if (pManager->GetSelected() == NULL)
-	{
-		//Get a Pointer to the Input
-		Input* pIn = pManager->GetInput();
-
-		//Wait for User Input
-		pIn->GetPosition(x, y);
-
-		point = pManager->GetClickedComponent(x, y);
-	}
-	else
-		point = pManager->GetSelected();
+	pManager->GetInput()->GetPointClicked(x, y); // To get the x, y coordinates of point clicked
 }
 
-//Execute action
 void Select::Execute()
 {
-	ReadActionParameters();
-	if (point != NULL) {
-		if (pManager->GetSelected() == NULL)
+	ReadActionParameters(); // To get the clicked coordinates
+
+	COMPS comp;
+	int target = pManager->WhichComp(comp); // To get the index of the target component.
+
+	
+	if (target == -1) // check if the user clicked on a blank space
+	{
+		pManager->DeselectExcept(); // deselect all
+	}
+	else
+	{
+		pManager->DeselectExcept(target); // deselect all except target
+
+		pManager->SelectComponent(target);
+
+		pManager->SetLastSelected(target); // pointer to the last selected comp
+		Component* LastSelectedComponent = pManager->GetLastSelected();
+
+		LastSelectedComponent->SetIfSelected(true);
+
+		//GraphicsInfo r_GfxInfo = LastSelectedComponent->getGraphicsInfo();
+
+		switch (comp)
 		{
-			pManager->SetSelected(point);
-			point->SetIfSelected(true);
-		}
-		else
+		case COMPS::ITM_GATE:
+			break;
+		case COMPS::ITM_SWITCH:
 		{
-			// point->SetIfSelected(false);
-			pManager->SetSelected(NULL);
+			if (UI.AppMode == DESIGN) {
+
+				break;
+			}
+			
+
+		case COMPS::ITM_LED:
+			//pManager->GetOutput()->DrawLED(r_GfxInfo, false, true); // to be done //LED selected Not High//
+			break;
+		case COMPS::ITM_CONN:
+			//pManager->GetOutput()->DrawConnection(r_GfxInfo, true); // Make connetion highlighted
+			break;
+		default:
+			break;
 		}
 	}
-	
+	}
 }
 
-//To undo this action 
 void Select::Undo()
 {
-
 }
 
-//To redo this action 
 void Select::Redo()
 {
-
 }
 
-Select :: ~Select()
+Select::~Select()
 {
-
 }

@@ -41,6 +41,7 @@ void XOR3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawXOR3(m_GfxInfo, IfSelected);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 }
 
 //returns status of outputpin
@@ -60,4 +61,18 @@ int XOR3::GetInputPinStatus(int n)
 void XOR3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
+}
+
+Component* XOR3::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new XOR3(temp, COMP_FANOUT);
+	return Copied;
+}
+
+void XOR3::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_XOR3 << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
 }

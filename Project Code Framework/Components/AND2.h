@@ -1,5 +1,7 @@
 #ifndef _AND2_H
 #define _AND2_H
+#include <xstring>
+#include <cstring>
 
 /*
   Class AND2
@@ -21,6 +23,10 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 	virtual Component* Copy();
+
+	virtual void Save(std::ofstream& stream);
+
+
 
 };
 
