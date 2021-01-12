@@ -236,6 +236,9 @@
     <ClCompile Include="Actions\AddXNORgate2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Components\NOR2.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -433,6 +436,9 @@
     </ClInclude>
     <ClInclude Include="Actions\AddXORgate3.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\NOR2.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

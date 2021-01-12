@@ -56,3 +56,9 @@ Component* NOR2::Copy()
 	Component* Copied = new NOR2(temp, OR2_FANOUT);
 	return Copied;
 }
+
+void NOR2::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_NOR2 << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}

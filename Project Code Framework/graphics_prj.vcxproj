@@ -192,6 +192,7 @@
     <ClCompile Include="Components\Inverter.cpp" />
     <ClCompile Include="Components\LED.cpp" />
     <ClCompile Include="Components\NAND2.cpp" />
+    <ClCompile Include="Components\NOR2.cpp" />
     <ClCompile Include="Components\NOR3.cpp" />
     <ClCompile Include="Components\OR2.cpp" />
     <ClCompile Include="Components\OutputPin.cpp" />
@@ -259,6 +260,7 @@
     <ClInclude Include="Components\Inverter.h" />
     <ClInclude Include="Components\LED.h" />
     <ClInclude Include="Components\NAND2.h" />
+    <ClInclude Include="Components\NOR2.h" />
     <ClInclude Include="Components\NOR3.h" />
     <ClInclude Include="Components\OR2.h" />
     <ClInclude Include="Components\OutputPin.h" />
