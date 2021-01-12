@@ -44,7 +44,17 @@ Component* Switch::Copy()
 void Switch::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_SWITCH << " " << this->GetID() << " " << this->GetLabel()
-		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}
+void Switch::Load(std::ifstream& stream)
+{
+	int ID;
+	string Label;
+	int x, y;
+	stream >> ID >> Label >> x >> y;
+	this->SetID(ID);
+	this->SetLabel(Label);
+	this->SetGraphicsCorner(x, y);
 }
 OutputPin* Switch::GetOutputPin()
 {

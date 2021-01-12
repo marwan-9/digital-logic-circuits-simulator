@@ -9,6 +9,14 @@ Connection::Connection(const GraphicsInfo& r_GfxInfo, OutputPin* pSrcPin, InputP
 	DstCmpnt = pD;
 	PinNumber = Pin;
 }
+Connection::Connection(Component* pS, Component* pD, int Pin)
+{
+	SrcPin = NULL;
+	DstPin = NULL;
+	SrcCmpnt = pS;
+	DstCmpnt = pD;
+	PinNumber = Pin;
+}
 void Connection::setSourcePin(OutputPin *pSrcPin)
 {	SrcPin = pSrcPin;	}
 
@@ -66,7 +74,22 @@ Component* Connection::Copy()
 
 void Connection::Save(std::ofstream& stream)
 {
-	stream << SrcCmpnt->GetID() << " " << DstCmpnt->GetID() << " " << PinNumber << endl;
+	stream << SrcCmpnt->GetID() << " " << DstCmpnt->GetID() << " " << PinNumber << " "<< this->GetID()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y2 <<  std::endl;
+}
+
+void Connection::Load(std::ifstream& stream)
+{
+	int ID;
+	stream >> PinNumber >> ID >> m_GfxInfo.x1 >> m_GfxInfo.y1 >> m_GfxInfo.x2 >> m_GfxInfo.y2;
+	SrcPin = SrcCmpnt->GetOutputPin();
+	DstPin = DstCmpnt->GetInputPins(PinNumber);
+	SetID(ID);
+
+	if (SrcPin && DstPin) {
+		SrcPin->ConnectTo(this);
+		DstPin->setStatus(LOW);
+	}
 }
 
 bool Connection::CanConnect()

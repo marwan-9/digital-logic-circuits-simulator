@@ -44,7 +44,7 @@ public:
 	Input* GetInput();
 
 	//Adds a new component to the list of components
-	void AddComponent(Component* pComp);
+	void AddComponent(Component* pComp, bool loaded = false);
 	int GetCompCount();
 	////////////////////////////////////////////////////////////////////////
 	void setCopied(Component* Cop);
@@ -60,10 +60,11 @@ public:
 	Component* GetSelected();  //return selected pointer
 
 	Component* GetClickedComponent(int x, int y); //returns selected component
+	Component* GetComponent(int ID);
 
 	void Save(std::ofstream& stream);
 	void Load(std::ifstream& stream);
-
+	void ClearApp();
 	//destructor
 	~ApplicationManager();
 };

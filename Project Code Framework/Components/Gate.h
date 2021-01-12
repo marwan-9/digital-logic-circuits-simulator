@@ -28,6 +28,8 @@ public:
 	virtual InputPin* GetInputPins(int i);
 
 	virtual int GetPinNumber();
+
+	virtual void Load(std::ifstream& stream);
 };
 
 #endif

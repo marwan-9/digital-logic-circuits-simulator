@@ -9,7 +9,7 @@ class Switch :
 private:
     OutputPin m_OutputPin;
 public:
-    Switch(const GraphicsInfo& r_GfxInfo, int r_FanOut);
+    Switch(const GraphicsInfo& r_GfxInfo, int r_FanOut = Switch_FANOUT);
 
     virtual void Operate();              	                //Calculates the output according to the inputs
     virtual void Draw(Output* pOut);     	                //for each component to Draw itself
@@ -23,6 +23,7 @@ public:
 
 
     virtual void Save(std::ofstream& stream);
+    virtual void Load(std::ifstream& stream);
     virtual OutputPin* GetOutputPin();
 
 };

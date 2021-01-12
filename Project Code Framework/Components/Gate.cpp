@@ -41,3 +41,14 @@ int Gate::GetPinNumber()
 	}
 	return -1;
 }
+
+void Gate::Load(std::ifstream& stream)
+{
+	int ID;
+	string Label;
+	int x, y;
+	stream >> ID >> Label >> x >> y;
+	this->SetID(ID);
+	this->SetLabel(Label);
+	this->SetGraphicsCorner(x, y);
+}

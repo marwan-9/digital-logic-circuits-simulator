@@ -3,6 +3,7 @@
 Component::Component(const GraphicsInfo &r_GfxInfo)
 {
 	m_GfxInfo = r_GfxInfo;
+	m_Label = "DefaultLabel";
 	m_ID = 0;
 }
 
@@ -17,6 +18,22 @@ void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
 	GInfo.y1 = y - Wdth / 2;
 	GInfo.y2 = y + Wdth / 2;
 	m_GfxInfo = GInfo;
+}
+void Component::SetGraphicsCorner(int x, int y)
+{
+	int Len = UI.AND2_Width;
+	int Wdth = UI.AND2_Height;
+	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+
+	GInfo.x1 = x;
+	GInfo.x2 = x + Len;
+	GInfo.y1 = y;
+	GInfo.y2 = y + Wdth;
+	m_GfxInfo = GInfo;
+}
+GraphicsInfo Component::GetGraphics()
+{
+	return m_GfxInfo;
 }
 bool Component::Inside(int x, int y)
 {
@@ -39,6 +56,11 @@ bool Component:: GetIfSelected()
 string Component::GetLabel()
 {
 	return m_Label;
+}
+
+void Component::SetLabel(string r_Label)
+{
+	m_Label = r_Label;
 }
 
 void Component::SetID(int r_ID)
@@ -68,6 +90,8 @@ int Component::GetPinNumber()
 Component::Component()
 {
 	IfSelected=false;
+	m_Label = "DefaultLabel";
+	m_ID = 0;
 }
 
 Component::~Component()

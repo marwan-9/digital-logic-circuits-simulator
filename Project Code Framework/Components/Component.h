@@ -31,6 +31,9 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s)=0;	//set status of Inputpin # n, to be used by connection class.
 	virtual void SetGraphics(int x, int y, bool type = false);
+	// Set Graphics using one Corner Only
+	void SetGraphicsCorner(int x, int y);
+	GraphicsInfo GetGraphics();
 	//JUST COPYING LITERALLY
 	virtual Component* Copy() = 0;  
 
@@ -41,9 +44,10 @@ public:
 	// Each Component should save and load itself in this format
 	// Comp_1_Type Comp_ID Label Component_Graphics_info
 	virtual void Save(std::ofstream&) = 0;
-	// virtual Component* Load(std::ifstream&) = 0;
+	virtual void Load(std::ifstream&) = 0;
 
 	string GetLabel();
+	void SetLabel(string);
 	void SetID(int r_ID);
 	int GetID();
 	

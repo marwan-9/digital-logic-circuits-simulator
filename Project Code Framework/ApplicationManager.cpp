@@ -19,6 +19,21 @@
 #include "Actions/Save_Action.h"
 #include "Actions/Load_Action.h"
 #include "Actions/AddConnection.h"
+#include "Components/AND2.h"
+#include "Components/AND3.h"
+#include "Components/Buffer.h"
+#include "Components/Inverter.h"
+#include "Components/LED.h"
+#include "Components/NAND2.h"
+#include "Components/NOR3.h"
+#include "Components/OR2.h"
+#include "Components/Switch.h"
+#include "Components/XNOR2.h"
+#include "Components/XOR2.h"
+#include "Components/XOR3.h"
+//
+#include <string>
+#include <sstream>
 
 ApplicationManager::ApplicationManager()
 {
@@ -35,10 +50,17 @@ ApplicationManager::ApplicationManager()
 
 }
 ////////////////////////////////////////////////////////////////////
-void ApplicationManager::AddComponent(Component* pComp)
+void ApplicationManager::AddComponent(Component* pComp, bool loaded)
 {
-	pComp->SetID(CompCount);
-	CompList[CompCount++] = pComp;		
+	if (!loaded) {
+		pComp->SetID(CompCount);
+		CompList[CompCount++] = pComp;
+	}
+	else {
+		CompList[pComp->GetID()] = pComp;
+		CompCount++;
+	}
+			
 }
 int ApplicationManager::GetCompCount()
 {
@@ -183,6 +205,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::UpdateInterface()
 {
+	OutputInterface->ClearDrawingArea();
 	for(int i=0; i<CompCount; i++)
 		CompList[i]->Draw(OutputInterface);
 
@@ -279,10 +302,12 @@ void ApplicationManager::Save(std::ofstream& stream)
 			ActualCompCount++;
 	}
 	stream << ActualCompCount << endl;
+
 	for (int i = 0; i < CompCount; i++) {
 		if(!dynamic_cast<Connection*>(CompList[i]))
 			CompList[i]->Save(stream);
 	}
+
 	stream << "Connections" << endl;
 	for (int i = 0; i < CompCount; i++) {
 		if (dynamic_cast<Connection*>(CompList[i]))
@@ -293,7 +318,8 @@ void ApplicationManager::Save(std::ofstream& stream)
 
 void ApplicationManager::Load(std::ifstream& stream)
 {
-	Action* pAct = NULL;
+	ClearApp();
+	Component* pC = NULL;
 	int m_CompCount;
 	int CompType;
 	int CompID;
@@ -301,131 +327,95 @@ void ApplicationManager::Load(std::ifstream& stream)
 	GraphicsInfo m_GfxInfo;
 	stream >> m_CompCount;
 	for (int i = 0; i < m_CompCount; i++) {
-		stream >> CompType >> m_GfxInfo.x1 >> m_GfxInfo.x2 >> m_GfxInfo.y1 >> m_GfxInfo.y2;
-
+		stream >> CompType;
 		switch (CompType) {
-		case ADD_AND_GATE_2:
-			pAct = new AddANDgate2(this);
+		case COMP_SWITCH:
+			pC = new Switch(m_GfxInfo);
 			break;
-		case ADD_OR_GATE_2:
-			pAct = new AddORgate2(this);
+		case COMP_LED:
+			pC = new LED(m_GfxInfo);
 			break;
-		case ADD_NAND_GATE_2:
-			pAct = new AddNANDgate2(this);
+		case COMP_BUFFER:
+			pC = new Buffer(m_GfxInfo, BUFF_FANOUT);
 			break;
-		case ADD_NOR_GATE_2:
-			// pAct = new AddNORgate2(this);
+		case COMP_INVERTER:
+			pC = new Inverter(m_GfxInfo, INV_FANOUT);
 			break;
-		case ADD_XOR_GATE_2:
-			pAct = new AddXOR2Gate(this);
+		case COMP_AND2:
+			pC = new AND2(m_GfxInfo, AND2_FANOUT);
 			break;
-		case ADD_XNOR_GATE_2:
-			// pAct = new AddXNORgate2(this);
+		case COMP_AND3:
+			pC = new AND3(m_GfxInfo, AND3_FANOUT);
 			break;
-		case ADD_AND_GATE_3:
-			pAct = new AddANDgate3(this);
+		case COMP_NAND2:
+			pC = new NAND2(m_GfxInfo, NAND2_FANOUT);
 			break;
-		case ADD_NOR_GATE_3:
-			pAct = new AddNORgate3(this);
+		case COMP_NOR2:
+			// pC = new NOR2(m_GfxInfo, NOR2_FANOUT);
 			break;
-		case ADD_XOR_GATE_3:
-			// pAct = new AddXORgate3(this);
+		case COMP_NOR3:
+			pC = new NOR3(m_GfxInfo, NOR3_FANOUT);
 			break;
-		case ADD_Switch:
-			pAct = new AddSwitch(this);
+		case COMP_OR2:
+			pC = new OR2(m_GfxInfo, OR2_FANOUT);
 			break;
-		case ADD_LED:
-			pAct = new AddLED(this);
+		case COMP_XNOR2:
+			pC = new XNOR2(m_GfxInfo, COMP_FANOUT);
 			break;
-		case ADD_Buff:
-			pAct = new AddBufferGate(this);
+		case COMP_XOR2:
+			pC = new XOR2(m_GfxInfo, XOR2_FANOUT);
 			break;
-		case ADD_INV:
-			pAct = new AddInverterGate(this);
-			break;
-		case ADD_CONNECTION:
-			//TODO: Create Action here
-			break;
-		case ADD_Label:
-			pAct = new AddLabel(this);
-			break;
-			//case EDIT_Label:
-				//TODO: Create Action here
-			break;
-		case Create_TruthTable:
-			//TODO: Create Action here
-			break;
-		case Change_Switch:
-			//TODO: Create Action here
-			break;
-		case Probe:
-			//TODO: Create Action here
-		case SELECT:
-			pAct = new Select(this);
-			break;
-		case DEL:
-			//TODO: Create Action here
-			break;
-		case MOVE:
-			//TODO: Create Action here
-			break;
-		case COPY:
-			pAct = new Copy(this);
-			break;
-		case CUT:
-			pAct = new Cut(this);
-			break;
-		case PASTE:
-			pAct = new Paste(this);
-			break;
-		case SAVE:
-			pAct = new Save_Action(this);
-			break;
-		case LOAD:
-			pAct = new Load_Action(this);
-			break;
-		case UNDO:
-			//TODO: Create Action here
-			break;
-		case REDO:
-			//TODO: Create Action here
-			break;
-		case DSN_MODE:
-			//TODO: Create Action here
-			break;
-		case SIM_MODE:
-			//TODO: Create Action here
-			break;
-		case HOVER:
-			//TODO: Create Action here
-			break;
-		case STATUS_BAR:
-			//TODO: Create Action here
-			break;
-		case DSN_TOOL:
-			//TODO: Create Action here
-			break;
-		case GATE_TOOL:
-			//TODO: Create Action here
-			break;
-		case SIM_TOOL:
-			//TODO: Create Action here
-			break;
-
-
-
-		case EXIT:
-			///TODO: create ExitAction here
+		case COMP_XOR3:
+			pC = new XOR3(m_GfxInfo, XOR2_FANOUT);
 			break;
 		}
+		pC->Load(stream);
+		AddComponent(pC, 1);
 	}
 		 
-
+	int SrcCmpID;
+	int DstCmpID;
+	Component* SrcCmpnt;
+	Component* DstCmpnt;
+	string buffer;
 	// ignoring the "Connections" line
-	stream.ignore(100, '\n');
-	while (!stream.eof()) {
-		// TODO: Connections Part
+	stream >> buffer;
+	stream >> SrcCmpID >> DstCmpID;
+	while (SrcCmpID != -1) {
+		SrcCmpnt = GetComponent(SrcCmpID);
+		DstCmpnt = GetComponent(DstCmpID);
+		pC = new Connection(SrcCmpnt, DstCmpnt);
+		if (SrcCmpnt && DstCmpnt) {
+			pC->Load(stream);
+			AddComponent(pC, 1);
+		}
+		else {
+			string msg = "Loading Connections Failed in " + std::to_string(SrcCmpID);
+			OutputInterface->PrintMsg(msg);
+			break;
+		}
+		stream >> SrcCmpID >> DstCmpID;
 	}
+	UpdateInterface();
+}
+
+void ApplicationManager::ClearApp()
+{
+	CompCount = 0;
+	for (int i = 0; i < MaxCompCount; i++)
+		CompList[i] = NULL;
+	OutputInterface->ClearDrawingArea();
+}
+
+
+
+Component* ApplicationManager::GetComponent(int ID)
+{
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->GetID() == ID)
+			return CompList[i];
+	}
+	return NULL;
 }
 
 ApplicationManager::~ApplicationManager()

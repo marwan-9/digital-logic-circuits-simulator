@@ -14,6 +14,7 @@ public:
 	//Connection(const GraphicsInfo &r_GfxInfo, Component *pS=NULL,Component *pD=NULL, int Pin=0);
 	//Connection(const GraphicsInfo& r_GfxInfo, OutputPin* pSrcPin, InputPin* pDstPin, int DstPinNumber = 0);
 	Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin, Component* pS = NULL, Component* pD = NULL, int Pin = 0);
+	Connection(Component* pS = NULL, Component* pD = NULL, int Pin = 0);
 
 	virtual void Operate() ;	//Calculates the output according to the inputs
 	virtual void Draw(Output* pOut);	//for each component to Draw itself
@@ -33,6 +34,7 @@ public:
 	virtual Component* Copy();
 
 	virtual void Save(std::ofstream&);
+	virtual void Load(std::ifstream&);
 
 
 	bool CanConnect();

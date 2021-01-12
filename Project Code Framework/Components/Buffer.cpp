@@ -54,5 +54,6 @@ Component* Buffer::Copy()
 void Buffer::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_BUFFER << " " << this->GetID() << " " << this->GetLabel()
-		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.x2 << " " << m_GfxInfo.y1 << " " << m_GfxInfo.y2 << std::endl;
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
 }
+
