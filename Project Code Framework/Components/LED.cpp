@@ -7,8 +7,7 @@ LED::LED(const GraphicsInfo& r_GfxInfo):Component(r_GfxInfo)
 
 void LED::Operate()
 {
-	// m_InputPin.setStatus(m_InputPin.getStatus());
-
+	
 }
 
 int LED::GetNumOfInputs() {
@@ -17,15 +16,11 @@ int LED::GetNumOfInputs() {
 
 void LED::Draw(Output* pOut)
 {
-
-
-	if (m_InputPin.getStatus() == HIGH) {
+	if (m_InputPin.getStatus() == HIGH)
 		pOut->DrawLED(m_GfxInfo, IfSelected); //when on
-		pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
-	}
 	else 
 		pOut->DrawLED(m_GfxInfo, IfSelected); //when off
-	  pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 60, GetLabel());
+	 pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 60, GetLabel());
 
 }
 

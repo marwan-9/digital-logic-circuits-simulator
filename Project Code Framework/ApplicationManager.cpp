@@ -212,8 +212,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 void ApplicationManager::UpdateInterface()
 {
 	OutputInterface->ClearDrawingArea();
-		for(int i=0; i<CompCount; i++)
-			CompList[i]->Draw(OutputInterface);
+	for(int i=0; i<CompCount; i++)
+		CompList[i]->Draw(OutputInterface);
 }
 ////////////////
 //void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
@@ -591,8 +591,16 @@ void ApplicationManager::DeleteComp()
 }
 void ApplicationManager::OperateAll()
 {
+	
 	for (int i = 0; i < CompCount; i++) {
 		CompList[i]->Operate();
+		LED* Led = dynamic_cast<LED*>(CompList[i]);
+		if (Led) {
+			if (Led->GetInputPinStatus(1))
+				OutputInterface->PrintMsg("Led is HIGH");
+			else
+				OutputInterface->PrintMsg("Led is LOW");
+		}
 	}
 }
 /////////////////////////////////////////////////////////////

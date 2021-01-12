@@ -19,7 +19,6 @@ Output::Output()
 
 	CreateDesignToolBar();	//Create the desgin toolbar
 	CreateStatusBar();		//Create Status bar
-
 }
 
 Input* Output::CreateInput() const
