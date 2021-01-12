@@ -20,6 +20,7 @@
 #include "Actions/Load_Action.h"
 #include "Actions/AddConnection.h"
 #include "simulation.h"
+#include "Actions/Delete.h"
 #include "Components/AND2.h"
 #include "Components/AND3.h"
 #include "Components/Buffer.h"
@@ -142,7 +143,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Select(this);
 			break;
 		case DEL:
-			//TODO: Create Action here
+			pAct = new Delete(this);
 			break;
 		case MOVE:
 			//TODO: Create Action here
