@@ -51,6 +51,7 @@ void AddANDgate2::Execute()
 	pManager->AddComponent(pA);
 	//ahmed
 	//add label
+	/*
 	string str = "Add component  (AND) label : "; //ahmed
 	AND2Name = pIn->GetSrting(pOut, str, "");   //ahmed 
 	pA->setlabel(AND2Name);
@@ -71,7 +72,7 @@ void AddANDgate2::Execute()
 		//edit label when label is bresed and and is selected
 	//string str2 = "Add component (AND) new label bbbb ya basha: "; //ahmed
 	//pIn->GetSrting(pOut, str2, "");   //ahmed 
-
+	*/
 //	}
 	
 }

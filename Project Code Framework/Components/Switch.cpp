@@ -24,6 +24,7 @@ int Switch::GetNumOfOutputs() {
 void Switch::DrawFrame(Output* pOut)
 {
 	pOut->DrawSquare(m_GfxInfo);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 }
 
 int Switch::GetOutPinStatus()
@@ -51,6 +52,21 @@ Component* Switch::Copy()
 	return Copied;
 }
 
+void Switch::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_SWITCH << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}
+void Switch::Load(std::ifstream& stream)
+{
+	int ID;
+	string Label;
+	int x, y;
+	stream >> ID >> Label >> x >> y;
+	this->SetID(ID);
+	this->SetLabel(Label);
+	this->SetGraphicsCorner(x, y);
+}
 OutputPin* Switch::GetOutputPin()
 {
 	return &m_OutputPin;

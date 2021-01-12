@@ -33,6 +33,7 @@ void XNOR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawXNOR2(m_GfxInfo, IfSelected);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 }
 
 //returns status of outputpin
@@ -52,4 +53,18 @@ int XNOR2::GetInputPinStatus(int n)
 void XNOR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n-1].setStatus(s);
+}
+
+Component* XNOR2::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new XNOR2(temp, COMP_FANOUT);
+	return Copied;
+}
+
+void XNOR2::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_XNOR2 << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
 }
