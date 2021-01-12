@@ -301,7 +301,7 @@ int ApplicationManager::WhichComp(COMPS& comptype)
 {
 	int x = 0, y = 0;
 	GetInput()->GetPointClicked(x, y); // To get the x, y coordinates of point clicked
-	int target = 0; // The default value
+	int target = -1; // The default value
 	comptype = COMPS::ITM_GEN; // The default value of the component clicked is COMP_GENERAL
 	for (int i = 0; i < CompCount; i++) { // all components to se which component is selected
 		// To get a copy from the x1, y1, x2, y2 of each component
@@ -544,7 +544,30 @@ void ApplicationManager::DeselectExcept(int except)
 			CompList[i]->SetIfSelected(false); 
 	}
 }
+//////////////////////////////////////////////////////////////
+//Delete
 
+void ApplicationManager::DeleteComp()
+{
+
+	if (lastSelected != nullptr)
+
+		for (int i = 0; i < CompCount; i++)
+		{
+
+
+			if (lastSelected == CompList[i]) 
+			{
+				delete CompList[i]; 
+				CompList[i] = CompList[CompCount - 1]; 
+				CompList[CompCount - 1] = NULL;
+				CompCount--;
+				break;
+			}
+		
+
+		}
+}
 /////////////////////////////////////////////////////////////
 
 ApplicationManager::~ApplicationManager()
