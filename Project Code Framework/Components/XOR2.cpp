@@ -26,7 +26,10 @@ void XOR2::Operate()
 void XOR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
+
 	pOut->DrawXOR2(m_GfxInfo, IfSelected);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, getlabel());
+
 }
 
 //returns status of output pin

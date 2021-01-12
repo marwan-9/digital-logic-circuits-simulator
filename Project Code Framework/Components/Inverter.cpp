@@ -2,10 +2,7 @@
 
 Inverter::Inverter(const GraphicsInfo &r_GfxInfo, int r_FanOut):Gate(1, r_FanOut)
 {
-	m_GfxInfo.x1 = r_GfxInfo.x1;
-	m_GfxInfo.y1 = r_GfxInfo.y1;
-	m_GfxInfo.x2 = r_GfxInfo.x2;
-	m_GfxInfo.y2 = r_GfxInfo.y2;
+	m_GfxInfo = r_GfxInfo;
 }
 
 
@@ -26,6 +23,7 @@ void Inverter::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawINV(m_GfxInfo);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, getlabel());
 }
 
 //returns status of output pin

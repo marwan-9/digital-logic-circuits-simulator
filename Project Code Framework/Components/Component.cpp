@@ -1,4 +1,6 @@
 #include "Component.h"
+#include <xstring>
+#include <cstring>
 
 Component::Component(const GraphicsInfo &r_GfxInfo)
 {
@@ -94,6 +96,17 @@ int Component::GetPinNumber()
 {
 	return -1;
 }
+
+GraphicsInfo Component::getcorners() {
+	return m_GfxInfo;
+}
+
+//Labelll/
+/*void Component::labelprint(Output* pOut) {
+	const char* cpText = m_Label.c_str();
+	//pOut->cleartext(corner1 - 5, corner2 + 50, corner1 + 300, corner2 + 75);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, cpText);
+}*/
 
 const GraphicsInfo Component::getGraphicsInfo()
 {

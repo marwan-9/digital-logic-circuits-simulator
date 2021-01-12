@@ -210,7 +210,6 @@ void ApplicationManager::UpdateInterface()
 	OutputInterface->ClearDrawingArea();
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(OutputInterface);
-
 }
 
 ////////////////////////////////////////////////////////////////////
