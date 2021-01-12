@@ -20,5 +20,4 @@ public:
 	void Redo();
 	~Select();
 };
-
 #endif
