@@ -20,12 +20,13 @@ void AddANDgate2::ReadActionParameters()
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 
+	//check if within drawing area
+	while (!(Cy > UI.ToolBarHeight + UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
+	{
+		pOut->PrintMsg("You are not allowed to print your label outside the drawing area, choose your place again...");
+		pIn->GetPointClicked(Cx, Cy);
+	}
 	
-	
-	//edit label when label is bresed and and is selected
-	//string str2 = "Add component (AND) new label : "; //ahmed
-	//pIn->GetSrting(pOut, str2, "");   //ahmed 
-
 	//Clear Status Bar
 	pOut->ClearStatusBar();
 	
