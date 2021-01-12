@@ -51,3 +51,11 @@ Component* NOR3::Copy()
 	Component* Copied = new NOR3(temp, NOR3_FANOUT);
 	return Copied;
 }
+
+
+void NOR3::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_NOR3 << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}
+

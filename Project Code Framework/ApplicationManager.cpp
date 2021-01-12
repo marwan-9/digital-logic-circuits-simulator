@@ -16,8 +16,26 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
+#include "Actions/Save_Action.h"
+#include "Actions/Load_Action.h"
 #include "Actions/AddConnection.h"
 #include "simulation.h"
+#include "Components/AND2.h"
+#include "Components/AND3.h"
+#include "Components/Buffer.h"
+#include "Components/Inverter.h"
+#include "Components/LED.h"
+#include "Components/NAND2.h"
+#include "Components/NOR3.h"
+#include "Components/OR2.h"
+#include "Components/Switch.h"
+#include "Components/XNOR2.h"
+#include "Components/XOR2.h"
+#include "Components/XOR3.h"
+//
+#include <string>
+
+
 
 ApplicationManager::ApplicationManager()
 {
@@ -34,9 +52,17 @@ ApplicationManager::ApplicationManager()
 
 }
 ////////////////////////////////////////////////////////////////////
-void ApplicationManager::AddComponent(Component* pComp)
+void ApplicationManager::AddComponent(Component* pComp, bool loaded)
 {
-	CompList[CompCount++] = pComp;		
+	if (!loaded) {
+		pComp->SetID(CompCount);
+		CompList[CompCount++] = pComp;
+	}
+	else {
+		CompList[pComp->GetID()] = pComp;
+		CompCount++;
+	}
+			
 }
 int ApplicationManager::GetCompCount()
 {
@@ -131,10 +157,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Paste(this);
 			break;
 		case SAVE:
-			//TODO: Create Action here
+			pAct = new Save_Action(this);
 			break;
 		case LOAD:
-			//TODO: Create Action here
+			pAct = new Load_Action(this);
 			break;
 		case UNDO:
 			//TODO: Create Action here
@@ -359,6 +385,134 @@ int ApplicationManager::WhichComp(COMPS& comptype)
 	return target; 
 }
 
+
+
+void ApplicationManager::Save(std::ofstream& stream)
+{
+	// Number of Components without the connections
+	int ActualCompCount = 0;
+	for (int i = 0; i < CompCount; i++) {
+		if (!dynamic_cast<Connection*>(CompList[i]))
+			ActualCompCount++;
+	}
+	stream << ActualCompCount << endl;
+
+	for (int i = 0; i < CompCount; i++) {
+		if(!dynamic_cast<Connection*>(CompList[i]))
+			CompList[i]->Save(stream);
+	}
+
+	stream << "Connections" << endl;
+	for (int i = 0; i < CompCount; i++) {
+		if (dynamic_cast<Connection*>(CompList[i]))
+			CompList[i]->Save(stream);
+	}
+	stream << "-1";
+}
+
+void ApplicationManager::Load(std::ifstream& stream)
+{
+	ClearApp();
+	Component* pC = NULL;
+	int m_CompCount;
+	int CompType;
+	int CompID;
+	string CompLabel;
+	GraphicsInfo m_GfxInfo;
+	stream >> m_CompCount;
+	for (int i = 0; i < m_CompCount; i++) {
+		stream >> CompType;
+		switch (CompType) {
+		case COMP_SWITCH:
+			pC = new Switch(m_GfxInfo);
+			break;
+		case COMP_LED:
+			pC = new LED(m_GfxInfo);
+			break;
+		case COMP_BUFFER:
+			pC = new Buffer(m_GfxInfo, BUFF_FANOUT);
+			break;
+		case COMP_INVERTER:
+			pC = new Inverter(m_GfxInfo, INV_FANOUT);
+			break;
+		case COMP_AND2:
+			pC = new AND2(m_GfxInfo, AND2_FANOUT);
+			break;
+		case COMP_AND3:
+			pC = new AND3(m_GfxInfo, AND3_FANOUT);
+			break;
+		case COMP_NAND2:
+			pC = new NAND2(m_GfxInfo, NAND2_FANOUT);
+			break;
+		case COMP_NOR2:
+			// pC = new NOR2(m_GfxInfo, NOR2_FANOUT);
+			break;
+		case COMP_NOR3:
+			pC = new NOR3(m_GfxInfo, NOR3_FANOUT);
+			break;
+		case COMP_OR2:
+			pC = new OR2(m_GfxInfo, OR2_FANOUT);
+			break;
+		case COMP_XNOR2:
+			pC = new XNOR2(m_GfxInfo, COMP_FANOUT);
+			break;
+		case COMP_XOR2:
+			pC = new XOR2(m_GfxInfo, XOR2_FANOUT);
+			break;
+		case COMP_XOR3:
+			pC = new XOR3(m_GfxInfo, XOR2_FANOUT);
+			break;
+		}
+		pC->Load(stream);
+		AddComponent(pC, 1);
+	}
+		 
+	int SrcCmpID;
+	int DstCmpID;
+	Component* SrcCmpnt;
+	Component* DstCmpnt;
+	string buffer;
+	// ignoring the "Connections" line
+	stream >> buffer;
+	stream >> SrcCmpID >> DstCmpID;
+	while (SrcCmpID != -1) {
+		SrcCmpnt = GetComponent(SrcCmpID);
+		DstCmpnt = GetComponent(DstCmpID);
+		pC = new Connection(SrcCmpnt, DstCmpnt);
+		if (SrcCmpnt && DstCmpnt) {
+			pC->Load(stream);
+			AddComponent(pC, 1);
+		}
+		else {
+			string msg = "Loading Connections Failed in " + std::to_string(SrcCmpID);
+			OutputInterface->PrintMsg(msg);
+			break;
+		}
+		stream >> SrcCmpID >> DstCmpID;
+	}
+	UpdateInterface();
+}
+
+void ApplicationManager::ClearApp()
+{
+	CompCount = 0;
+	for (int i = 0; i < MaxCompCount; i++)
+		CompList[i] = NULL;
+	OutputInterface->ClearDrawingArea();
+}
+
+
+
+Component* ApplicationManager::GetComponent(int ID)
+{
+	for (int i = 0; i < CompCount; i++) {
+		if (CompList[i]->GetID() == ID)
+			return CompList[i];
+	}
+	return NULL;
+}
+
+
 void ApplicationManager::SelectComponent(int target)
 {
 	CompList[target]->SetIfSelected(true); 
@@ -393,6 +547,7 @@ void ApplicationManager::DeselectExcept(int except)
 }
 
 /////////////////////////////////////////////////////////////
+
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)

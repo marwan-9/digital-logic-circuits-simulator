@@ -50,3 +50,11 @@ Component* Buffer::Copy()
 	Component* Copied = new Buffer(temp, BUFF_FANOUT);
 	return Copied;
 }
+
+
+void Buffer::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_BUFFER << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}
+

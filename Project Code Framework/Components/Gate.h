@@ -1,3 +1,4 @@
+
 #ifndef _GATE_H
 #define _GATE_H
 
@@ -24,12 +25,12 @@ public:
 	virtual void DrawFrame(Output* pOut);
 	virtual Component* Copy()=0;
 
-	virtual int GetNumOfInputs(); // Ahmed
-
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int i);
-
+  virtual int GetNumOfInputs(); // Ahmed
 	virtual int GetPinNumber();
+
+	virtual void Load(std::ifstream& stream);
 };
 
 #endif

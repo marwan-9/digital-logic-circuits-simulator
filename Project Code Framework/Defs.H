@@ -59,9 +59,9 @@ enum ActionType
 //Possible Status for the pin
 enum STATUS
 {
-	UNASSIGNED,
 	LOW,
-	HIGH
+	HIGH,
+	UNASSIGNED
 };
 
 enum  MODE	//Modes of operation
@@ -70,7 +70,24 @@ enum  MODE	//Modes of operation
 	SIMULATION
 };
 
+enum ComponentType {
+	COMP_SWITCH,
+	COMP_LED,
 
+	COMP_BUFFER,
+	COMP_INVERTER,
+
+	COMP_AND2,
+	COMP_OR2,
+	COMP_NAND2,
+	COMP_NOR2,
+	COMP_XOR2,
+	COMP_XNOR2,
+
+	COMP_AND3,
+	COMP_NOR3,
+	COMP_XOR3
+};
 enum DsgnMenuItem //The items of the design menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
@@ -151,6 +168,7 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 //assume fan out is 5 for now it can be read from the user or can be predefined as const
 enum FANOUT
 {
+	COMP_FANOUT = 5,
 	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
 	OR2_FANOUT = 5,		//Default fan out of 2-input OR gate
 	Switch_FANOUT = 10,

@@ -6,6 +6,8 @@
 #include "GUI\Input.h"
 #include "Actions\Action.h"
 #include "Components\Component.h"
+#include <fstream>
+
 
 //Main class that manages everything in the application.
 class ApplicationManager
@@ -44,7 +46,7 @@ public:
 	Input* GetInput();
 
 	//Adds a new component to the list of components
-	void AddComponent(Component* pComp);
+	void AddComponent(Component* pComp, bool loaded = false);
 	int GetCompCount();
 	////////////////////////////////////////////////////////////////////////
 	void setCopied(Component* Cop);
@@ -60,6 +62,12 @@ public:
 	Component* GetSelected();  //return selected pointer
 
 	Component* GetClickedComponent(int x, int y); //returns selected component
+	Component* GetComponent(int ID);
+
+
+	void Save(std::ofstream& stream);
+	void Load(std::ifstream& stream);
+	void ClearApp();
 
 	int WhichComp(COMPS&); // return the ID of the component
 	void DeselectExcept(int = -1); // If the user clicked on blank space, all components should be deselected.
@@ -68,6 +76,7 @@ public:
 	Component* GetLastSelected(); // Get the last component has been
 
 	Component** getcomplist(); //ahmed
+
 
 	//destructor
 	~ApplicationManager();
