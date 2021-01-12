@@ -146,6 +146,7 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 //assume fan out is 5 for now it can be read from the user or can be predefined as const
 enum FANOUT
 {
+	COMP_FANOUT = 5,
 	AND2_FANOUT = 5,	//Default fan out of 2-input AND gate
 	OR2_FANOUT = 5,		//Default fan out of 2-input OR gate
 	Switch_FANOUT = 10,
