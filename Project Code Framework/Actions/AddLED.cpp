@@ -7,6 +7,7 @@ AddLED::AddLED(ApplicationManager *pApp):Action(pApp)
 
 AddLED::~AddLED(void)
 {
+
 }
 
 void AddLED::ReadActionParameters()

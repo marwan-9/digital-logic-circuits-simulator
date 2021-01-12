@@ -55,20 +55,24 @@ void simulation::Execute()
 					string msg = msg1 + name + msg2;
 					string str = pIn->GetSrting(pOut, msg, " ");
 					if (str == "HIGH") {
-						switchh->setoutputpenstatus(HIGH);
+						//switchh->setoutputpenstatus(HIGH);
+						comp[i]->GetOutputPin()->setStatus(HIGH);
 					}
 
 					else if (str == "LOW") {
-						switchh->setoutputpenstatus(LOW);
+						comp[i]->GetOutputPin()->setStatus(LOW);
+						//switchh->setoutputpenstatus(LOW);
 					}
 				}
 			}
-			for (int a = 1; a <= numofin; a++) {
-				//pOut->ClearStatusBar();
-				//pIn->GetSrting(pOut, "enter cheak ", " ");
-				if (comp[i]->GetInputPinStatus(a) == UNASSIGNED){
-					c = 0; 
-					break;
+			if (!switchh) {
+				for (int a = 1; a <= numofin; a++) {
+					//pOut->ClearStatusBar();
+					//pIn->GetSrting(pOut, "enter cheak ", " ");
+					if (comp[i]->GetInputPinStatus(a) == UNASSIGNED) {
+						c = 0;
+						break;
+					}
 				}
 			}
 			if (c) {
@@ -85,7 +89,7 @@ void simulation::Execute()
 						//continue;
 					}
 					}
-				if (!switchh /*&& !led*/) {
+				if (!switchh && !led) {
 					comp[i]->Operate();
 				}
 				//pOut->ClearStatusBar();
