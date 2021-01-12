@@ -304,7 +304,7 @@ void Output::DrawXOR3(GraphicsInfo r_GfxInfo, bool selected) const
 	if (selected)	//use image in the highlighted case
 		GateImage = "Images\\Gates\\Gate_XOR3_Hi.jpg";
 	else
-		GateImage = "Images\\Gates\\Gate_XNOR3.jpg";
+		GateImage = "Images\\Gates\\Gate_XOR3.jpg";
 
 	//Draw AND2 Gate at Gfx_Info (1st corner)
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
