@@ -1,3 +1,4 @@
+
 #include "Gate.h"
 
 //Gate Constructor
@@ -31,7 +32,9 @@ InputPin* Gate::GetInputPins(int i)
 		return &m_InputPins[i];
 	return NULL;
 }
-
+int Gate::GetNumOfInputs() {
+	return m_Inputs;
+}
 int Gate::GetPinNumber()
 {
 	for (int i = 0; i < m_Inputs; i++) {

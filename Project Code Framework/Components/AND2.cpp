@@ -25,7 +25,7 @@ void AND2::Operate()
 void AND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawAND2(m_GfxInfo);
+	pOut->DrawAND2(m_GfxInfo, IfSelected);
 }
 
 //returns status of outputpin
@@ -56,8 +56,11 @@ Component* AND2::Copy()
 	return Copied;
 }
 
+
 void AND2::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_AND2 << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
 }
+
+

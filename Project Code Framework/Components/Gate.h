@@ -1,3 +1,4 @@
+
 #ifndef _GATE_H
 #define _GATE_H
 
@@ -26,7 +27,7 @@ public:
 
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int i);
-
+  virtual int GetNumOfInputs(); // Ahmed
 	virtual int GetPinNumber();
 
 	virtual void Load(std::ifstream& stream);

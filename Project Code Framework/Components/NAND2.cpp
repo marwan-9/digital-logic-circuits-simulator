@@ -7,7 +7,7 @@ NAND2::NAND2(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 
 
 void NAND2::Operate()
-{
+{ 
 	//caclulate the output status as the NAND of the two input pins
 	int output = m_InputPins[0].getStatus() * m_InputPins[1].getStatus();
 	if (output == 0) 
@@ -22,7 +22,7 @@ void NAND2::Operate()
 void NAND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawNAND2(m_GfxInfo);
+	pOut->DrawNAND2(m_GfxInfo, IfSelected);
 }
 
 //returns status of outputpin
@@ -52,8 +52,10 @@ Component* NAND2::Copy()
 	return Copied;
 }
 
+
 void NAND2::Save(std::ofstream& stream)
 {
 	stream << ComponentType::COMP_NAND2 << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
 }
+

@@ -21,6 +21,8 @@ private:
 
 	Component* selected; //poiter to selected component
 
+	Component* lastSelected; // Pointer to the last component has been selected
+
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 
@@ -62,9 +64,20 @@ public:
 	Component* GetClickedComponent(int x, int y); //returns selected component
 	Component* GetComponent(int ID);
 
+
 	void Save(std::ofstream& stream);
 	void Load(std::ifstream& stream);
 	void ClearApp();
+
+	int WhichComp(COMPS&); // return the ID of the component
+	void DeselectExcept(int = -1); // If the user clicked on blank space, all components should be deselected.
+	void SetLastSelected(int = -1); // Set the last component has been selected
+	void SelectComponent(int = -1); // To set is_selected for the target = true
+	Component* GetLastSelected(); // Get the last component has been
+
+	Component** getcomplist(); //ahmed
+
+
 	//destructor
 	~ApplicationManager();
 };

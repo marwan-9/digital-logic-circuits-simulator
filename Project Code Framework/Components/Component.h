@@ -1,3 +1,4 @@
+
 #ifndef _COMPONENT_H
 #define _COMPONENT_H
 
@@ -53,9 +54,13 @@ public:
 	
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int index);
-
 	// Checks if there are available Input Pins to be connected or not, if yes it returns the number of the available pin, otherwise it returns -1
 	virtual int GetPinNumber();
+  
+  virtual const GraphicsInfo getGraphicsInfo();
+	virtual COMPS getcomptype() const;
+	virtual int GetNumOfInputs() = 0; //add me ahmed here	
+	//virtual void EDITLABEL() = 0 ;	
 
 	Component();	
 	

@@ -357,14 +357,14 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 	if (r_GfxInfo.y1 != r_GfxInfo.y2) { // Broken Connection
 		int mid_point = (r_GfxInfo.x1 + r_GfxInfo.x2) / 2;
 		if (selected) {
-			pWind->SetPen(YELLOW, 5);
+			pWind->SetPen(YELLOW, 2);
 			// Draw Half the connection at the same level of the source and the other on the level of destination, and a vertical line connecting them
 			pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, mid_point, r_GfxInfo.y1);
 			pWind->DrawLine(mid_point, r_GfxInfo.y1, mid_point, r_GfxInfo.y2);
 			pWind->DrawLine(mid_point, r_GfxInfo.y2, r_GfxInfo.x2, r_GfxInfo.y2);
 		}
 		else {
-			pWind->SetPen(BLACK, 5);
+			pWind->SetPen(BLACK, 2);
 			// Draw Half the connection at the same level of the source and the other on the level of destination, and a vertical line connecting them
 			pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, mid_point, r_GfxInfo.y1);
 			pWind->DrawLine(mid_point, r_GfxInfo.y1, mid_point, r_GfxInfo.y2);
@@ -373,17 +373,22 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 	}
 	else {
 		if (selected) {
-			pWind->SetPen(YELLOW, 5);
+			pWind->SetPen(YELLOW, 2);
 			pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y2);
 
 		}
 		else {
-			pWind->SetPen(BLACK, 5);
+			pWind->SetPen(BLACK, 2);
 			pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y2);
 		}
 	}
 }
-
+void Output::Printstringg(const int iX=0 , const int iY=0 , const char* cpText=" ")	//Print a message on Status bar
+{
+	 
+	pWind->DrawString(iX,iY,cpText);
+	
+}
 
 Output::~Output()
 {

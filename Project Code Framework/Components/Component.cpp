@@ -6,6 +6,14 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 	m_Label = "DefaultLabel";
 	m_ID = 0;
 }
+void Component::setlabel(string str) {
+	m_Label = str;
+	//m_Label= pIn->GetSrting(pOut, str2, "");	
+}
+string Component::getlabel() {
+	return m_Label;
+}
+//int Component::GetNumOfInputs() = 0;//add me ahmed here
 
 void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
 {
@@ -87,6 +95,15 @@ int Component::GetPinNumber()
 	return -1;
 }
 
+const GraphicsInfo Component::getGraphicsInfo()
+{
+	return m_GfxInfo;
+}
+
+COMPS Component::getcomptype() const
+{
+	return COMPS::ITM_GEN;
+}
 Component::Component()
 {
 	IfSelected=false;

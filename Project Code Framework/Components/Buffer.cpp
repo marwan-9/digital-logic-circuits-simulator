@@ -21,7 +21,7 @@ void Buffer::Operate()
 void Buffer::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawBuff(m_GfxInfo);
+	pOut->DrawBuff(m_GfxInfo, IfSelected);
 }
 
 //returns status of output pin
@@ -50,6 +50,7 @@ Component* Buffer::Copy()
 	Component* Copied = new Buffer(temp, BUFF_FANOUT);
 	return Copied;
 }
+
 
 void Buffer::Save(std::ofstream& stream)
 {

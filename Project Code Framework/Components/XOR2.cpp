@@ -26,7 +26,7 @@ void XOR2::Operate()
 void XOR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawXOR2(m_GfxInfo);
+	pOut->DrawXOR2(m_GfxInfo, IfSelected);
 }
 
 //returns status of output pin
@@ -61,3 +61,4 @@ void XOR2::Save(std::ofstream& stream)
 	stream << ComponentType::COMP_XOR2 << " " << this->GetID() << " " << this->GetLabel()
 		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
 }
+

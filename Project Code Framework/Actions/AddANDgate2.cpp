@@ -53,7 +53,19 @@ void AddANDgate2::Execute()
 	//add label
 	string str = "Add component  (AND) label : "; //ahmed
 	AND2Name = pIn->GetSrting(pOut, str, "");   //ahmed 
-
+	pA->setlabel(AND2Name);
+	//string label = pA->getlabel();
+	const char* cpText = AND2Name.c_str();
+	pOut->Printstringg(Cx, Cy, cpText);
+	pOut->ClearStatusBar(); pManager->UpdateInterface();
+	//strcpy(cpText, AND2Name.c_str());
+	//Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
+	//string label = Selected->getlabel();
+	//const char* cpText = label.c_str();
+	//	strcpy(cpText, str2.c_str());
+	//pOut->Printstringg(Cx, Cy, cpText);
+	//pOut->ClearStatusBar();
+	//try me
 	//pIn->GetPointClicked(Cx, Cy);
 	//if (GInfo.x1 < Cx < GInfo.x2) {
 		//edit label when label is bresed and and is selected

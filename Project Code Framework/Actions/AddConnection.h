@@ -6,6 +6,8 @@ class AddConnection :
     public Action
 {
 private:
+	Component* SrcCmpt;
+	Component* DstCmpt;
 	OutputPin* SrcPin;	//The Source pin of this connection (an output pin of certain Component)
 	InputPin* DstPin;	//The Destination pin of this connection (an input pin of certain Component)
 	int		PinNumber;		//The Input pin to which this connection is linked

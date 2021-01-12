@@ -3,6 +3,8 @@
 
 AddConnection::AddConnection(ApplicationManager* pApp):Action(pApp)
 {
+	SrcCmpt = NULL;
+	DstCmpt = NULL;
 	SrcPin = NULL;
 	DstPin = NULL;
 	SrcCmpnt = NULL;

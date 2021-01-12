@@ -5,7 +5,6 @@ AND3::AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 	m_GfxInfo = r_GfxInfo;
 }
 
-
 void AND3::Operate()
 {
 	int output = m_InputPins[0].getStatus() * m_InputPins[1].getStatus() * m_InputPins[2].getStatus();
@@ -21,7 +20,7 @@ void AND3::Operate()
 void AND3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawAND3(m_GfxInfo);
+	pOut->DrawAND3(m_GfxInfo, IfSelected);
 	
 }
 
@@ -31,7 +30,11 @@ int AND3::GetOutPinStatus()
 	return m_OutputPin.getStatus();
 }
 
-
+void EDITLABEL(Output* pOut, string msg, string str,INPUT pIn) {
+	//m_Label = pIn->GetSrting(pOut, msg, str);
+}
+//void setlabel(string str) { 
+//}
 //returns status of Inputpin #n
 int AND3::GetInputPinStatus(int n)
 {
@@ -51,6 +54,7 @@ Component* AND3::Copy()
 	Component* Copied = new AND3(temp, AND3_FANOUT);
 	return Copied;
 }
+
 
 void AND3::Save(std::ofstream& stream)
 {
