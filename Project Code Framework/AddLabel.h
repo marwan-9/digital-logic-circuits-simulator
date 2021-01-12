@@ -1,12 +1,15 @@
 #include "Actions/Action.h"
 #include "Components\Gate.h"
+#include <xstring>
+#include <cstring>
+
 class AddLabel : public Action
 {
 private:
 	//Parameters for rectangular area to be occupied by the gate
 	int Cx, Cy;	//Center point of the gate
 	int x1, y1, x2, y2 ;	//Two corners of the rectangluar area
-	Component * Selected; //ahmed
+	int corner1, corner2; //ahmed
 	Component * ttorename; //ahmed
 public:
 	AddLabel(ApplicationManager* pApp);

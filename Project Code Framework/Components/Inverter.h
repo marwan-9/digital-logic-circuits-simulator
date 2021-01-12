@@ -12,7 +12,7 @@
 class Inverter:public Gate
 {
 public:
-	Inverter(const GraphicsInfo &r_GfxInfo, int r_FanOut);
+	Inverter(const GraphicsInfo& r_GfxInfo, int r_FanOut);
 	virtual void Operate();	//Calculates the output of the Inverter gate
 	virtual void Draw(Output* pOut);	//Draws Inverter gate
 

@@ -106,7 +106,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_Label:
 			pAct = new AddLabel(this);
-
 			//TODO: Create Action here
 			break;
 		//case EDIT_Label:
@@ -194,9 +193,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::UpdateInterface()
 {
-		for(int i=0; i<CompCount; i++)
-			CompList[i]->Draw(OutputInterface);
-
+	OutputInterface->ClearDrawingArea();
+	for (int i = 0; i < CompCount; i++) {
+		
+		CompList[i]->Draw(OutputInterface);
+		//CompList[i]->labelprint(OutputInterface);
+		
+	}
 }
 
 ////////////////////////////////////////////////////////////////////

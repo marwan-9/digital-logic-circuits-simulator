@@ -1,4 +1,6 @@
 #include "AND2.h"
+#include <xstring>
+#include <cstring>
 
 AND2::AND2(const GraphicsInfo &r_GfxInfo, int r_FanOut):Gate(2, r_FanOut)
 {
@@ -26,6 +28,10 @@ void AND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
 	pOut->DrawAND2(m_GfxInfo);
+	//const char* cpText = getlabel().c_str();
+	//pOut->cleartext(corner1 - 5, corner2 + 50, corner1 + 300, corner2 + 75);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, getlabel());
+	
 }
 
 //returns status of outputpin

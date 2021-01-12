@@ -1,5 +1,7 @@
 #ifndef _AND2_H
 #define _AND2_H
+#include <xstring>
+#include <cstring>
 
 /*
   Class AND2

@@ -2,21 +2,7 @@
 #include "AddLabel.h"
 #include "ApplicationManager.h"
 #include "Components\Gate.h"
-/*
-#include "Copy.h"
-#include "..\Components\AND2.h"
-#include "..\ApplicationManager.h"
-#include "..\Components\AND3.h"
-#include "..\Components\Buffer.h"
-#include "..\Components\Connection.h"
-#include "..\Components\OR2.h"
-#include "..\Components\NAND2.h"
-#include "..\Components\NOR3.h"
-#include "..\Components\Inverter.h"
-#include "..\Components\Switch.h"
-#include "..\Components\XOR2.h"
-*/
-//Not all are included
+
 AddLabel::AddLabel(ApplicationManager* pApp) :Action(pApp)
 {
 }
@@ -41,24 +27,52 @@ void AddLabel::ReadActionParameters()
 void AddLabel::Execute()
 {
 	ReadActionParameters();
-	Selected = pManager->GetClickedComponent(Cx,Cy);
-	if (Selected!=NULL)
+	Output* pOut = pManager->GetOutput();
+	Component* Clicked_one = pManager->GetClickedComponent(Cx, Cy); //Returns the clicked component
+	               
+	if (Clicked_one != NULL)
 	{
-		Output* pOut = pManager->GetOutput();
-		Input* pIn = pManager->GetInput();
+		corner1 = Clicked_one->getcorners().x1;  //Upper Left Corner of the clicked component
+		corner2 = Clicked_one->getcorners().y1;
 		
-		string str2 = "enter label to the component : ";
 		
-		Selected->setlabel(pIn->GetSrting(pOut, str2, ""));
-		string label = Selected->getlabel();
-		const char* cpText= label.c_str(); 
-		pManager->UpdateInterface();
-	
-		pOut->Printstringg(Cx+7, Cy+7, cpText);
-		pOut->ClearStatusBar();
-		//	strcpy(cpText, str2.c_str()); 
+		if (Clicked_one->getlabel() == "") {            //ADD NOT EDIT
+			Output* pOut = pManager->GetOutput();
+			Input* pIn = pManager->GetInput();
+
+			string str2 = "Enter Label to the Component : ";
+			Clicked_one->setlabel (pIn->GetSrting(pOut, str2, "") );
+
+			//string label = Clicked_one->getlabel();
+			//const char* cpText = label.c_str();
+			//pOut->Printstringg(corner1 - 5, corner2 + 50, Clicked_one->getlabel());
+			//pOut->Printstringg(corner1 - 5, corner2 + 50, cpText);
+			//pManager->UpdateInterface();
+			pOut->ClearStatusBar();
+		}
+
+
+		else {                                         //EDIT NOT ADD
+			
+			Output* pOut = pManager->GetOutput();
+			Input* pIn = pManager->GetInput();
+			string str2 = "Edit Label of the Component : ";
+			
+			Clicked_one->setlabel(pIn->GetSrting(pOut, str2, ""));
+			//string label = Clicked_one->getlabel();
+			//const char* cpText = label.c_str();
+			//pOut->cleartext(corner1 - 5, corner2 + 50, corner1 + 300, corner2 + 75)
+			//pOut->Printstringg(corner1 - 5, corner2 + 50, Clicked_one->getlabel());
+			//pOut->ClearDrawingArea();
+			
+			pOut->ClearStatusBar();
+			//pManager->UpdateInterface();
+		}
+
 	}
+	//pManager->UpdateInterface();
 }
+
 
 void AddLabel::Undo()
 {}
