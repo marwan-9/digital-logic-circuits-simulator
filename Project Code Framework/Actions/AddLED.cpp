@@ -37,7 +37,7 @@ void AddLED::Execute()
 	//Get Center point of the Gate
 	ReadActionParameters();
 	
-	//size
+	//Size
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
 	

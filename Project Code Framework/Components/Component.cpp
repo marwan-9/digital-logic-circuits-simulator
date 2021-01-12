@@ -10,17 +10,15 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 }
 void Component::SetLabel(string str) {
 	m_Label = str;
-	
-	//m_Label= pIn->GetSrting(pOut, str2, "");	
 }
 
-//int Component::GetNumOfInputs() = 0;//add me ahmed here
 
-void Component::SetGraphics(int x, int y, bool type)    //zy ma bn3ml add kda
+
+void Component::SetGraphics(int x, int y, bool type)    //Like We Add Gates
 {
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
-	GraphicsInfo GInfo; //Gfx info to be used to construct the AND2 gate
+	GraphicsInfo GInfo;   //Gfx info to be used to construct the AND2 gate
 
 	GInfo.x1 = x - Len / 2;
 	GInfo.x2 = x + Len / 2;
@@ -97,12 +95,6 @@ GraphicsInfo Component::getcorners() {
 	return m_GfxInfo;
 }
 
-//Labelll/
-/*void Component::labelprint(Output* pOut) {
-	const char* cpText = m_Label.c_str();
-	//pOut->cleartext(corner1 - 5, corner2 + 50, corner1 + 300, corner2 + 75);
-	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, cpText);
-}*/
 
 const GraphicsInfo Component::getGraphicsInfo()
 {
