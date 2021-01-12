@@ -16,7 +16,7 @@ void Select::ReadActionParameters()
 
 void Select::Execute()
 {
-	ReadActionParameters(); // To get the clicked coordinates
+	//ReadActionParameters(); // To get the clicked coordinates
 
 	COMPS comp;
 	int target = pManager->WhichComp(comp); // To get the index of the target component.
