@@ -28,6 +28,8 @@ private:
 
 	Component* CopiedItem; //A pointer to the Copied Item
 	bool CutOrCopy;  //true->Copy // false->Cut
+	
+	void shift(int i); //shift in complist
 
 
 public:	
@@ -76,6 +78,8 @@ public:
 	Component* GetLastSelected(); // Get the last component has been
 
 	Component** getcomplist(); //ahmed
+	
+	void DeleteComp(); // delete the last selected comp
 
 
 	//destructor
