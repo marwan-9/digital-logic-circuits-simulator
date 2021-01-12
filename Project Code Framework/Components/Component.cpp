@@ -10,6 +10,7 @@ Component::Component(const GraphicsInfo &r_GfxInfo)
 }
 void Component::SetLabel(string str) {
 	m_Label = str;
+	
 	//m_Label= pIn->GetSrting(pOut, str2, "");	
 }
 
