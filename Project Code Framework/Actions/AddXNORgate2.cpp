@@ -22,6 +22,7 @@ void AddXNORgate2::ReadActionParameters()
 
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
+
 	//check if within drawing area
 	while (!(Cy > UI.ToolBarHeight + UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
 	{
