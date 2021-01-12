@@ -133,6 +133,7 @@
     <ClCompile Include="Actions\AddInverterGate.cpp" />
     <ClCompile Include="Actions\AddLED.cpp" />
     <ClCompile Include="Actions\AddNANDgate2.cpp" />
+    <ClCompile Include="Actions\AddNOR2.cpp" />
     <ClCompile Include="Actions\AddNORgate3.cpp" />
     <ClCompile Include="Actions\AddORgate2.cpp" />
     <ClCompile Include="Actions\AddSwitch.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="Actions\AddInverterGate.h" />
     <ClInclude Include="Actions\AddLED.h" />
     <ClInclude Include="Actions\AddNANDgate2.h" />
+    <ClInclude Include="Actions\AddNOR2.h" />
     <ClInclude Include="Actions\AddNORgate3.h" />
     <ClInclude Include="Actions\AddORgate2.h" />
     <ClInclude Include="Actions\AddSwitch.h" />

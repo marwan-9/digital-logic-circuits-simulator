@@ -17,10 +17,16 @@ int LED::GetNumOfInputs() {
 
 void LED::Draw(Output* pOut)
 {
-	if(m_InputPin.getStatus()==HIGH)
-		pOut->DrawLED(m_GfxInfo, true); //when on
+
+
+	if (m_InputPin.getStatus() == HIGH) {
+		pOut->DrawLED(m_GfxInfo, IfSelected); //when on
+		pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
+	}
 	else 
-		pOut->DrawLED(m_GfxInfo, false); //when off
+		pOut->DrawLED(m_GfxInfo, IfSelected); //when off
+	  pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 60, GetLabel());
+
 }
 
 
@@ -45,10 +51,6 @@ void LED::setInputPinStatus(int n, STATUS s)
 	m_InputPin.setStatus(s);
 }
 
-Component* LED::Copy()
-{
-	return nullptr;
-}
 
 
 void LED::Save(std::ofstream& stream)
@@ -66,6 +68,14 @@ void LED::Load(std::ifstream& stream)
 	this->SetID(ID);
 	this->SetLabel(Label);
 	this->SetGraphicsCorner(x, y);
+}
+
+Component* LED::Copy()
+{
+	GraphicsInfo temp;
+	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
+	Component* Copied = new LED(temp);
+	return Copied;
 }
 
 InputPin* LED::GetInputPins(int index)
