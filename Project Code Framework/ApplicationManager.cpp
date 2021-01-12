@@ -547,12 +547,6 @@ void ApplicationManager::DeselectExcept(int except)
 //////////////////////////////////////////////////////////////
 //Delete
 
-void ApplicationManager::shift(int i)
-{
-	for (int j = i; j < CompCount - 1; j++) // shift the comp in compList 
-		swap(CompList[j], CompList[j + 1]);
-
-}
 void ApplicationManager::DeleteComp()
 {
 
@@ -564,17 +558,13 @@ void ApplicationManager::DeleteComp()
 
 			if (lastSelected == CompList[i]) 
 			{
-				
-
 				delete CompList[i]; 
-				CompList[i] = NULL; 
-				shift(i);
+				CompList[i] = CompList[CompCount - 1]; 
+				CompList[CompCount - 1] = NULL;
 				CompCount--;
-				lastSelected = NULL;
 				break;
 			}
-			else
-				GetOutput()->PrintMsg("Please Select a Component before Delete");
+		
 
 		}
 }
