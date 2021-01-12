@@ -4,7 +4,7 @@ Pin::Pin()
 {
 
 	m_Status = UNASSIGNED;	//Default Status is LOW
-	m_Status = LOW;	//Default Status is LOW
+	//m_Status = LOW;	//Default Status is LOW
 	Connected = false;
 
 }

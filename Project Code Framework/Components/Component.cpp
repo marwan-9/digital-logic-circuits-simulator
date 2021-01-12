@@ -64,9 +64,12 @@ Component::Component()
 
 Component::~Component()
 {}
+GraphicsInfo Component::Getinfo(Output* pOut) {
+	return m_GfxInfo;
+}
 
 void Component::drawname(Output* pOut, int Cx, int Cy, const char* cpText) {
 
 	pOut->Printstringg(Cx, Cy, cpText);
 
-}
+}//UNASSIGNED

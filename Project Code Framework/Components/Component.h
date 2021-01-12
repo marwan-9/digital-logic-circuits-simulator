@@ -49,7 +49,7 @@ public:
 	Component();	
 	
 	void drawname(Output* pOut, int Cx, int Cy, const char* cpText); //virtual
-
+	GraphicsInfo Getinfo(Output* pOut);
 	//Destructor must be virtual
 	virtual ~Component();
 };

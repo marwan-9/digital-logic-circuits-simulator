@@ -6,8 +6,8 @@
 class simulation : public Action
 {
 private:
-	int x, y;
-	Component* point;
+	//int x, y;
+	//Component* point;
 public:
 	simulation(ApplicationManager* pApp);
 	virtual void ReadActionParameters();

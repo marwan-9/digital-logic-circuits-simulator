@@ -21,9 +21,9 @@ void LED::Draw(Output* pOut)
 		pOut->DrawLED(m_GfxInfo, IfSelected); //when on
 	else 
 		pOut->DrawLED(m_GfxInfo, IfSelected); //when off
-	
-	
 }
+
+
 void LED::DrawFrame(Output* pOut)
 {
 	pOut->DrawSquare(m_GfxInfo);
@@ -33,7 +33,7 @@ int LED::GetOutPinStatus()
 	return -1;
 }
 
-int LED::GetInputPinStatus(int n=1)	
+int LED::GetInputPinStatus(int n)	
 {
 	return m_InputPin.getStatus();
 }
