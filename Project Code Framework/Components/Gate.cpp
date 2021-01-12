@@ -1,4 +1,3 @@
-
 #include "Gate.h"
 
 //Gate Constructor

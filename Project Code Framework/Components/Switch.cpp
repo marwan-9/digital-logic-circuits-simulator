@@ -6,7 +6,7 @@ Switch::Switch(const GraphicsInfo& r_GfxInfo, int r_FanOut):m_OutputPin(r_FanOut
 
 void Switch::Operate()
 {
-
+	//m_OutputPin.setStatus(UNASSIGNED);
 }
 
 void Switch::Draw(Output* pOut)
@@ -17,6 +17,9 @@ void Switch::Draw(Output* pOut)
 
 int Switch::GetNumOfInputs() {
 	return 0; //check this ahmed
+}
+int Switch::GetNumOfOutputs() {
+	return 1; //check this ahmed
 }
 
 void Switch::DrawFrame(Output* pOut)
@@ -34,7 +37,10 @@ int Switch::GetInputPinStatus(int n)
 {
 	return -1;
 }
+void Switch::setoutputpenstatus(STATUS s) {
+	m_OutputPin.setStatus(s);
 
+}
 void Switch::setInputPinStatus(int n, STATUS s)
 {
 
