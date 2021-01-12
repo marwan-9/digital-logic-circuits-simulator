@@ -79,10 +79,17 @@ void Output::ClearStatusBar()const
 //Clears the drawing (degin) area
 void Output::ClearDrawingArea() const
 {
-	pWind->SetPen(RED, 1);
+	pWind->SetPen(WHITE, 0);
 	pWind->SetBrush(WHITE);
 	pWind->DrawRectangle(0, UI.ToolBarHeight + UI.GateBarHeight, UI.width, UI.height - UI.StatusBarHeight);
 	
+}
+/////////////////////////////////////////////////////////////////////////////////////
+void Output::cleartext(int x1, int y1, int x2, int y2)
+{
+	//pWind->SetPen(WHITE,0);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(x1,y1,x2,y2);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //Draws the menu (toolbar) in the Design mode
@@ -383,9 +390,10 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected) const
 		}
 	}
 }
-void Output::Printstringg(const int iX=0 , const int iY=0 , const char* cpText=" ")	//Print a message on Status bar
+
+void Output::Printstringg(const int iX=0 , const int iY=0 , const string cpText="")	//Print a message on Status bar
 {
-	 
+	pWind->SetPen(BLUE,1);
 	pWind->DrawString(iX,iY,cpText);
 	
 }
