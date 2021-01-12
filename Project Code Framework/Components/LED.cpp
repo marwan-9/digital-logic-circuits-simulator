@@ -7,6 +7,7 @@ LED::LED(const GraphicsInfo& r_GfxInfo):Component(r_GfxInfo)
 
 void LED::Operate()
 {
+	m_InputPin.setStatus(m_InputPin.getStatus());
 
 }
 

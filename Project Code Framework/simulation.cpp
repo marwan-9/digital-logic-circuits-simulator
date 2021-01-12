@@ -85,7 +85,7 @@ void simulation::Execute()
 						//continue;
 					}
 					}
-				if (!switchh && !led) {
+				if (!switchh /*&& !led*/) {
 					comp[i]->Operate();
 				}
 				//pOut->ClearStatusBar();
