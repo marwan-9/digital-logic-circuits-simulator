@@ -209,27 +209,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 }
 ////////////////////////////////////////////////////////////////////
 
-void ApplicationManager::UpdateInterface(int Cx,int Cy)
+void ApplicationManager::UpdateInterface()
 {
 	OutputInterface->ClearDrawingArea();
-	/*
-  for (int i = 0; i < CompCount; i++) {
-		CompList[i]->Draw(OutputInterface);
-		//CompList[i]->Draw(OutputInterface);
-		string label = CompList[i]->getlabel();
-		const char* cpText = label.c_str();
-		//InputInterface->GetPointClicked(Cx, Cy);
-		CompList[i]->drawname(OutputInterface, Cx - 1, Cy - 1, cpText);
-
-		/*
-		int Cx, Cy;
-		string label = CompList[i]->getlabel();
-		const char* cpText = label.c_str();
-		InputInterface->GetPosition(Cx, Cy);
-		OutputInterface->Printstringg(Cx - 2, Cy - 4, cpText);
-		*/
-	}
-*/
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(OutputInterface);
 }
@@ -606,6 +588,12 @@ void ApplicationManager::DeleteComp()
 		
 
 		}
+}
+void ApplicationManager::OperateAll()
+{
+	for (int i = 0; i < CompCount; i++) {
+		CompList[i]->Operate();
+	}
 }
 /////////////////////////////////////////////////////////////
 

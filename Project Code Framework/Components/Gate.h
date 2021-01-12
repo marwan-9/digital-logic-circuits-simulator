@@ -26,7 +26,7 @@ public:
 
 	virtual OutputPin* GetOutputPin();
 	virtual InputPin* GetInputPins(int i);
-  virtual int GetNumOfInputs(); // Ahmed
+	virtual int GetNumOfInputs(); // Ahmed
 	virtual int GetPinNumber();
 
 	virtual void Load(std::ifstream& stream);

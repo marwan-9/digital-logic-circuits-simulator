@@ -11,16 +11,18 @@ void Switch::Operate()
 
 void Switch::Draw(Output* pOut)
 {
-	pOut->DrawSwitch(m_GfxInfo);
+	if (m_OutputPin.getStatus() == HIGH)
+		pOut->DrawSwitch(m_GfxInfo, true); //when on
+	else
+		pOut->DrawSwitch(m_GfxInfo, false); //when off
+
 	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 60, GetLabel());
 }
 
 int Switch::GetNumOfInputs() {
 	return 0; //check this ahmed
 }
-int Switch::GetNumOfOutputs() {
-	return 1; //check this ahmed
-}
+
 
 void Switch::DrawFrame(Output* pOut)
 {
