@@ -6,6 +6,8 @@
 #include "GUI\Input.h"
 #include "Actions\Action.h"
 #include "Components\Component.h"
+#include <fstream>
+
 
 //Main class that manages everything in the application.
 class ApplicationManager
@@ -16,7 +18,11 @@ class ApplicationManager
 private:
 	int CompCount;		//Actual number of Components
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
-	Component* selected=NULL; //poiter to selected component
+
+	Component* selected; //poiter to selected component
+
+	Component* lastSelected; // Pointer to the last component has been selected
+
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 
@@ -29,7 +35,7 @@ public:
 
 	//Reads the required action from the user and returns the corresponding action type
 	ActionType GetUserAction();
-
+	
 	//Creates an action and executes it
 	void ExecuteAction(ActionType);
 	
@@ -40,7 +46,7 @@ public:
 	Input* GetInput();
 
 	//Adds a new component to the list of components
-	void AddComponent(Component* pComp);
+	void AddComponent(Component* pComp, bool loaded = false);
 	int GetCompCount();
 	////////////////////////////////////////////////////////////////////////
 	void setCopied(Component* Cop);
@@ -56,11 +62,23 @@ public:
 	Component* GetSelected();  //return selected pointer
 
 	Component* GetClickedComponent(int x, int y); //returns selected component
+	Component* GetComponent(int ID);
 
-	//string givelabel(); //ahmed
+
+	void Save(std::ofstream& stream);
+	void Load(std::ifstream& stream);
+	void ClearApp();
+
+	int WhichComp(COMPS&); // return the ID of the component
+	void DeselectExcept(int = -1); // If the user clicked on blank space, all components should be deselected.
+	void SetLastSelected(int = -1); // Set the last component has been selected
+	void SelectComponent(int = -1); // To set is_selected for the target = true
+	Component* GetLastSelected(); // Get the last component has been
+
 	Component** getcomplist(); //ahmed
-	//void settlabel();//ahmed
 
+
+	//destructor
 	~ApplicationManager();
 };
 

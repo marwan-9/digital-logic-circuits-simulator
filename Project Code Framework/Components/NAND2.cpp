@@ -22,8 +22,9 @@ void NAND2::Operate()
 void NAND2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawNAND2(m_GfxInfo);
+	pOut->DrawNAND2(m_GfxInfo, IfSelected);
 	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, getlabel());
+	
 }
 
 //returns status of outputpin
@@ -52,3 +53,11 @@ Component* NAND2::Copy()
 	Component* Copied = new NAND2(temp, NAND2_FANOUT);
 	return Copied;
 }
+
+
+void NAND2::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_NAND2 << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1 << std::endl;
+}
+

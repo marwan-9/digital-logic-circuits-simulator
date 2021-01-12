@@ -139,7 +139,9 @@
     <ClCompile Include="Actions\AddXOR2Gate.cpp" />
     <ClCompile Include="Actions\Copy.cpp" />
     <ClCompile Include="Actions\Cut.cpp" />
+    <ClCompile Include="Actions\Load_Action.cpp" />
     <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Save_Action.cpp" />
     <ClCompile Include="Actions\Select.cpp" />
     <ClCompile Include="AddLabel.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
@@ -217,7 +219,9 @@
     <ClInclude Include="Actions\AddXOR2Gate.h" />
     <ClInclude Include="Actions\Copy.h" />
     <ClInclude Include="Actions\Cut.h" />
+    <ClInclude Include="Actions\Load_Action.h" />
     <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Save_Action.h" />
     <ClInclude Include="Actions\Select.h" />
     <ClInclude Include="AddLabel.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />

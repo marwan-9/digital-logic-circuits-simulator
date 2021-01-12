@@ -12,7 +12,7 @@
 class Buffer :public Gate
 {
 public:
-	Buffer(const GraphicsInfo& r_GfxInfo, int r_FanOut);
+	Buffer(const GraphicsInfo& r_GfxInfo, int r_FanOut = BUFF_FANOUT);
 	virtual void Operate();	//Calculates the output of the Buffer gate
 	virtual void Draw(Output* pOut);	//Draws Buffer gate
 
@@ -21,6 +21,8 @@ public:
 
 	virtual void setInputPinStatus(int n, STATUS s);	//set status of Inputpin # n, to be used by connection class.
 	virtual Component* Copy();
+
+	virtual void Save(std::ofstream& stream);
 
 };
 

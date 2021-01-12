@@ -1,3 +1,4 @@
+
 #include "Gate.h"
 
 //Gate Constructor
@@ -9,7 +10,7 @@ Gate::Gate(int r_Inputs, int r_FanOut):m_OutputPin(r_FanOut)
 	//Allocate number of input pins (equals r_Inputs)
 	m_InputPins = new InputPin[r_Inputs];
 	m_Inputs = r_Inputs;	//set no. of inputs of that gate
-	m_OutputPin = UNASSIGNED;//ahmed
+	
 	//Associate all input pins to this gate
 	for(int i=0; i<m_Inputs; i++)
 		m_InputPins[i].setComponent(this);
@@ -18,10 +19,6 @@ Gate::Gate(int r_Inputs, int r_FanOut):m_OutputPin(r_FanOut)
 void Gate::DrawFrame(Output* pOut)
 {
 	pOut->DrawSquare(m_GfxInfo);
-}
-
-int Gate::GetNumOfInputs() {
-	return m_Inputs;
 }
 
 OutputPin* Gate::GetOutputPin()
@@ -35,13 +32,26 @@ InputPin* Gate::GetInputPins(int i)
 		return &m_InputPins[i];
 	return NULL;
 }
-
+int Gate::GetNumOfInputs() {
+	return m_Inputs;
+}
 int Gate::GetPinNumber()
 {
 	for (int i = 0; i < m_Inputs; i++) {
-		if (!m_InputPins[i].getConnected()) {
+		if (m_InputPins[i].getStatus() == STATUS::UNASSIGNED) {
 			return i;
 		}
 	}
 	return -1;
+}
+
+void Gate::Load(std::ifstream& stream)
+{
+	int ID;
+	string Label;
+	int x, y;
+	stream >> ID >> Label >> x >> y;
+	this->SetID(ID);
+	this->SetLabel(Label);
+	this->SetGraphicsCorner(x, y);
 }

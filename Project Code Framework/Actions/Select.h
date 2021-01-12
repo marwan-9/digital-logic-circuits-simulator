@@ -1,24 +1,24 @@
-#pragma once
+#ifndef SELECT_H
+#define SELECT_H
+
 #include "Action.h"
-#include "..\Components\Component.h"
+#include "..\\Components\\Gate.h"
+#include "..\\GUI\Input.h"
+#include "..\\ApplicationManager.h"
+
 class Select : public Action
 {
 private:
 	int x, y;
-	Component* point;
+	Component* target;
 public:
 	Select(ApplicationManager* pApp);
-	virtual void ReadActionParameters();
-
-	//Execute action (code depends on action type)
-	virtual void Execute();
-
-	//To undo this action (code depends on action type)
-	virtual void Undo();
-
-	//To redo this action (code depends on action type)
-	virtual void Redo();
-
+	
+	void ReadActionParameters();
+	void Execute(); 
+	void Undo(); 
+	void Redo();
 	~Select();
 };
 
+#endif

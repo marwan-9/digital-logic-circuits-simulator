@@ -52,3 +52,9 @@ Component* Inverter::Copy()
 	Component* Copied = new Inverter(temp, INV_FANOUT);
 	return Copied;
 }
+
+void Inverter::Save(std::ofstream& stream)
+{
+	stream << ComponentType::COMP_INVERTER << " " << this->GetID() << " " << this->GetLabel()
+		<< " " << m_GfxInfo.x1 << " " << m_GfxInfo.y1  << std::endl;
+}
