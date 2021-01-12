@@ -33,6 +33,7 @@
 #include "Components/XNOR2.h"
 #include "Components/XOR2.h"
 #include "Components/XOR3.h"
+#include "Components/NOR2.h"
 //
 #include <string>
 
@@ -93,7 +94,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-			// pAct = new AddNORgate2(this);
+			//pAct = new AddNOR2(this);
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
