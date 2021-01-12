@@ -6,7 +6,7 @@
 class simulation : public Action
 {
 private:
-	//int x, y;
+	int Cx, Cy;
 	//Component* point;
 public:
 	simulation(ApplicationManager* pApp);

@@ -7,7 +7,7 @@ LED::LED(const GraphicsInfo& r_GfxInfo):Component(r_GfxInfo)
 
 void LED::Operate()
 {
-	m_InputPin.setStatus(m_InputPin.getStatus());
+	// m_InputPin.setStatus(m_InputPin.getStatus());
 
 }
 
@@ -17,11 +17,10 @@ int LED::GetNumOfInputs() {
 
 void LED::Draw(Output* pOut)
 {
-
 	if(m_InputPin.getStatus()==HIGH)
-		pOut->DrawLED(m_GfxInfo, IfSelected); //when on
+		pOut->DrawLED(m_GfxInfo, true); //when on
 	else 
-		pOut->DrawLED(m_GfxInfo, IfSelected); //when off
+		pOut->DrawLED(m_GfxInfo, false); //when off
 }
 
 
