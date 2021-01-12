@@ -99,7 +99,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddXOR2Gate(this);
 			break;
 		case ADD_XNOR_GATE_2:
-			// pAct = new AddXNORgate2(this);
+			pAct = new AddXNORgate2(this);
 			break;
 		case ADD_AND_GATE_3:
 			pAct = new AddANDgate3(this);
@@ -108,7 +108,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNORgate3(this);
 			break;
 		case ADD_XOR_GATE_3:
-			//pAct = new AddXORgate3(this);
+			pAct = new AddXORgate3(this);
 			break;
 		case ADD_Switch:
 			pAct = new AddSwitch(this);

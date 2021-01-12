@@ -136,7 +136,9 @@
     <ClCompile Include="Actions\AddNORgate3.cpp" />
     <ClCompile Include="Actions\AddORgate2.cpp" />
     <ClCompile Include="Actions\AddSwitch.cpp" />
+    <ClCompile Include="Actions\AddXNORgate2.cpp" />
     <ClCompile Include="Actions\AddXOR2Gate.cpp" />
+    <ClCompile Include="Actions\AddXORgate3.cpp" />
     <ClCompile Include="Actions\Copy.cpp" />
     <ClCompile Include="Actions\Cut.cpp" />
     <ClCompile Include="Actions\Delete.cpp" />
@@ -218,6 +220,7 @@
     <ClInclude Include="Actions\AddSwitch.h" />
     <ClInclude Include="Actions\AddXNORgate2.h" />
     <ClInclude Include="Actions\AddXOR2Gate.h" />
+    <ClInclude Include="Actions\AddXORgate3.h" />
     <ClInclude Include="Actions\Copy.h" />
     <ClInclude Include="Actions\Cut.h" />
     <ClInclude Include="Actions\Delete.h" />
