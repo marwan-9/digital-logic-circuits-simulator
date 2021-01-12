@@ -7,6 +7,11 @@
 
 class Delete : public Action
 {
+private:
+	int Cx, Cy;//Center point of the gate
+	Component* ToDel;
+	Component* Dell;
+
 public:
 	Delete(ApplicationManager* pApp);
 
