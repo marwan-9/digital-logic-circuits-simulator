@@ -66,7 +66,7 @@ void ApplicationManager::AddComponent(Component* pComp, bool loaded)
 	}
 			
 }
-int ApplicationManager::GetCompCount()
+int &ApplicationManager::GetCompCount() //DELETE &
 {
 	return CompCount;
 }
@@ -226,8 +226,8 @@ void ApplicationManager::UpdateInterface(int Cx,int Cy)
 		InputInterface->GetPosition(Cx, Cy);
 		OutputInterface->Printstringg(Cx - 2, Cy - 4, cpText);
 		*/
-	}
-*/
+	
+
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(OutputInterface);
 }
@@ -283,8 +283,8 @@ Component* ApplicationManager::getCompList()
 	return CompList[0];
 }
 Component** ApplicationManager::getcomplist()	
-{ //ahmed	
-	return CompList;	
+{ 	
+	return CompList;	//*& HERE
 }
 
 bool ApplicationManager::getcpyStatus() {
@@ -315,7 +315,6 @@ void ApplicationManager::SetSelected(Component* sel)
 	if (selected != NULL)
 		selected->DrawFrame(OutputInterface);
 }
-
 
 Component* ApplicationManager::GetSelected()
 {

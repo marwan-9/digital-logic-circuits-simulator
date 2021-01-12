@@ -48,7 +48,7 @@ void Connection::Draw(Output* pOut)
 }
 
 int Connection::GetNumOfInputs() {
-	return 0; //check this
+	return 1; //check this
 }
 
 

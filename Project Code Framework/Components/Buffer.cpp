@@ -22,7 +22,7 @@ void Buffer::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
   pOut->DrawBuff(m_GfxInfo, IfSelected);
-	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
+  pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 	
 }
 

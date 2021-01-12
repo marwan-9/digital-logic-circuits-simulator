@@ -25,8 +25,9 @@ public:
     virtual void Load(std::ifstream& stream);
     int GetNumOfInputs(); //ahmed
     void setoutputpenstatus(STATUS s);
-
+    string getlabel();
     virtual OutputPin* GetOutputPin();
-
+    int GetNumOfOutputs();
+    virtual void DrawStatus(Output* pOut);
 };
 

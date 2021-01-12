@@ -1,5 +1,6 @@
 #include "Switch.h"
-
+#include <sstream>
+#include <iostream>
 Switch::Switch(const GraphicsInfo& r_GfxInfo, int r_FanOut):m_OutputPin(r_FanOut), Component(r_GfxInfo)
 {
 }
@@ -12,6 +13,17 @@ void Switch::Operate()
 void Switch::Draw(Output* pOut)
 {
 	pOut->DrawSwitch(m_GfxInfo);
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 60, GetLabel());
+
+}
+void Switch::DrawStatus(Output* pOut) {
+	stringstream ss;
+	int k=GetOutPinStatus();
+	ss<<k;//make me string
+	string s;
+	ss >> s;
+	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, s );
+
 }
 
 int Switch::GetNumOfInputs() {
@@ -27,8 +39,9 @@ void Switch::DrawFrame(Output* pOut)
 	pOut->Printstringg(m_GfxInfo.x1 - 5, m_GfxInfo.y1 + 50, GetLabel());
 }
 
-int Switch::GetOutPinStatus()
-{
+int Switch::GetOutPinStatus()       // must be staus not int?
+{ 
+	//int S = m_OutputPin.getStatus(); // must be staus not int?
 	return m_OutputPin.getStatus();
 }
 
@@ -50,6 +63,9 @@ Component* Switch::Copy()
 	temp.x1 = temp.x2 = temp.y1 = temp.y2 = 0;
 	Component* Copied = new Switch(temp, Switch_FANOUT);
 	return Copied;
+}
+string Switch::getlabel() {
+	return GetLabel();
 }
 
 void Switch::Save(std::ofstream& stream)

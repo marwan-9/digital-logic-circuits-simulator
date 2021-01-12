@@ -30,76 +30,97 @@ void simulation::ReadActionParameters()
 //Execute action
 void simulation::Execute()
 {
-	ReadActionParameters(); // i think it must be in while or put getposition
-	int compcount = pManager->GetCompCount(); 
-	int c = 1; int numofin = 0; int numofop = 0; //ahmed
-	Component** comp = pManager->getcomplist(); //was in loop
+	//ReadActionParameters(); // i think it must be in while or put getposition
+	//int compcount = pManager->GetCompCount(); SEPNEEE 
+	int c = 1; 
+	int numofin = 0; 
+	int numofop = 0;
+	//int max = 20; //test
+	     // 		Component** comp = pManager->getcomplist(); was HERE
 	while (true) { 
+		Component** comp = pManager->getcomplist();
+		int compcount = pManager->GetCompCount();
 		ReadActionParameters(); // i think it must be in while or put getposition
 		Input* pIn = pManager->GetInput();//remove
 		Output* pOut = pManager->GetOutput();
-		//pIn->GetSrting(pOut, "enter loop ", " ");
-		numofop = 0;//msh mota2kd en mafrod ttdaf hena
-		for (int i = 0; i < compcount; i++) {
+		//pIn->GetSrting(pOut, "enter loop ", " ");            // TEST
+		//numofop = 0;  blash comented                 //msh mota2kd en mafrod ttdaf hena
+		for (int i = 0; i < compcount; i++) 
+		{
 			numofin=comp[i]->GetNumOfInputs();
-			int c = 1;
-
+			c = 1;
 			Switch* switchh = dynamic_cast<Switch*>(comp[i]);
-			if (switchh) {
-				if (comp[i]->GetOutPinStatus() != HIGH && switchh->GetOutPinStatus() != LOW)
-				{
-					//pIn->GetSrting(pOut, "enter cheak ", " ");
-					string msg1 = " ASSIGN SWITCH ";
-					string msg2 = "HIGH OR LOW : ";
-					string name = switchh->getlabel();
-					string msg = msg1 + name + msg2;
-					string str = pIn->GetSrting(pOut, msg, " ");
-					if (str == "HIGH") {
-						//switchh->setoutputpenstatus(HIGH);
-						comp[i]->GetOutputPin()->setStatus(HIGH);
-					}
+			if (switchh) 
+			{
+						if (comp[i]->GetOutPinStatus() != HIGH && switchh->GetOutPinStatus() != LOW)
+						{  
+							//pIn->GetSrting(pOut, "enter cheak ", " ");     // TEST
+							string msg1 = " ASSIGN SWITCH ";
+							string msg2 = "HIGH OR LOW : ";
+							string name = switchh->getlabel();
+							string msg = msg1 + name + msg2;
+							string str = pIn->GetSrting(pOut, msg, "");
+							pOut->ClearStatusBar();
 
-					else if (str == "LOW") {
-						comp[i]->GetOutputPin()->setStatus(LOW);
-						//switchh->setoutputpenstatus(LOW);
-					}
-				}
+								if (str == "HIGH") {
+									//switchh->setoutputpenstatus(HIGH);
+								//	pIn->GetSrting(pOut, "high bro ", "");     // TEST
+									comp[i]->GetOutputPin()->setStatus(STATUS::HIGH);
+								}
+								else if (str == "LOW") {
+									comp[i]->GetOutputPin()->setStatus(STATUS::LOW);
+								//	pIn->GetSrting(pOut, "low bro ", " ");     // TEST
+
+									//switchh->setoutputpenstatus(LOW);
+								}
+								switchh->DrawStatus(pOut);
+						}
+				//numofop++;
 			}
-			if (!switchh) {
-				for (int a = 1; a <= numofin; a++) {
-					//pOut->ClearStatusBar();
-					//pIn->GetSrting(pOut, "enter cheak ", " ");
+			if (!switchh) 
+			{
+				//pIn->GetSrting(pOut, "not switch ", " ");     // TEST
+				for (int a = 1; a <= numofin; a++) 
+				{
+	                                          //pOut->ClearStatusBar();  //pIn->GetSrting(pOut, "enter cheak ", " ");
 					if (comp[i]->GetInputPinStatus(a) == UNASSIGNED) {
 						c = 0;
 						break;
 					}
 				}
 			}
-			if (c) {
+			if (c) 
+			{
 				Switch* switchh = dynamic_cast<Switch*>(comp[i]);
 				LED* led = dynamic_cast<LED*>(comp[i]);
-				if (led) {
-					numofop++;
-					//pIn->GetSrting(pOut, "entered high wl a la ", " ");
-					if (led->GetInputPinStatus() == HIGH) {
-						Output* pOut = pManager->GetOutput();
-						//pOut->PrintMsg("highhhhh");
-						pOut->DrawLED(led->Getinfo(pOut), true);
-						//pIn->GetSrting(pOut, "entered high ", " ");
-						//continue;
+					if (led) 
+					{
+						
+						//pIn->GetSrting(pOut, "entered LED high wl a la ", " ");         //TEST
+						if (led->GetInputPinStatus() == HIGH) 
+						{
+							Output* pOut = pManager->GetOutput();
+							//pOut->PrintMsg("highhhhh");
+							pOut->DrawLED(led->GetGraphics(), true);
+							//pIn->GetSrting(pOut, "LED IS high ", " ");          //TEST
+							//continue;
+						}
 					}
+					if (!switchh && !led) 
+					{
+						comp[i]->Operate();
 					}
-				if (!switchh && !led) {
-					comp[i]->Operate();
-				}
-				//pOut->ClearStatusBar();
-				//pIn->GetSrting(pOut, "enter operate ", " ");
-				numofop++;
-				}
-		}
-		if (numofop == compcount) {
-			break;
-		}
+					//pOut->ClearStatusBar();
+					//pIn->GetSrting(pOut, "enter operate ", " ");
+			}
+		}					
+		numofop++;  //pIn->GetSrting(pOut, "OPERATE ++ ", " ");
+			if (numofop  == compcount) 
+			{
+				pIn->GetSrting(pOut, "EXIT WHILE ", " ");
+				break;
+
+			}
 	}
 }
 

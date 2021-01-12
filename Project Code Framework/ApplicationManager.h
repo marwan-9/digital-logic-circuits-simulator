@@ -41,7 +41,7 @@ public:
 	//Creates an action and executes it
 	void ExecuteAction(ActionType);
 	
-	void UpdateInterface();	//Redraws all the drawing window
+	void UpdateInterface(int x=0,int y=0);	//Redraws all the drawing window
 
 	//Gets a pointer to Input / Output Object
 	Output* GetOutput();
@@ -49,7 +49,7 @@ public:
 
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp, bool loaded = false);
-	int GetCompCount();
+	int& GetCompCount();
 	////////////////////////////////////////////////////////////////////////
 	void setCopied(Component* Cop);
 	Component* getCopied();
