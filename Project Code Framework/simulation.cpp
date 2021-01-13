@@ -37,11 +37,14 @@ void simulation::Execute()
 	//int max = 20; //test
 	     // 		Component** comp = pManager->getcomplist(); was HERE
 	while (true) { 
-		Component** comp = pManager->getcomplist();
-		int compcount = pManager->GetCompCount();
-		ReadActionParameters(); // i think it must be in while or put getposition
 		Input* pIn = pManager->GetInput();//remove
 		Output* pOut = pManager->GetOutput();
+		
+		Component** comp = pManager->getcomplist();
+		int compcount = pManager->GetCompCount();
+		//pManager->GetSelected
+		ReadActionParameters(); // i think it must be in while or put getposition
+		
 		//pIn->GetSrting(pOut, "enter loop ", " ");            // TEST
 		//numofop = 0;  blash comented                 //msh mota2kd en mafrod ttdaf hena
 		for (int i = 0; i < compcount; i++) 
