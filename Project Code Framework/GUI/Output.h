@@ -17,6 +17,7 @@ public:
 
 	void ClearStatusBar() const;		//Clears the status bar
 	void ClearDrawingArea() const;	//Clears the drawing area
+	void ClearWindow() const;
 
 	window* CreateWind(int wd, int h, int x, int y) const; //Creates user interface window
 

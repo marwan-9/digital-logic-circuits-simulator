@@ -19,7 +19,6 @@ Output::Output()
 
 	CreateDesignToolBar();	//Create the desgin toolbar
 	CreateStatusBar();		//Create Status bar
-
 }
 
 Input* Output::CreateInput() const
@@ -397,6 +396,18 @@ void Output::Printstringg(const int iX=0 , const int iY=0 , const string cpText=
 	pWind->DrawString(iX,iY,cpText);
 	
 }
+
+void Output::ClearWindow() const
+{
+	pWind->SetPen(RED, 1);
+	pWind->SetBrush(WHITE);
+	if (UI.AppMode == SIMULATION)
+		pWind->DrawRectangle(0, 0, UI.width, UI.height);
+	else
+		pWind->DrawRectangle(0, UI.ToolBarHeight, UI.width - UI.ToolBarHeight - 18, UI.height - UI.StatusBarHeight);
+
+}
+
 
 Output::~Output()
 {

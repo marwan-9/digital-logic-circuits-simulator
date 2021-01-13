@@ -41,7 +41,7 @@ public:
 	//Creates an action and executes it
 	void ExecuteAction(ActionType);
 	
-	void UpdateInterface(int x=0,int y=0);	//Redraws all the drawing window
+	void UpdateInterface();	//Redraws all the drawing window
 
 	//Gets a pointer to Input / Output Object
 	Output* GetOutput();
