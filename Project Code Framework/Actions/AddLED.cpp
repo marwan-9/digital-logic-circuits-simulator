@@ -22,7 +22,7 @@ void AddLED::ReadActionParameters()
 	//Wait for User Input
 	pIn->GetPointClicked(Cx, Cy);
 	//check if within drawing area
-	while (!(Cy > UI.ToolBarHeight + UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
+	while (!(Cy > UI.ToolBarHeight +UI.GateBarHeight +  UI.AND2_Width / 2 && Cy < (UI.height - UI.StatusBarHeight) - UI.AND2_Width / 2))
 	{
 		pOut->PrintMsg("Please Add in the Drawing Area, try again...");
 		pIn->GetPointClicked(Cx, Cy);
@@ -38,7 +38,7 @@ void AddLED::Execute()
 	//Get Center point of the Gate
 	ReadActionParameters();
 	
-	//size
+	//Size
 	int Len = UI.AND2_Width;
 	int Wdth = UI.AND2_Height;
 	

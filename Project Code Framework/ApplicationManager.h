@@ -81,6 +81,7 @@ public:
 	
 	void DeleteComp(); // delete the last selected comp
 
+	void OperateAll();
 
 	//destructor
 	~ApplicationManager();

@@ -17,6 +17,7 @@
 #include "Actions/AddLED.h"
 #include "Actions/AddXNORgate2.h"
 #include "Actions/AddXORgate3.h"
+#include "Actions/AddNOR2.h"
 #include "Actions/Save_Action.h"
 #include "Actions/Load_Action.h"
 #include "Actions/AddConnection.h"
@@ -34,6 +35,7 @@
 #include "Components/XNOR2.h"
 #include "Components/XOR2.h"
 #include "Components/XOR3.h"
+#include "Components/NOR2.h"
 //
 #include <string>
 
@@ -94,7 +96,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddNANDgate2(this);
 			break;
 		case ADD_NOR_GATE_2:
-			// pAct = new AddNORgate2(this);
+			pAct = new AddNOR2(this);
 			break;
 		case ADD_XOR_GATE_2:
 			pAct = new AddXOR2Gate(this);
@@ -207,46 +209,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 }
 ////////////////////////////////////////////////////////////////////
 
-void ApplicationManager::UpdateInterface(int Cx,int Cy)
+void ApplicationManager::UpdateInterface()
 {
 	OutputInterface->ClearDrawingArea();
-	/*
-  for (int i = 0; i < CompCount; i++) {
-		CompList[i]->Draw(OutputInterface);
-		//CompList[i]->Draw(OutputInterface);
-		string label = CompList[i]->getlabel();
-		const char* cpText = label.c_str();
-		//InputInterface->GetPointClicked(Cx, Cy);
-		CompList[i]->drawname(OutputInterface, Cx - 1, Cy - 1, cpText);
-
-		/*
-		int Cx, Cy;
-		string label = CompList[i]->getlabel();
-		const char* cpText = label.c_str();
-		InputInterface->GetPosition(Cx, Cy);
-		OutputInterface->Printstringg(Cx - 2, Cy - 4, cpText);
-		*/
-	
-
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(OutputInterface);
 }
-////////////////
-//void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
-//{
-	/*OutputInterface->ClearDrawingArea();
-	for (int i = 0; i < CompCount; i++) {
-		CompList[i]->Draw(OutputInterface);
-		////
-		int Cx, Cy;
-		string label = CompList[i]->getlabel();
-		const char* cpText = label.c_str();
-		InputInterface->GetPosition(Cx, Cy);
-		OutputInterface->Printstringg(Cx - 1, Cy - 1, cpText);
-		////
-		*/
-	//}
-//}
 
 
 ////////////////////////////////////////////////////////////////////
@@ -480,7 +448,7 @@ void ApplicationManager::Load(std::ifstream& stream)
 			pC = new NAND2(m_GfxInfo, NAND2_FANOUT);
 			break;
 		case COMP_NOR2:
-			// pC = new NOR2(m_GfxInfo, NOR2_FANOUT);
+			pC = new NOR2(m_GfxInfo, COMP_FANOUT);
 			break;
 		case COMP_NOR3:
 			pC = new NOR3(m_GfxInfo, NOR3_FANOUT);
@@ -603,6 +571,12 @@ void ApplicationManager::DeleteComp()
 		
 
 		}
+}
+void ApplicationManager::OperateAll()
+{
+	for (int i = 0; i < CompCount; i++) {
+		CompList[i]->Operate();
+	}
 }
 /////////////////////////////////////////////////////////////
 

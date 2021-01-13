@@ -11,25 +11,24 @@ simulation::simulation(ApplicationManager* pApp) : Action(pApp)
 }
 void simulation::ReadActionParameters()
 {
-	//Get a Pointer to the Input
-
+	//Get a Pointer to the Input / Output Interfaces
+	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
-	Output* pOut = pManager->GetOutput();	
-	//pOut->PrintMsg(" simulatioon ");
+	
+	
+	//Print Action Message
+	pOut->PrintMsg("Click to select a switch");
 
-	//pOut->ClearStatusBar();
-
-	//pOut->CreateSimulationToolBar();
-	//pOut->PrintMsg(" simulatioon22 ");
 	//Wait for User Input
-	//pIn->GetPosition(x, y);
+	pIn->GetPointClicked(Cx, Cy);
 
 	//Clear Status Bar
-	//pOut->ClearStatusBar();
+	pOut->ClearStatusBar();
 }
 //Execute action
 void simulation::Execute()
 {
+
 	//ReadActionParameters(); // i think it must be in while or put getposition
 	//int compcount = pManager->GetCompCount(); SEPNEEE 
 	int c = 1; 
@@ -122,6 +121,18 @@ void simulation::Execute()
 
 			}
 	}
+/*
+	ReadActionParameters();
+	Component* pc = pManager->GetClickedComponent(Cx, Cy);
+	if (pc == NULL || !dynamic_cast<Switch *>(pc))
+		return;
+	if (pc->GetOutputPin()->getStatus() == STATUS::HIGH)
+		pc->GetOutputPin()->setStatus(STATUS::LOW);
+	else
+		pc->GetOutputPin()->setStatus(STATUS::HIGH);
+	pManager->OperateAll();
+	pManager->UpdateInterface();
+*/
 }
 
 //To undo this action 

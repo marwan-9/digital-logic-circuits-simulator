@@ -9,9 +9,13 @@
 #include "..\Components\NAND2.h"
 #include "..\Components\NOR3.h"
 #include "..\Components\Inverter.h"
-#include "..\Components\SWITCH.h"
+#include "..\Components\Switch.h"
 #include "..\Components\XOR2.h"
-
+#include "..\Components\NOR2.h"
+#include "..\Components\XOR3.h"
+#include "..\Components\XNOR2.h"
+#include "..\Components\NOR2.h"
+#include "..\Components\NOR3.h"
 
 Cut::Cut(ApplicationManager* pApp) :Action(pApp)
 {
