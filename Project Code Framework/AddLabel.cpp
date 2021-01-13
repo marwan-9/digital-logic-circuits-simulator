@@ -36,7 +36,7 @@ void AddLabel::Execute()
 		corner2 = Clicked_one->getcorners().y1;
 		
 		
-		if (Clicked_one->GetLabel() == "") {            //ADD NOT EDIT
+		if (Clicked_one->GetLabel() == "DefaultLabel") {            //ADD NOT EDIT
 			Output* pOut = pManager->GetOutput();
 			Input* pIn = pManager->GetInput();
 
