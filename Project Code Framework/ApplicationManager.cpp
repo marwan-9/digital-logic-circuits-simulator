@@ -215,22 +215,7 @@ void ApplicationManager::UpdateInterface()
 	for(int i=0; i<CompCount; i++)
 		CompList[i]->Draw(OutputInterface);
 }
-////////////////
-//void ApplicationManager::UpdateL_Interface(int &Cx,int &Cy)
-//{
-	/*OutputInterface->ClearDrawingArea();
-	for (int i = 0; i < CompCount; i++) {
-		CompList[i]->Draw(OutputInterface);
-		////
-		int Cx, Cy;
-		string label = CompList[i]->getlabel();
-		const char* cpText = label.c_str();
-		InputInterface->GetPosition(Cx, Cy);
-		OutputInterface->Printstringg(Cx - 1, Cy - 1, cpText);
-		////
-		*/
-	//}
-//}
+
 
 
 ////////////////////////////////////////////////////////////////////
@@ -575,8 +560,6 @@ void ApplicationManager::DeleteComp()
 
 		for (int i = 0; i < CompCount; i++)
 		{
-
-
 			if (lastSelected == CompList[i]) 
 			{
 				delete CompList[i]; 
@@ -585,21 +568,84 @@ void ApplicationManager::DeleteComp()
 				CompCount--;
 				break;
 			}
-		
-
 		}
 }
 void ApplicationManager::OperateAll()
 {
+	Switch* pSwitch = NULL;
+	LED* pLed = NULL;
+	Connection* pConnection = NULL;
+	// Restore STATUS of all pins except Switch to default
+	for (int i = 0; i < CompCount; i++) {
+		pSwitch = dynamic_cast<Switch*>(CompList[i]);
+		if (!pSwitch) {
+			for (int j = 1; j <= CompList[i]->GetNumOfInputs(); j++) {
+				CompList[i]->GetInputPins(j)->setStatus(STATUS::UNASSIGNED);
+			}
+			pLed = dynamic_cast<LED*>(CompList[i]);
+			pConnection = dynamic_cast<Connection*>(CompList[i]);
+			if (!pLed && !pConnection)
+				CompList[i]->GetOutputPin()->setStatus(STATUS::UNASSIGNED);
+		}
+		OutputInterface->PrintMsg("Reset Successfully");
+	}
+
+	// Check if any switch is UNASSIGNED
+	for (int i = 0; i < CompCount; i++) {
+		pSwitch = dynamic_cast<Switch*>(CompList[i]);
+		if (pSwitch) {
+			if (pSwitch->GetOutPinStatus() == STATUS::UNASSIGNED) {
+				string Label = pSwitch->GetLabel();
+				OutputInterface->PrintMsg("Switch Labeled " + Label + " is unassigned");
+				return;
+			}
+		}
+		OutputInterface->PrintMsg("Checked Switch Successfully");
+	}
+
+	bool finished = false;
+	while (!finished) {
+		for (int i = 0; i < CompCount; i++) {
+			pConnection = dynamic_cast<Connection*>(CompList[i]);
+			if (pConnection)
+				pConnection->Operate();
+			else {
+				for (int j = 1; j <= CompList[i]->GetNumOfInputs(); j++) {
+					if (CompList[i]->GetInputPins(j)->getStatus() == STATUS::UNASSIGNED)
+						break;
+					else if (j == CompList[i]->GetNumOfInputs())
+						CompList[i]->Operate();
+				}
+			}
+		}
+		finished = true;
+		for (int i = 0; i < CompCount; i++) {
+			for (int j = 1; j <= CompList[i]->GetNumOfInputs(); j++) {
+				if (CompList[i]->GetInputPins(j)->getStatus() == STATUS::UNASSIGNED) {
+					finished = false;
+					break;
+				}
+			}
+		}
+	}
 	
 	for (int i = 0; i < CompCount; i++) {
-		CompList[i]->Operate();
-		LED* Led = dynamic_cast<LED*>(CompList[i]);
-		if (Led) {
-			if (Led->GetInputPinStatus(1))
-				OutputInterface->PrintMsg("Led is HIGH");
-			else
+		pLed = dynamic_cast<LED*>(CompList[i]);
+		if (pLed)
+		{
+			if (pLed->GetInputPinStatus(1) == STATUS::HIGH)
+			{
+				OutputInterface->PrintMsg("Led is High");
+				OutputInterface->DrawLED(pLed->GetGraphics(), true);
+			}
+			else if (pLed->GetInputPinStatus(1) == STATUS::LOW) {
 				OutputInterface->PrintMsg("Led is LOW");
+				OutputInterface->DrawLED(pLed->GetGraphics(), false);
+			}
+			else if (pLed->GetInputPinStatus(1) == STATUS::UNASSIGNED){
+				OutputInterface->PrintMsg("Led is UNASSIGNED");
+				OutputInterface->DrawLED(pLed->GetGraphics(), false);
+			}
 		}
 	}
 }

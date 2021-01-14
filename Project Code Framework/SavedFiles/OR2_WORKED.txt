@@ -1,0 +1,10 @@
+4
+0 0 DefaultLabel 159 313
+0 1 DefaultLabel 166 428
+5 2 DefaultLabel 425 357
+1 3 DefaultLabel 635 332
+Connections
+0 2 1 4 185 340 443 361
+1 2 2 5 205 456 443 391
+2 3 -1 6 460 384 665 374
+-1

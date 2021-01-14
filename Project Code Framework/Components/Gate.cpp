@@ -11,8 +11,9 @@ Gate::Gate(int r_Inputs, int r_FanOut):m_OutputPin(r_FanOut)
 	m_Inputs = r_Inputs;	//set no. of inputs of that gate
 	
 	//Associate all input pins to this gate
-	for(int i=0; i<m_Inputs; i++)
+	for (int i = 0; i < m_Inputs; i++) 
 		m_InputPins[i].setComponent(this);
+		
 }
 
 void Gate::DrawFrame(Output* pOut)
@@ -28,7 +29,7 @@ OutputPin* Gate::GetOutputPin()
 InputPin* Gate::GetInputPins(int i)
 {
 	if (i != -1)
-		return &m_InputPins[i];
+		return &m_InputPins[i-1];
 	return NULL;
 }
 int Gate::GetNumOfInputs() {
@@ -36,8 +37,8 @@ int Gate::GetNumOfInputs() {
 }
 int Gate::GetPinNumber()
 {
-	for (int i = 0; i < m_Inputs; i++) {
-		if (m_InputPins[i].getStatus() == STATUS::UNASSIGNED) {
+	for (int i = 1; i <= m_Inputs; i++) {
+		if (m_InputPins[i-1].getConnected() == false) {
 			return i;
 		}
 	}

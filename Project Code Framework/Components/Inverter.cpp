@@ -10,10 +10,12 @@ void Inverter::Operate()
 {
 	//caclulate the output status as the Inverting of the ONLY ONE input pins
 	int output = m_InputPins[0].getStatus();
-	if (output) {
+	if (output == STATUS::LOW) {
+		m_OutputPin.setStatus(HIGH);
+	}
+	else if (output == STATUS::HIGH) {
 		m_OutputPin.setStatus(LOW);
 	}
-	m_OutputPin.setStatus(HIGH);
 }
 
 
