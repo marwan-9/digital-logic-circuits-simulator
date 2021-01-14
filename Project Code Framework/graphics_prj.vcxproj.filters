@@ -242,6 +242,12 @@
     <ClCompile Include="Actions\AddNOR2.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\SwitchToDsg.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\SwitchToSim.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Defs.H" />
@@ -444,6 +450,12 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="Actions\AddNOR2.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\SwitchToDsg.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\SwitchToSim.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

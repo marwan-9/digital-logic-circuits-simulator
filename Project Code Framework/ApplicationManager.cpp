@@ -36,6 +36,8 @@
 #include "Components/XOR2.h"
 #include "Components/XOR3.h"
 #include "Components/NOR2.h"
+#include "Actions/SwitchToSim.h"
+#include "Actions/SwitchToDsg.h"
 //
 #include <string>
 
@@ -173,11 +175,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case DSN_MODE:
-			//TODO: Create Action here
+			pAct = new SwitchToDsg(this);
 			break;
 		case SIM_MODE:
-			pAct = new simulation(this); //edit me
-			break;
+			pAct = new SwitchToSim(this);
+			break; 
 		case HOVER:
 			//TODO: Create Action here
 			break;
