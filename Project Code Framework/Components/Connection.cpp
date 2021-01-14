@@ -102,7 +102,6 @@ bool Connection::CanConnect()
 		if (DstPin->getConnected() == false) {
 			if (SrcPin->ConnectTo(this)) {
 				DstPin->setConnected(1);
-				SrcPin->setConnected(1);
 				return true;
 			}
 		}
