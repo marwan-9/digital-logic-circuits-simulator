@@ -6,7 +6,7 @@
 class LED:public Component
 {
 	InputPin m_InputPin;
-
+	bool LedStatus;
 public:
 	LED(const GraphicsInfo &r_GfxInfo);
 	virtual void Operate();	

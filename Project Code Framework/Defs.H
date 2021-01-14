@@ -156,6 +156,7 @@ enum SimMenuItem //The items of the simulation menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	ITM_DES,
 	ITM_TRUTH,	//Truth table menu item
+	ITM_CHANGESWITCH,
 	ITM_PROBE,
 
 	ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum

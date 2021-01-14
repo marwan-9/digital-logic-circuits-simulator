@@ -153,6 +153,7 @@ void Output::CreateSimulationToolBar() const
 	string MenuItemImages[ITM_SIM_CNT];
 	MenuItemImages[ITM_DES] = "images\\Menu\\Menu_DES.jpg";
 	MenuItemImages[ITM_TRUTH] = "images\\Menu\\Menu_Truth.jpg";
+	MenuItemImages[ITM_CHANGESWITCH] = "images\\Menu\\Menu_Switch.jpg";
 	MenuItemImages[ITM_PROBE] = "images\\Menu\\Menu_Probe.jpg";
 
 	for (int i = 0; i < ITM_SIM_CNT; i++)
@@ -348,10 +349,12 @@ void Output::DrawSwitch(GraphicsInfo r_GfxInfo, bool selected) const
 	//Set the Image Width & Height by AND2 Image Parameter in UI_Info
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.AND2_Width, UI.AND2_Height);
 }
-void Output::DrawLED(GraphicsInfo r_GfxInfo, bool selected) const
+void Output::DrawLED(GraphicsInfo r_GfxInfo, bool selected, bool LedStatus) const
 {
 	string GateImage;
-	if (selected)	//use image in the highlighted case
+	if (LedStatus)
+		GateImage = "Images\\Gates\\Gate_Led_ON.jpg";
+	else if (selected)	//use image in the highlighted case
 		GateImage = "Images\\Gates\\Gate_Led_Hi.jpg";
 	else
 		GateImage = "Images\\Gates\\Gate_Led.jpg";

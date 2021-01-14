@@ -140,10 +140,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case Change_Switch:
-			//TODO: Create Action here
+			pAct = new simulation(this);
 			break;
 		case Probe:
-			pAct = new simulation(this);
+			//TODO: Create Action here
 			break;
 		case SELECT:
 			pAct = new Select(this);
@@ -613,6 +613,7 @@ void ApplicationManager::OperateAll()
 			if (pConnection)
 				pConnection->Operate();
 			else {
+				// Operate only assigned gates
 				for (int j = 1; j <= CompList[i]->GetNumOfInputs(); j++) {
 					if (CompList[i]->GetInputPins(j)->getStatus() == STATUS::UNASSIGNED)
 						break;
@@ -622,32 +623,13 @@ void ApplicationManager::OperateAll()
 			}
 		}
 		finished = true;
+		// loop until each pin is assigned
 		for (int i = 0; i < CompCount; i++) {
 			for (int j = 1; j <= CompList[i]->GetNumOfInputs(); j++) {
 				if (CompList[i]->GetInputPins(j)->getStatus() == STATUS::UNASSIGNED) {
 					finished = false;
 					break;
 				}
-			}
-		}
-	}
-	
-	for (int i = 0; i < CompCount; i++) {
-		pLed = dynamic_cast<LED*>(CompList[i]);
-		if (pLed)
-		{
-			if (pLed->GetInputPinStatus(1) == STATUS::HIGH)
-			{
-				OutputInterface->PrintMsg("Led is High");
-				OutputInterface->DrawLED(pLed->GetGraphics(), true);
-			}
-			else if (pLed->GetInputPinStatus(1) == STATUS::LOW) {
-				OutputInterface->PrintMsg("Led is LOW");
-				OutputInterface->DrawLED(pLed->GetGraphics(), false);
-			}
-			else if (pLed->GetInputPinStatus(1) == STATUS::UNASSIGNED){
-				OutputInterface->PrintMsg("Led is UNASSIGNED");
-				OutputInterface->DrawLED(pLed->GetGraphics(), false);
 			}
 		}
 	}
