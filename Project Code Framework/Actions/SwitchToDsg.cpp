@@ -18,8 +18,10 @@ void SwitchToDsg::Execute()
 
 	
 	pManager->DeselectExcept();
+	UI.AppMode = DESIGN;
 	pOut->ClearWindow();
 	pOut->CreateDesignToolBar();
+	pOut->CreateStatusBar();
 	
 }
 

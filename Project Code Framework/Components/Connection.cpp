@@ -93,16 +93,16 @@ void Connection::Load(std::ifstream& stream)
 
 	if (SrcPin && DstPin) {
 		SrcPin->ConnectTo(this);
-		DstPin->setStatus(LOW);
 	}
 }
 
 bool Connection::CanConnect()
 {
 	if (SrcPin && DstPin) {
-		if (DstPin->getStatus() == STATUS::UNASSIGNED) {
+		if (DstPin->getConnected() == false) {
 			if (SrcPin->ConnectTo(this)) {
-				DstPin->setStatus(LOW);
+				DstPin->setConnected(1);
+				SrcPin->setConnected(1);
 				return true;
 			}
 		}

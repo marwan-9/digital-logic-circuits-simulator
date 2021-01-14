@@ -13,8 +13,8 @@ class Connection :	public Component
 public:
 	//Connection(const GraphicsInfo &r_GfxInfo, Component *pS=NULL,Component *pD=NULL, int Pin=0);
 	//Connection(const GraphicsInfo& r_GfxInfo, OutputPin* pSrcPin, InputPin* pDstPin, int DstPinNumber = 0);
-	Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin, Component* pS = NULL, Component* pD = NULL, int Pin = 0);
-	Connection(Component* pS = NULL, Component* pD = NULL, int Pin = 0);
+	Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin, Component* pS = NULL, Component* pD = NULL, int Pin = 1);
+	Connection(Component* pS = NULL, Component* pD = NULL, int Pin = 1);
 
 	virtual void Operate() ;	//Calculates the output according to the inputs
 	virtual void Draw(Output* pOut);	//for each component to Draw itself

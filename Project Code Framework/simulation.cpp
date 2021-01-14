@@ -30,6 +30,7 @@ void simulation::Execute()
 {
 	ReadActionParameters();
 	Component* pc = pManager->GetClickedComponent(Cx, Cy);
+	LED* pLed = dynamic_cast<LED*>(pc);
 	if (pc == NULL || !dynamic_cast<Switch *>(pc))
 		return;
 	if (pc->GetOutputPin()->getStatus() == STATUS::HIGH)
@@ -37,7 +38,7 @@ void simulation::Execute()
 	else
 		pc->GetOutputPin()->setStatus(STATUS::HIGH);
 	pManager->OperateAll();
-	pManager->UpdateInterface();
+	// pManager->UpdateInterface();
 }
 
 //To undo this action 

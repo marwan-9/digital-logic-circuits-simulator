@@ -130,6 +130,7 @@ ActionType Input::GetUserAction() const {
 			switch (clickedItemOrder) {
 				case SimMenuItem::ITM_DES: return DSN_MODE;
 				case SimMenuItem::ITM_TRUTH: return Create_TruthTable;
+				case SimMenuItem::ITM_CHANGESWITCH: return Change_Switch;
 				case SimMenuItem::ITM_PROBE: return Probe;
 				default: return SIM_TOOL; //tool_bar
 			}

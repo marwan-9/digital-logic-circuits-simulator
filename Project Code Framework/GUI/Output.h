@@ -40,7 +40,7 @@ public:
 	void DrawBuff(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawINV(GraphicsInfo r_GfxInfo, bool selected = false) const;
 	void DrawSwitch(GraphicsInfo r_GfxInfo, bool selected = false) const;
-	void DrawLED(GraphicsInfo r_GfxInfo, bool selected = false) const;
+	void DrawLED(GraphicsInfo r_GfxInfo, bool selected = false, bool LedStatus = false) const;
 
 	// Draws Connection
 	void DrawConnection(GraphicsInfo r_GfxInfo, bool selected = false) const;
