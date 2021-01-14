@@ -147,6 +147,8 @@
     <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Actions\Save_Action.cpp" />
     <ClCompile Include="Actions\Select.cpp" />
+    <ClCompile Include="Actions\SwitchToDsg.cpp" />
+    <ClCompile Include="Actions\SwitchToSim.cpp" />
     <ClCompile Include="AddLabel.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -231,6 +233,8 @@
     <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Actions\Save_Action.h" />
     <ClInclude Include="Actions\Select.h" />
+    <ClInclude Include="Actions\SwitchToDsg.h" />
+    <ClInclude Include="Actions\SwitchToSim.h" />
     <ClInclude Include="AddLabel.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
