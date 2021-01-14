@@ -16,19 +16,11 @@ void SwitchToSim::Execute()
 {
 
 	Output* pOut = pManager->GetOutput();
-
-	bool valid = true; //pManager->validate();
-	if (valid) {
-		int num;
-		pManager->DeselectExcept();
-		UI.AppMode = SIMULATION;
-		pOut->ClearWindow();
-		pOut->CreateSimulationToolBar();
-		// pManager->ExecuteAction(SIMULATE);
-	}
-	else
-		pOut->PrintMsg("Ciruit is not Valid");
-
+	pManager->DeselectExcept();
+	UI.AppMode = SIMULATION;
+	pOut->ClearWindow();
+	pOut->CreateSimulationToolBar();
+	pOut->CreateStatusBar();
 
 
 	

@@ -143,7 +143,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			//TODO: Create Action here
 			break;
 		case Probe:
-			//TODO: Create Action here
+			pAct = new simulation(this);
+			break;
 		case SELECT:
 			pAct = new Select(this);
 			break;
