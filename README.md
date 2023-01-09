@@ -6,7 +6,7 @@ A combinational logic circuit design and simulation application for Windows writ
 1. [Overview](#Overview)
 2. [How to Run](#How-to-Run-Using-Visual-Studio)
 3. [User Manual](#User-Manual)\
-3.1 [Add Component](#Add-Component)\
+3.1 [Add Component](##Add-Component)\
 3.2 [Delete Component](#Add-Component)\
 3.3 [Copy/Cut Component](#Add-Component)\
 3.4 [Rename Component](#Add-Component)\
