@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Amr Yasser, Marwan Mostafa, MenntuAllah Mohamed, Youssef Mohamed
+Copyright (c) 2021 Ahmed Fathy, Khaled Mamdouh, Marwan Mostafa, Youssof Eldeeb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
