@@ -7,13 +7,13 @@ A combinational logic circuit design and simulation application for Windows writ
 2. [How to Run](#How-to-Run-Using-Visual-Studio)
 3. [User Manual](#User-Manual)\
 3.1 [Add Component](#1-Add-Component)\
-3.2 [Delete Component](#Add-Component)\
-3.3 [Copy/Cut Component](#Add-Component)\
-3.4 [Rename Component](#Add-Component)\
-3.5 [Connect Components](#Add-Component)\
-3.6 [Ciruit Simulation](#Add-Component)\
-3.7 [Save a Ciruit](#Add-Component)\
-3.8 [Load a Ciruit](#Add-Component)
+3.2 [Delete Component](#2-Delete-Component)\
+3.3 [Copy/Cut Component](#3-Copy/Cut-Component)\
+3.4 [Rename Component](#4-ename-Component)\
+3.5 [Connect Components](#5-Connect-Components)\
+3.6 [Ciruit Simulation](#6-Ciruit-Simulation)\
+3.7 [Save a Ciruit](#7-Save-a-Ciruit)\
+3.8 [Load a Ciruit](#8-Load-a-Ciruit)
 4. [Contributers](#Contributers)
 5. [License](#License)
 
