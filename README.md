@@ -9,11 +9,11 @@ A combinational logic circuit design and simulation application for Windows writ
 3.1 [Add Component](#1-Add-Component)\
 3.2 [Delete Component](#2-Delete-Component)\
 3.3 [Copy/Cut Component](#3-Copy/Cut-Component)\
-3.4 [Rename Component](#4-ename-Component)\
+3.4 [Rename Component](#4-Rename-Component)\
 3.5 [Connect Components](#5-Connect-Components)\
-3.6 [Ciruit Simulation](#6-Ciruit-Simulation)\
-3.7 [Save a Ciruit](#7-Save-a-Ciruit)\
-3.8 [Load a Ciruit](#8-Load-a-Ciruit)
+3.6 [Circuit Simulation](#6-Circuit-Simulation)\
+3.7 [Save a Circuit](#7-Save-a-circuit)\
+3.8 [Load a Circuit](#8-Load-a-circuit)
 4. [Issues](#Issues)
 5. [Contributers](#Contributers)
 6. [License](#License)
@@ -24,7 +24,7 @@ This application allows user to design and simulate digital circuits; to see its
 
 ## How to Run Using Visual Studio 
 
- 1. Downlaod all files on your local machine.
+ 1. Download  all files on your local machine.
  2. Open "Project Code Framework" folder.
  3. Open "graphics_prj.sln" file, using Visual Studio.
  4. Run the code (F5).
@@ -62,8 +62,8 @@ This application allows user to design and simulate digital circuits; to see its
 3. Click on the second end the the wire will be connected to.
 4. Wire will appear between the two ends.
 
-### 6. Simulate the Ciruiut:
-1. Build your digital ciruit.
+### 6. Simulate the Circuit:
+1. Build your digital circuit.
 <img src="https://iili.io/H7umdJt.png" alt="H7umdJt.png"/>
 
 2. From the toolbar click on "Simulate".
@@ -72,14 +72,14 @@ This application allows user to design and simulate digital circuits; to see its
 3. To change the switch state (on/off), click on "Switch" from the toolbar then click on the switch.
 4. To return to the Design Mode, click on "Design" from the toolbar.
 
-### 7. Save the Ciruit:
+### 7. Save the Circuit:
 1. From the toolbar click on "Save".
 2. Enter the file name to be saved, then press Enter.
 
-### 8. Load a Ciruit:
+### 8. Load a Circuit:
 1. From the toolbar click on "Load".
 2. Enter the file name to be loaded, then press Enter.
-**Make sure that the file is loacted inside "SavedFiles" directory.**
+**Make sure that the file is located inside "SavedFiles" directory.**
 
 ## Issues
 1. XOR gate is functioning like NOR gate.
