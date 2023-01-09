@@ -14,8 +14,9 @@ A combinational logic circuit design and simulation application for Windows writ
 3.6 [Ciruit Simulation](#6-Ciruit-Simulation)\
 3.7 [Save a Ciruit](#7-Save-a-Ciruit)\
 3.8 [Load a Ciruit](#8-Load-a-Ciruit)
-4. [Contributers](#Contributers)
-5. [License](#License)
+4. [Issues](#Issues)
+5. [Contributers](#Contributers)
+6. [License](#License)
 
 ## Overview 
 This application allows user to design and simulate digital circuits; to see its output and behaviour. Simulator provides a graphical user interface (GUI) with tools for drawing circuit diagrams, simulating logic functions, and analyzing the behavior of the circuit. This was the project of the first programming course in Cairo University, Computer Engineering Department.
