@@ -35,10 +35,10 @@ This application allows user to design and simulate digital circuits; to see its
 ## User Manual 
  ### 1. Add Component:
  1. From the toolbar click on the component you want to add.
- <img src="https://iili.io/H7IEft9.png" width = 700px/>
+ <img src="https://iili.io/H7IEft9.png" width = 600px/>
 
  2. Click on the schema, wherever you want to place the component, the component will be added to the schema with "DefaultLabel".
-  <img src="https://iili.io/H7Ir6zX.png" width = 700px/>
+  <img src="https://iili.io/H7Ir6zX.png" width = 600px/>
   
 ### 2. Delete Component:
 
@@ -64,10 +64,10 @@ This application allows user to design and simulate digital circuits; to see its
 
 ### 6. Simulate the Circuit:
 1. Build your digital circuit.
-<img src="https://iili.io/H7umdJt.png" alt="H7umdJt.png"/>
+<img src="https://iili.io/H7umdJt.png" width="600px"/>
 
 2. From the toolbar click on "Simulate".
-<img src="https://iili.io/H7AJuxn.png" alt="H7AJuxn.png"/>
+<img src="https://iili.io/H7AJuxn.png" width="600px"/>
 
 3. To change the switch state (on/off), click on "Switch" from the toolbar then click on the switch.
 4. To return to the Design Mode, click on "Design" from the toolbar.
