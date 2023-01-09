@@ -30,7 +30,7 @@ This application allows user to design and simulate digital circuits; to see its
  4. Run the code (F5).
 
  ## How to Run Using gcc
- &emsp; Makefile will be added soon.
+ Makefile will be added soon.
 
 ## User Manual 
  ### 1. Add Component:
