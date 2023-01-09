@@ -1,5 +1,5 @@
 # Logic Design Simulator
-A Windows application for designing and simulating digital logic circuits. written in C++ using CMU graphics library.
+A Windows application for designing and simulating digital logic circuits, written in C++ using CMU graphics library.
 
 # Table of Contents
 
