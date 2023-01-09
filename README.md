@@ -8,7 +8,7 @@ A combinational logic circuit design and simulation application for Windows writ
 3. [User Manual](#User-Manual)\
 3.1 [Add Component](#1-Add-Component)\
 3.2 [Delete Component](#2-Delete-Component)\
-3.3 [Copy/Cut Component](#3-Copy/Cut-Component)\
+3.3 [Copy/Cut Component](#3-Copy-/-Cut-Component)\
 3.4 [Rename Component](#4-Rename-Component)\
 3.5 [Connect Components](#5-Connect-Components)\
 3.6 [Circuit Simulation](#6-Simulate-the-Circuit)\
