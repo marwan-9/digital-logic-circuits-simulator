@@ -11,7 +11,7 @@ A combinational logic circuit design and simulation application for Windows writ
 3.3 [Copy/Cut Component](#3-Copy/Cut-Component)\
 3.4 [Rename Component](#4-Rename-Component)\
 3.5 [Connect Components](#5-Connect-Components)\
-3.6 [Circuit Simulation](#6-Circuit-Simulation)\
+3.6 [Circuit Simulation](#6-Simulate-the-Circuit)\
 3.7 [Save a Circuit](#7-Save-the-circuit)\
 3.8 [Load a Circuit](#8-Load-a-circuit)
 4. [Issues](#Issues)
