@@ -43,4 +43,5 @@ This application allows user to design and simulate digital circuits; to see its
 2. Click on the first end the the wire will be connected to.
 3. Click on the second end the the wire will be connected to.
 4. Wire will appear between the two ends.
-<img src="https://s3.gifyu.com/images/My-Movieqqq-online-video-cutter.com.md.gif"/>
+![Alt Text](https://s3.gifyu.com/images/My-Movieqqq-online-video-cutter.com.md.gif)
+
